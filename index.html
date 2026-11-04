@@ -260,6 +260,41 @@
             flex-wrap: wrap;
         }
 
+        .brand-logo {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        .hero-mascot {
+            height: 270px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-mascot img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .app-icon {
+            width: 220px;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 24px;
+        }
+
         @media (max-width: 750px) {
             .hero-content,
             .product {
@@ -272,12 +307,6 @@
 
             .hero-placeholder {
                 height: 190px;
-            }
-
-            .app-icon-placeholder {
-                width: 180px;
-                height: 180px;
-                margin: auto;
             }
 
             .features {
@@ -310,7 +339,9 @@
     <div class="container">
         <nav>
             <a href="#" class="brand">
-                <div class="logo-placeholder">DOG<br>LOGO</div>
+                <img src="images/head.png"
+                            alt="Leo Logo"
+                            class="brand-logo">
                 Leo
             </a>
 
@@ -352,10 +383,9 @@
                 </a>
             </div>
 
-            <div class="hero-placeholder">
-                [ PLACEHOLDER: Leo Mascot ]
-                <br>
-                White dog illustration
+            <div class="hero-mascot">
+                <img src="images/sit.png"
+                    alt="Leo – das Maskottchen">
             </div>
 
         </div>
@@ -381,10 +411,9 @@
 
             <div class="product">
 
-                <div class="app-icon-placeholder">
-                    [ PLACEHOLDER ]
-                    <br>
-                    LeoSync App Icon
+                <div class="app-icon">
+                    <img src="images/head.png"
+                        alt="LeoSync App Icon">
                 </div>
 
                 <div>
