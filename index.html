@@ -641,11 +641,163 @@
             }
         }
 
+        /* =====================================================
+        LEO LOADING SCREEN
+        ===================================================== */
+
+        #leo-loading {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--background);
+
+            opacity: 1;
+            visibility: visible;
+
+            transition:
+                opacity 0.6s ease,
+                visibility 0.6s ease;
+        }
+
+        #leo-loading.finished {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .loading-content {
+            width: min(300px, 80%);
+            text-align: center;
+        }
+
+        .loading-mascot {
+            width: 150px;
+            height: 150px;
+
+            object-fit: contain;
+
+            margin: 0 auto 20px;
+
+            animation: leo-bounce 1.8s ease-in-out infinite;
+        }
+
+        .loading-title {
+            color: var(--blue-dark);
+
+            font-size: 1.5rem;
+            font-weight: 800;
+
+            margin-bottom: 22px;
+        }
+
+        .loading-bar {
+            width: 100%;
+            height: 9px;
+
+            overflow: hidden;
+
+            background: #dce7f1;
+            border-radius: 20px;
+
+            border: 1px solid var(--border);
+        }
+
+        .loading-progress {
+            width: 35%;
+            height: 100%;
+
+            background: var(--blue);
+
+            border-radius: 20px;
+
+            animation: loading-progress 1.5s ease-in-out infinite;
+        }
+
+        .loading-subtitle {
+            color: var(--muted);
+
+            font-size: 0.85rem;
+
+            margin-top: 15px;
+        }
+
+        /* Leo bewegt sich leicht */
+
+        @keyframes leo-bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        /* Ladebalken */
+
+        @keyframes loading-progress {
+            0% {
+                transform: translateX(-110%);
+            }
+
+            100% {
+                transform: translateX(300%);
+            }
+        }
+
+        /* Bewegungsreduktion berücksichtigen */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .loading-mascot,
+            .loading-progress {
+                animation: none;
+            }
+
+            .loading-progress {
+                width: 100%;
+            }
+
+        }
 
     </style>
 </head>
 
 <body>
+
+    <!-- =====================================================
+        LEO LOADING SCREEN
+        ===================================================== -->
+
+    <div id="leo-loading">
+
+        <div class="loading-content">
+
+            <img
+                src="images/head.png"
+                alt="Leo"
+                class="loading-mascot">
+
+            <div class="loading-title">
+                Leo lädt ...
+            </div>
+
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+
+            <div class="loading-subtitle">
+                Einen kleinen Moment bitte
+            </div>
+
+        </div>
+
+    </div>
 
 
 <!-- =====================================================
@@ -1205,6 +1357,38 @@
         );
 
     }
+
+    /* =====================================================
+    LOADING SCREEN CONTROL
+    ===================================================== */
+
+    function hideLeoLoadingScreen() {
+
+        const loadingScreen =
+            document.getElementById("leo-loading");
+
+        if (!loadingScreen) return;
+
+        loadingScreen.classList.add("finished");
+
+        // Nach der Überblendung vollständig entfernen
+        setTimeout(() => {
+            loadingScreen.remove();
+        }, 700);
+
+    }
+
+    // Sobald alle Inhalte und Bilder geladen sind
+    window.addEventListener("load", () => {
+
+        // Kurze Mindestanzeige, damit Leo sichtbar bleibt
+        setTimeout(hideLeoLoadingScreen, 700);
+
+    });
+
+    // Sicherheitsnetz: niemals dauerhaft blockieren
+    setTimeout(hideLeoLoadingScreen, 8000);
+
 
 </script>
 
