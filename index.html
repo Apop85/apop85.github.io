@@ -9,27 +9,59 @@
     <meta name="description" content="Leo creates practical software solutions with a focus on privacy, simplicity and user control.">
 
     <style>
+        /* =====================================================
+        LEO – INDEPENDENT SOFTWARE
+        Gemeinsames Designsystem
+        ===================================================== */
+
         :root {
-            --bg: #f5f7fa;
+            --blue: #3972a6;
+            --blue-dark: #285681;
+            --blue-light: #eaf2fa;
+
+            --background: #f5f8fc;
             --surface: #ffffff;
-            --text: #202c3b;
-            --muted: #64748b;
-            --primary: #263b52;
-            --accent: #45b993;
-            --border: #e2e8f0;
-            --radius: 14px;
+
+            --text: #263b52;
+            --muted: #647b91;
+
+            --accent: #f2bd55;
+            --border: #dce7f1;
+
+            --radius: 20px;
+            --shadow: 0 8px 28px rgba(40, 86, 129, 0.09);
         }
+
+        /* =====================================================
+        RESET & BASIS
+        ===================================================== */
 
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, sans-serif;
-            background: var(--bg);
+            font-family:
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--background);
             color: var(--text);
-            line-height: 1.6;
+
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
         }
 
         a {
@@ -37,81 +69,159 @@
             text-decoration: none;
         }
 
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
+        button {
+            font: inherit;
         }
 
+        .container {
+            width: min(1120px, 90%);
+            margin: 0 auto;
+        }
+
+        /* =====================================================
+        NAVIGATION
+        ===================================================== */
+
         header {
-            background: var(--surface);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(12px);
+
             border-bottom: 1px solid var(--border);
         }
 
         nav {
-            min-height: 76px;
+            min-height: 78px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+
+            gap: 24px;
         }
 
         .brand {
             display: flex;
             align-items: center;
             gap: 12px;
+
             font-size: 1.5rem;
-            font-weight: 750;
-            color: var(--primary);
+            font-weight: 800;
+
+            color: var(--blue-dark);
         }
 
-        .logo-placeholder {
+        .brand-logo {
             width: 48px;
             height: 48px;
-            border: 2px dashed #94a3b8;
-            border-radius: 12px;
-            display: grid;
-            place-items: center;
-            font-size: 0.65rem;
-            color: var(--muted);
-            text-align: center;
+            object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 26px;
-            font-size: 0.9rem;
+            gap: 28px;
+
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
+            color: var(--blue);
         }
 
         .language {
-            border: 1px solid var(--border);
-            padding: 7px 12px;
-            border-radius: 8px;
-            background: white;
+            padding: 8px 14px;
+
+            border: 2px solid var(--border);
+            border-radius: 10px;
+
+            background: var(--blue-light);
+            color: var(--blue-dark);
+
+            font-weight: 700;
             cursor: pointer;
         }
 
-        .hero {
-            background: var(--primary);
+        /* =====================================================
+        BUTTONS
+        ===================================================== */
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 13px 24px;
+
+            border-radius: 12px;
+
+            background: var(--accent);
+            color: var(--blue-dark);
+
+            font-weight: 750;
+
+            border: 2px solid transparent;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 6px 16px rgba(40, 86, 129, 0.18);
+        }
+
+        .button-secondary {
+            background: var(--blue);
             color: white;
-            padding: 95px 0;
+        }
+
+        /* =====================================================
+        HERO
+        ===================================================== */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue-dark),
+                    var(--blue)
+                );
+
+            color: white;
+
+            padding: 85px 0 95px;
         }
 
         .hero-content {
             display: grid;
-            grid-template-columns: 1.3fr 0.7fr;
+            grid-template-columns: 1.15fr 0.85fr;
+
             align-items: center;
-            gap: 50px;
+            gap: 55px;
         }
 
         .hero h1 {
-            font-size: clamp(2.4rem, 5vw, 4rem);
-            line-height: 1.1;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.12;
+
             margin: 0 0 24px;
+            letter-spacing: -1.5px;
         }
 
         .hero h1 span {
@@ -119,170 +229,86 @@
         }
 
         .hero p {
-            color: #cbd5e1;
-            font-size: 1.15rem;
             max-width: 600px;
+
+            color: #e3edf7;
+            font-size: 1.15rem;
+
+            margin-bottom: 28px;
         }
 
-        .hero-placeholder {
-            height: 270px;
-            border: 2px dashed #8496a9;
-            border-radius: 20px;
-            display: grid;
-            place-items: center;
-            color: #cbd5e1;
-            text-align: center;
-            padding: 20px;
+        .hero-mascot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 300px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 12px 22px;
-            border-radius: 9px;
-            background: var(--accent);
-            color: #102c27;
-            font-weight: 700;
-            margin-top: 18px;
+        .hero-mascot img {
+            max-height: 340px;
+            width: auto;
+
+            object-fit: contain;
+
+            filter: drop-shadow(
+                0 12px 16px rgba(0,0,0,0.16)
+            );
         }
+
+        /* =====================================================
+        SECTIONS
+        ===================================================== */
 
         section {
-            padding: 75px 0;
+            padding: 85px 0;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 48px;
         }
 
         .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 8px;
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            line-height: 1.2;
+
+            margin: 0 0 14px;
+
+            color: var(--blue-dark);
         }
 
         .section-title p {
             color: var(--muted);
+            max-width: 650px;
+
+            margin: 0 auto;
         }
+
+        /* =====================================================
+        PRODUCT CARD
+        ===================================================== */
 
         .product {
             display: grid;
-            grid-template-columns: 220px 1fr;
-            gap: 40px;
+            grid-template-columns: 230px 1fr;
+
+            gap: 42px;
+
             background: var(--surface);
+
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            padding: 35px;
-        }
 
-        .app-icon-placeholder {
-            height: 220px;
-            border: 2px dashed #94a3b8;
-            border-radius: 24px;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            color: var(--muted);
-            padding: 15px;
-        }
+            padding: 38px;
 
-        .product h3 {
-            font-size: 1.8rem;
-            margin: 0 0 10px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e5f7f0;
-            color: #187a5b;
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .feature {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            padding: 22px;
-            border-radius: var(--radius);
-        }
-
-        .feature h4 {
-            margin-top: 0;
-        }
-
-        .feature p {
-            color: var(--muted);
-            font-size: 0.95rem;
-        }
-
-        .more {
-            background: #eaf0f5;
-            text-align: center;
-        }
-
-        .more-placeholder {
-            max-width: 600px;
-            margin: 30px auto 0;
-            border: 2px dashed #94a3b8;
-            border-radius: var(--radius);
-            padding: 35px;
-            color: var(--muted);
-        }
-
-        footer {
-            background: var(--primary);
-            color: #cbd5e1;
-            padding: 35px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-            align-items: center;
-        }
-
-        footer a:hover {
-            color: white;
-        }
-
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .brand-logo {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            border-radius: 12px;
-        }
-
-        .hero-mascot {
-            height: 270px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-mascot img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
+            box-shadow: var(--shadow);
         }
 
         .app-icon {
             width: 220px;
             height: 220px;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -291,35 +317,249 @@
         .app-icon img {
             width: 100%;
             height: 100%;
+
             object-fit: contain;
-            border-radius: 24px;
+
+            border-radius: 28px;
         }
 
-        @media (max-width: 750px) {
-            .hero-content,
+        .product h3 {
+            font-size: 2rem;
+
+            margin: 8px 0 12px;
+
+            color: var(--blue-dark);
+        }
+
+        .product > div > p {
+            color: var(--muted);
+        }
+
+        .tag {
+            display: inline-block;
+
+            background: var(--blue-light);
+            color: var(--blue-dark);
+
+            padding: 5px 13px;
+
+            border-radius: 30px;
+
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+        }
+
+        /* =====================================================
+        PRODUCT FEATURES
+        ===================================================== */
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 16px;
+            margin: 28px 0;
+        }
+
+        .feature {
+            background: var(--blue-light);
+
+            border: 1px solid var(--border);
+            border-radius: 15px;
+
+            padding: 20px;
+        }
+
+        .feature h4 {
+            color: var(--blue-dark);
+            margin: 0 0 8px;
+        }
+
+        .feature p {
+            color: var(--muted);
+            font-size: 0.92rem;
+
+            margin: 0;
+        }
+
+        /* =====================================================
+        ICONS
+        ===================================================== */
+
+        .mini-icon {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: white;
+
+            border: 2px solid var(--blue-dark);
+            border-radius: 14px;
+
+            margin-bottom: 14px;
+
+            box-shadow:
+                2px 3px 0 rgba(40,86,129,0.12);
+        }
+
+        .mini-icon svg {
+            width: 28px;
+            height: 28px;
+
+            stroke: var(--blue-dark);
+            fill: none;
+
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* =====================================================
+        ABOUT
+        ===================================================== */
+
+        .more {
+            background: var(--blue-light);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            align-items: center;
+            gap: 55px;
+        }
+
+        .about-mascot {
+            display: flex;
+            justify-content: center;
+        }
+
+        .about-mascot img {
+            max-height: 300px;
+            width: auto;
+
+            object-fit: contain;
+        }
+
+        .about-text h3 {
+            color: var(--blue-dark);
+            font-size: 1.7rem;
+        }
+
+        .about-text p {
+            color: var(--muted);
+        }
+
+        /* =====================================================
+        CONTACT
+        ===================================================== */
+
+        .contact-section {
+            text-align: center;
+        }
+
+        .contact-mascot {
+            display: flex;
+            justify-content: center;
+
+            margin-bottom: 25px;
+        }
+
+        .contact-mascot img {
+            height: 150px;
+            width: auto;
+
+            object-fit: contain;
+        }
+
+        /* =====================================================
+        FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--blue-dark);
+            color: #dce9f5;
+
+            padding: 35px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+
+            flex-wrap: wrap;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* =====================================================
+        RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-mascot {
+                min-height: 220px;
+            }
+
+            .hero-mascot img {
+                max-height: 260px;
+            }
+
             .product {
                 grid-template-columns: 1fr;
             }
 
-            .hero {
-                padding: 65px 0;
+            .app-icon {
+                margin: auto;
             }
 
-            .hero-placeholder {
-                height: 190px;
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .about-mascot {
+                order: -1;
             }
 
             .features {
                 grid-template-columns: 1fr;
             }
-
-            .nav-links {
-                gap: 12px;
-                font-size: 0.8rem;
-            }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
+
+            section {
+                padding: 60px 0;
+            }
+
             nav {
                 flex-wrap: wrap;
                 padding: 12px 0;
@@ -328,267 +568,646 @@
             .nav-links {
                 width: 100%;
                 justify-content: space-between;
+                gap: 10px;
+
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .product {
+                padding: 24px;
+                gap: 25px;
+            }
+
+            .app-icon {
+                width: 170px;
+                height: 170px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
             }
         }
+
+        /* =====================================================
+        FOOTER BRAND
+        ===================================================== */
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .footer-brand small {
+            color: #b9cee1;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a {
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .product-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .product-actions .button {
+            margin-top: 0;
+        }
+
+        @media (max-width: 600px) {
+            .product-actions {
+                flex-direction: column;
+            }
+
+            .product-actions .button {
+                width: 100%;
+            }
+        }
+
+
     </style>
 </head>
 
 <body>
 
+
+<!-- =====================================================
+     HEADER / NAVIGATION
+     ===================================================== -->
+
 <header>
+
     <div class="container">
+
         <nav>
-            <a href="#" class="brand">
-                <img src="images/head.png"
-                            alt="Leo Logo"
-                            class="brand-logo">
-                Leo
+
+            <a href="/" class="brand">
+
+                <img
+                    src="images/logo.png"
+                    alt="Leo – Independent Software"
+                    class="brand-logo">
+
+                <span>Leo</span>
+
             </a>
 
             <div class="nav-links">
-                <a href="#apps" data-de="Apps" data-en="Apps">Apps</a>
-                <a href="#about" data-de="Über Leo" data-en="About">Über Leo</a>
-                <a href="#contact" data-de="Kontakt" data-en="Contact">Kontakt</a>
 
-                <button class="language" onclick="toggleLanguage()">
+                <a href="#produkte"
+                   data-de="Produkte"
+                   data-en="Products">
+                    Produkte
+                </a>
+
+                <a href="#ueber"
+                   data-de="Über Leo"
+                   data-en="About Leo">
+                    Über Leo
+                </a>
+
+                <a href="#kontakt"
+                   data-de="Kontakt"
+                   data-en="Contact">
+                    Kontakt
+                </a>
+
+                <a href="https://github.com/Apop85"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <button
+                    class="language"
+                    id="language-toggle"
+                    type="button"
+                    aria-label="Switch language">
                     EN
                 </button>
+
             </div>
+
         </nav>
+
     </div>
+
 </header>
 
-<main>
 
-    <!-- HERO -->
+<!-- =====================================================
+     HERO
+     ===================================================== -->
 
-    <section class="hero">
-        <div class="container hero-content">
+<section class="hero">
 
-            <div>
-                <h1>
-                    Technology that stays <span>yours.</span>
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-text">
+
+                <span class="tag"
+                      style="background:rgba(255,255,255,0.16);
+                             color:white;
+                             border:1px solid rgba(255,255,255,0.25);"
+                      data-de="Unabhängige Softwareentwicklung"
+                      data-en="Independent software development">
+                    Unabhängige Softwareentwicklung
+                </span>
+
+                <h1
+                    data-de="Software mit Herz und <span>Verstand.</span>"
+                    data-en="Software with heart and <span>purpose.</span>">
+                    Software mit Herz und
+                    <span>Verstand.</span>
                 </h1>
 
-                <p data-de="Praktische Softwarelösungen für alltägliche Probleme. Mit Fokus auf Datenschutz, Einfachheit und Kontrolle durch den Nutzer."
-                   data-en="Practical software solutions for everyday problems. Focused on privacy, simplicity and user control.">
-                    Praktische Softwarelösungen für alltägliche Probleme.
-                    Mit Fokus auf Datenschutz, Einfachheit und Kontrolle durch den Nutzer.
+                <p
+                    data-de="Praktische Softwarelösungen, entwickelt mit Leidenschaft und dem Anspruch, den digitalen Alltag einfacher zu machen."
+                    data-en="Practical software solutions developed with passion and the ambition to make everyday digital life easier.">
+                    Praktische Softwarelösungen, entwickelt
+                    mit Leidenschaft und dem Anspruch,
+                    den digitalen Alltag einfacher zu machen.
                 </p>
 
-                <a href="#apps" class="button"
-                   data-de="Unsere Apps entdecken"
-                   data-en="Explore our apps">
-                    Unsere Apps entdecken
+                <a href="#produkte"
+                   class="button"
+                   data-de="Produkte entdecken →"
+                   data-en="Explore products →">
+                    Produkte entdecken →
                 </a>
+
             </div>
 
+
             <div class="hero-mascot">
-                <img src="images/sit.png"
-                    alt="Leo – das Maskottchen">
+
+                <img
+                    src="images/sit.png"
+                    alt="Leo sitzt aufmerksam">
+
             </div>
 
         </div>
-    </section>
+
+    </div>
+
+</section>
 
 
-    <!-- APPS -->
+<main>
 
-    <section id="apps">
+    <!-- =====================================================
+        PRODUKTE
+        ===================================================== -->
+
+    <section id="produkte">
+
         <div class="container">
 
             <div class="section-title">
-                <h2 data-de="Unsere Anwendungen"
-                    data-en="Our Applications">
-                    Unsere Anwendungen
+
+                <h2
+                    data-de="Unsere Produkte"
+                    data-en="Our products">
+                    Unsere Produkte
                 </h2>
 
-                <p data-de="Software, die echte Probleme löst."
-                   data-en="Software designed to solve real problems.">
-                    Software, die echte Probleme löst.
+                <p
+                    data-de="Durchdachte Softwarelösungen für den digitalen Alltag."
+                    data-en="Thoughtful software solutions for everyday digital life.">
+                    Durchdachte Softwarelösungen für den digitalen Alltag.
                 </p>
+
             </div>
 
-            <div class="product">
+
+            <!-- =================================================
+                LEOSYNC PRODUCT CARD
+                ================================================= -->
+
+            <article class="product">
 
                 <div class="app-icon">
-                    <img src="images/head.png"
-                        alt="LeoSync App Icon">
+
+                    <img
+                        src="images/logo.png"
+                        alt="LeoSync App-Logo">
+
                 </div>
 
+
                 <div>
-                    <span class="tag">ANDROID</span>
+
+                    <span class="tag"
+                        data-de="ANDROID · WINDOWS"
+                        data-en="ANDROID · WINDOWS">
+                        ANDROID · WINDOWS
+                    </span>
 
                     <h3>LeoSync</h3>
 
-                    <p data-de="Deine Fotos. Dein Speicher. Deine Kontrolle. LeoSync synchronisiert Fotos und Videos direkt zwischen deinem Android-Gerät und deinem eigenen PC oder NAS – ohne Cloud-Zwischenstation."
-                       data-en="Your photos. Your storage. Your control. LeoSync synchronizes photos and videos directly between your Android device and your own PC or NAS – without cloud intermediaries.">
-                        Deine Fotos. Dein Speicher. Deine Kontrolle.
-                        LeoSync synchronisiert Fotos und Videos direkt
-                        zwischen deinem Android-Gerät und deinem eigenen
-                        PC oder NAS – ohne Cloud-Zwischenstation.
+                    <p
+                        data-de="Deine Fotos und Dateien automatisch zwischen Android und deinem PC oder NAS synchronisieren. Ohne Cloud-Zwang und mit voller Kontrolle über deine Daten."
+                        data-en="Automatically synchronize your photos and files between Android and your PC or NAS. No cloud dependency and full control over your data.">
+                        Deine Fotos und Dateien automatisch zwischen
+                        Android und deinem PC oder NAS synchronisieren.
+                        Ohne Cloud-Zwang und mit voller Kontrolle
+                        über deine Daten.
                     </p>
+
+
+                    <!-- PRODUCT FEATURES -->
 
                     <div class="features">
 
                         <div class="feature">
-                            <h4 data-de="Privatsphäre"
-                                data-en="Privacy">
-                                Privatsphäre
-                            </h4>
 
-                            <p data-de="Keine externen Cloud-Dienste oder Tracking."
-                               data-en="No external cloud services or tracking.">
-                                Keine externen Cloud-Dienste oder Tracking.
-                            </p>
-                        </div>
+                            <div class="mini-icon">
 
-                        <div class="feature">
-                            <h4 data-de="Direkte Verbindung"
-                                data-en="Direct Connection">
+                                <svg viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path d="M3 12a9 9 0 0 1 18 0"/>
+                                    <path d="M6 12a6 6 0 0 1 12 0"/>
+                                    <path d="M9 12a3 3 0 0 1 6 0"/>
+                                    <circle cx="12" cy="17" r="1"/>
+                                </svg>
+
+                            </div>
+
+                            <h4
+                                data-de="Direkte Verbindung"
+                                data-en="Direct connection">
                                 Direkte Verbindung
                             </h4>
 
-                            <p data-de="Dateiübertragung über deine eigene SMB-Freigabe."
-                               data-en="File transfers through your own SMB share.">
-                                Dateiübertragung über deine eigene SMB-Freigabe.
+                            <p
+                                data-de="Übertragung direkt auf PC oder NAS."
+                                data-en="Transfer directly to PC or NAS.">
+                                Übertragung direkt auf PC oder NAS.
                             </p>
+
                         </div>
 
+
                         <div class="feature">
-                            <h4 data-de="Volle Kontrolle"
-                                data-en="Full Control">
-                                Volle Kontrolle
+
+                            <div class="mini-icon">
+
+                                <svg viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path d="M3 7h7l2 3h9v9H3z"/>
+                                    <path d="M3 10h18"/>
+                                </svg>
+
+                            </div>
+
+                            <h4
+                                data-de="Intelligente Sortierung"
+                                data-en="Smart organization">
+                                Intelligente Sortierung
                             </h4>
 
-                            <p data-de="Du entscheidest, wo deine Daten gespeichert werden."
-                               data-en="You decide where your data is stored.">
-                                Du entscheidest, wo deine Daten gespeichert werden.
+                            <p
+                                data-de="Automatische Organisation deiner Dateien."
+                                data-en="Automatic organization of your files.">
+                                Automatische Organisation deiner Dateien.
                             </p>
+
+                        </div>
+
+
+                        <div class="feature">
+
+                            <div class="mini-icon">
+
+                                <svg viewBox="0 0 24 24"
+                                    aria-hidden="true">
+                                    <path d="M12 3l8 3v5c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z"/>
+                                    <path d="m8 12 3 3 5-6"/>
+                                </svg>
+
+                            </div>
+
+                            <h4
+                                data-de="Datensicherheit"
+                                data-en="Data security">
+                                Datensicherheit
+                            </h4>
+
+                            <p
+                                data-de="Lokale Verarbeitung und Wiederherstellung."
+                                data-en="Local processing and recovery.">
+                                Lokale Verarbeitung und Wiederherstellung.
+                            </p>
+
                         </div>
 
                     </div>
 
-                    <p>
-                        <a href="https://github.com/Apop85/Sync2PC"
-                           target="_blank"
-                           rel="noopener noreferrer"
-                           class="button">
+
+                    <!-- PRODUCT LINKS -->
+
+                    <div class="product-actions">
+
+                        <a
+                            href="/leosync/index.html"
+                            class="button button-secondary"
+                            data-de="LeoSync entdecken →"
+                            data-en="Discover LeoSync →">
+                            LeoSync entdecken →
+                        </a>
+
+                        <a
+                            href="https://github.com/Apop85/Sync2PC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="button"
+                            data-de="GitHub Repository"
+                            data-en="GitHub repository">
                             GitHub Repository
                         </a>
-                    </p>
+
+                    </div>
+
                 </div>
 
-            </div>
+            </article>
+
         </div>
+
     </section>
 
+    
+    <!-- =====================================================
+        ABOUT LEO
+        ===================================================== -->
 
-    <!-- ABOUT -->
+    <section id="ueber" class="more">
 
-    <section id="about" class="more">
         <div class="container">
 
             <div class="section-title">
-                <h2 data-de="Über Leo"
-                    data-en="About Leo">
-                    Über Leo
+
+                <h2
+                    data-de="Wer steckt hinter Leo?"
+                    data-en="Who's behind Leo?">
+                    Wer steckt hinter Leo?
                 </h2>
 
-                <p data-de="Unabhängige Software. Durchdachte Lösungen."
-                   data-en="Independent software. Thoughtful solutions.">
+                <p
+                    data-de="Unabhängige Software. Durchdachte Lösungen."
+                    data-en="Independent software. Thoughtful solutions.">
                     Unabhängige Software. Durchdachte Lösungen.
                 </p>
+
             </div>
 
-            <p data-de="Leo steht für praktische Anwendungen, die alltägliche technische Herausforderungen lösen. Im Mittelpunkt stehen Benutzerfreundlichkeit, Datenschutz und die Freiheit, eigene technische Entscheidungen zu treffen."
-               data-en="Leo stands for practical applications that solve everyday technical challenges. Our focus is on usability, privacy and the freedom to make your own technology choices.">
-                Leo steht für praktische Anwendungen, die alltägliche
-                technische Herausforderungen lösen. Im Mittelpunkt
-                stehen Benutzerfreundlichkeit, Datenschutz und die
-                Freiheit, eigene technische Entscheidungen zu treffen.
-            </p>
 
-            <div class="more-placeholder">
-                [ PLACEHOLDER: Additional Leo products ]
-                <br><br>
-                More applications coming soon.
+            <div class="about-content">
+
+                <div class="about-mascot">
+
+                    <img
+                        src="images/walk.png"
+                        alt="Leo läuft neugierig und aufmerksam">
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <h3
+                        data-de="Praktisch. Persönlich. Unabhängig."
+                        data-en="Practical. Personal. Independent.">
+                        Praktisch. Persönlich. Unabhängig.
+                    </h3>
+
+                    <p
+                        data-de="Leo steht für Softwarelösungen, die aus echten Bedürfnissen entstehen. Statt unnötiger Komplexität stehen einfache Bedienung, durchdachte Funktionen und zuverlässige Technik im Mittelpunkt."
+                        data-en="Leo stands for software solutions born from real needs. Instead of unnecessary complexity, the focus is on ease of use, thoughtful features and reliable technology.">
+                        Leo steht für Softwarelösungen, die aus echten
+                        Bedürfnissen entstehen. Statt unnötiger Komplexität
+                        stehen einfache Bedienung, durchdachte Funktionen
+                        und zuverlässige Technik im Mittelpunkt.
+                    </p>
+
+                    <p
+                        data-de="Datenschutz und Benutzerkontrolle sind dabei keine Zusatzfunktionen, sondern grundlegende Prinzipien. Deine Daten gehören dir. Du entscheidest, wie und wo du deine Technik einsetzt."
+                        data-en="Privacy and user control are not optional extras, but fundamental principles. Your data belongs to you. You decide how and where you use your technology.">
+                        Datenschutz und Benutzerkontrolle sind dabei
+                        keine Zusatzfunktionen, sondern grundlegende
+                        Prinzipien. Deine Daten gehören dir. Du entscheidest,
+                        wie und wo du deine Technik einsetzt.
+                    </p>
+
+                    <p
+                        data-de="Die Entwicklung erfolgt unabhängig und mit viel Liebe zum Detail. Neue Ideen entstehen dort, wo bestehende Lösungen unnötig kompliziert oder unflexibel sind."
+                        data-en="Development is independent and driven by attention to detail. New ideas emerge wherever existing solutions are unnecessarily complicated or inflexible.">
+                        Die Entwicklung erfolgt unabhängig und mit viel
+                        Liebe zum Detail. Neue Ideen entstehen dort,
+                        wo bestehende Lösungen unnötig kompliziert
+                        oder unflexibel sind.
+                    </p>
+
+                </div>
+
             </div>
 
         </div>
+
     </section>
 
+    <!-- =====================================================
+        CONTACT & SUPPORT
+        ===================================================== -->
 
-    <!-- CONTACT -->
+    <section id="kontakt" class="contact-section">
 
-    <section id="contact">
-        <div class="container section-title">
+        <div class="container">
 
-            <h2 data-de="Kontakt & Support"
-                data-en="Contact & Support">
-                Kontakt & Support
-            </h2>
+            <div class="section-title">
 
-            <p data-de="Fragen, Feedback oder Interesse an einem Projekt?"
-               data-en="Questions, feedback or interested in a project?">
-                Fragen, Feedback oder Interesse an einem Projekt?
-            </p>
+                <div class="contact-mascot">
 
-            <p>
-                <a href="mailto:[YOUR-EMAIL]"
-                   class="button">
-                    Contact Leo
+                    <img
+                        src="images/stand.png"
+                        alt="Leo steht aufmerksam und freut sich auf Kontakt">
+
+                </div>
+
+                <h2
+                    data-de="Fragen? Ideen? Feedback?"
+                    data-en="Questions? Ideas? Feedback?">
+                    Fragen? Ideen? Feedback?
+                </h2>
+
+                <p
+                    data-de="Gute Software entsteht auch durch den Austausch mit ihren Nutzern. Ich freue mich über Rückmeldungen, Verbesserungsvorschläge und neue Ideen."
+                    data-en="Great software also grows through exchange with its users. Feedback, suggestions and new ideas are always welcome.">
+                    Gute Software entsteht auch durch den Austausch
+                    mit ihren Nutzern. Ich freue mich über Rückmeldungen,
+                    Verbesserungsvorschläge und neue Ideen.
+                </p>
+
+                <p
+                    data-de="Du hast einen Fehler entdeckt oder eine Frage zu LeoSync? Nutze einfach das GitHub-Repository."
+                    data-en="Found a bug or have a question about LeoSync? Simply use the GitHub repository.">
+                    Du hast einen Fehler entdeckt oder eine Frage
+                    zu LeoSync? Nutze einfach das GitHub-Repository.
+                </p>
+
+                <a
+                    href="https://github.com/Apop85/Sync2PC/issues"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-secondary"
+                    data-de="Frage oder Feedback einreichen →"
+                    data-en="Submit a question or feedback →">
+                    Frage oder Feedback einreichen →
                 </a>
-            </p>
+
+            </div>
 
         </div>
+
     </section>
+
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
 <footer>
+
     <div class="container footer-content">
 
-        <div>
-            © 2026 Leo – Independent Software
+        <div class="footer-brand">
+
+            <div>
+                © 2026 Leo – Independent Software
+            </div>
+
+            <small
+                data-de="Unabhängige Softwareentwicklung mit Herz."
+                data-en="Independent software development with heart.">
+                Unabhängige Softwareentwicklung mit Herz.
+            </small>
+
         </div>
 
+
         <div class="footer-links">
-            <a href="privacy.html"
-               data-de="Datenschutz"
-               data-en="Privacy Policy">
+
+            <a
+                href="https://github.com/Apop85"
+                target="_blank"
+                rel="noopener noreferrer">
+                GitHub
+            </a>
+
+            <a
+                href="https://github.com/Apop85/Sync2PC"
+                target="_blank"
+                rel="noopener noreferrer">
+                LeoSync
+            </a>
+
+            <a
+                href="https://github.com/Apop85/Sync2PC/blob/main/PRIVACY_GER.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-de="Datenschutz"
+                data-en="Privacy">
                 Datenschutz
             </a>
 
-            <a href="https://github.com/Apop85/Sync2PC"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub
-            </a>
         </div>
 
     </div>
+
 </footer>
 
 
+
+<!-- =====================================================
+     LANGUAGE SWITCH
+     ===================================================== -->
+
 <script>
+
     let currentLanguage = "de";
 
     function toggleLanguage() {
-        currentLanguage = currentLanguage === "de" ? "en" : "de";
 
+        currentLanguage =
+            currentLanguage === "de" ? "en" : "de";
+
+        // HTML language attribute
         document.documentElement.lang = currentLanguage;
 
+        // Translate all elements
         document.querySelectorAll("[data-de]").forEach(element => {
-            element.textContent =
+
+            const translation =
                 element.getAttribute("data-" + currentLanguage);
+
+            if (translation !== null) {
+                element.innerHTML = translation;
+            }
+
         });
 
-        document.querySelector(".language").textContent =
-            currentLanguage === "de" ? "EN" : "DE";
+        // Update language button
+        const languageButton =
+            document.getElementById("language-toggle");
+
+        if (languageButton) {
+
+            languageButton.textContent =
+                currentLanguage === "de" ? "EN" : "DE";
+
+        }
+
     }
+
+    // Connect language button
+    const languageButton =
+        document.getElementById("language-toggle");
+
+    if (languageButton) {
+
+        languageButton.addEventListener(
+            "click",
+            toggleLanguage
+        );
+
+    }
+
 </script>
+
 
 </body>
 </html>
