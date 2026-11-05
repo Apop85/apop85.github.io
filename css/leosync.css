@@ -1170,3 +1170,92 @@ section {
         animation-duration: .01ms !important;
     }
 }
+
+
+/* =====================================================
+   LEOSYNC COMIC ICONS
+   Einheitlicher Illustrationsstil
+   ===================================================== */
+
+.feature-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #eaf2fa;
+    border: 2px solid #285681;
+    border-radius: 19px;
+
+    box-shadow:
+        3px 4px 0 rgba(40, 86, 129, 0.15);
+
+    margin-bottom: 18px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+/* SVG-Grösse */
+
+.feature-icon svg {
+    width: 43px;
+    height: 43px;
+
+    display: block;
+
+    overflow: visible;
+}
+
+/* Leichter Comic-Effekt beim Hover */
+
+.feature-card:hover .feature-icon {
+    transform: translateY(-3px) rotate(-3deg);
+
+    box-shadow:
+        4px 6px 0 rgba(40, 86, 129, 0.22);
+}
+
+/* Sicherheitskacheln */
+
+.safety-card .feature-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 18px;
+}
+
+.safety-card .feature-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Mobile Darstellung */
+
+@media (max-width: 600px) {
+
+    .feature-icon {
+        width: 56px;
+        height: 56px;
+
+        border-radius: 16px;
+
+        margin-bottom: 14px;
+    }
+
+    .feature-icon svg {
+        width: 38px;
+        height: 38px;
+    }
+
+    .safety-card .feature-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+}
