@@ -1,0 +1,961 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#263b52">
+
+<title>LeoSync – Deine Fotos. Dein Speicher. Deine Kontrolle.</title>
+<meta name="description" content="LeoSync sichert Fotos und Videos automatisch auf deinem eigenen PC oder NAS. Synchronisiere beliebige Ordner direkt über SMB – ohne Cloud-Zwischenstation.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://apop85.github.io/leosync/">
+
+<style>
+:root {
+    --bg: #f5f7fa;
+    --surface: #ffffff;
+    --text: #202c3b;
+    --muted: #64748b;
+    --primary: #263b52;
+    --primary-light: #344e69;
+    --accent: #45b993;
+    --accent-light: #e5f7f0;
+    --border: #e2e8f0;
+    --radius: 16px;
+    --shadow: 0 12px 35px rgba(38,59,82,.08);
+}
+
+* { box-sizing: border-box; }
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button { font: inherit; }
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+header {
+    background: rgba(255,255,255,.96);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(12px);
+}
+
+nav {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--primary);
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.brand img {
+    width: 43px;
+    height: 43px;
+    object-fit: contain;
+    border-radius: 11px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    font-size: .9rem;
+    font-weight: 550;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.language {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 7px 13px;
+    cursor: pointer;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.language:hover { border-color: var(--accent); }
+
+.hero {
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(69,185,147,.18), transparent 38%),
+        var(--primary);
+    color: white;
+    padding: 100px 0 110px;
+    overflow: hidden;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    box-shadow: 0 0 12px var(--accent);
+}
+
+.hero h1 {
+    font-size: clamp(2.7rem, 5vw, 4.6rem);
+    line-height: 1.08;
+    letter-spacing: -.045em;
+    margin: 0 0 25px;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.hero p {
+    color: #d1dce7;
+    font-size: 1.13rem;
+    max-width: 610px;
+    margin-bottom: 28px;
+}
+
+.actions {
+    display: flex;
+    gap: 13px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    padding: 13px 23px;
+    border-radius: 10px;
+    font-weight: 750;
+    transition: transform .2s, background .2s;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.button-primary {
+    background: var(--accent);
+    color: #102c27;
+}
+
+.button-primary:hover { background: #59cba6; }
+
+.button-outline {
+    border: 1px solid #71869b;
+    color: white;
+}
+
+.button-outline:hover { background: rgba(255,255,255,.08); }
+
+.hero-note {
+    color: #b9c9d8;
+    font-size: .82rem;
+    margin-top: 22px;
+}
+
+.hero-visual {
+    position: relative;
+    min-height: 360px;
+    display: grid;
+    place-items: center;
+}
+
+.hero-icon {
+    width: 145px;
+    height: 145px;
+    border-radius: 35px;
+    padding: 12px;
+    background: white;
+    box-shadow: 0 25px 65px rgba(0,0,0,.3);
+    position: relative;
+    z-index: 2;
+}
+
+.hero-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 24px;
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid rgba(69,185,147,.3);
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+}
+
+.orbit-two {
+    width: 390px;
+    height: 390px;
+    border-color: rgba(255,255,255,.1);
+}
+
+.floating-card {
+    position: absolute;
+    background: white;
+    color: var(--text);
+    border-radius: 13px;
+    padding: 13px 17px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    font-size: .85rem;
+    z-index: 3;
+}
+
+.floating-card strong {
+    display: block;
+    color: var(--primary);
+}
+
+.floating-card small { color: var(--muted); }
+
+.card-phone { top: 35px; left: 0; }
+.card-pc { bottom: 35px; right: 0; }
+
+.check {
+    color: #15976d;
+    font-weight: 900;
+    margin-right: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <nav>
+            <a href="../" class="brand">
+                <img src="../images/head.png" alt="Leo Logo">
+                LeoSync
+            </a>
+
+            <div class="nav-links">
+                <a href="#funktionen" data-de="Funktionen" data-en="Features">Funktionen</a>
+                <a href="#sicherheit" data-de="Sicherheit" data-en="Safety">Sicherheit</a>
+                <a href="#download" data-de="Download" data-en="Download">Download</a>
+                <a href="../" data-de="Leo" data-en="Leo">Leo</a>
+                <button class="language" id="languageButton"
+                        type="button" onclick="toggleLanguage()">EN</button>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container hero-content">
+        <div>
+            <div class="eyebrow">
+                <span class="dot"></span>
+                ANDROID · PRIVATE CLOUD ALTERNATIVE
+            </div>
+
+            <h1 data-de="Deine Fotos.<br>Dein Speicher.<br><span>Deine Kontrolle.</span>"
+                data-en="Your photos.<br>Your storage.<br><span>Your control.</span>">
+                Deine Fotos.<br>Dein Speicher.<br><span>Deine Kontrolle.</span>
+            </h1>
+
+            <p data-de="Sichere Fotos und Videos automatisch auf deinem eigenen PC oder NAS. Synchronisiere ganze Ordner direkt über dein Netzwerk – ohne Cloud-Zwischenstation."
+               data-en="Automatically back up photos and videos to your own PC or NAS. Synchronize entire folders directly over your network – without cloud intermediaries.">
+                Sichere Fotos und Videos automatisch auf deinem eigenen
+                PC oder NAS. Synchronisiere ganze Ordner direkt über dein
+                Netzwerk – ohne Cloud-Zwischenstation.
+            </p>
+
+            <div class="actions">
+                <a class="button button-primary"
+                   href="https://github.com/Apop85/Sync2PC/releases/latest"
+                   target="_blank" rel="noopener noreferrer">
+                    ↓ <span data-de="LeoSync herunterladen"
+                            data-en="Download LeoSync">LeoSync herunterladen</span>
+                </a>
+                <a class="button button-outline" href="#funktionen"
+                   data-de="Funktionen entdecken"
+                   data-en="Explore features">Funktionen entdecken</a>
+            </div>
+
+            <div class="hero-note"
+                 data-de="Android 10+ · Windows-Freigabe / NAS · Beta"
+                 data-en="Android 10+ · Windows share / NAS · Beta">
+                Android 10+ · Windows-Freigabe / NAS · Beta
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="orbit"></div>
+            <div class="orbit orbit-two"></div>
+
+            <div class="floating-card card-phone">
+                📱 <strong>Android</strong>
+                <small data-de="Deine Fotos" data-en="Your photos">Deine Fotos</small>
+            </div>
+
+            <div class="hero-icon">
+                <img src="../images/head.png" alt="LeoSync App Icon">
+            </div>
+
+            <div class="floating-card card-pc">
+                💻 <strong>PC / NAS</strong>
+                <small><span class="check">✓</span>
+                    <span data-de="Dein Speicher" data-en="Your storage">Dein Speicher</span>
+                </small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust-strip">
+    <div class="container trust-items">
+        <span><b>✓</b> <span data-de="Keine Cloud nötig" data-en="No cloud required">Keine Cloud nötig</span></span>
+        <span><b>✓</b> <span data-de="Direkt über SMB" data-en="Direct SMB transfer">Direkt über SMB</span></span>
+        <span><b>✓</b> <span data-de="Deine Daten bleiben bei dir" data-en="Your data stays yours">Deine Daten bleiben bei dir</span></span>
+    </div>
+</div>
+
+<!-- INTRO -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Einfach sichern. Frei synchronisieren."
+                data-en="Back up simply. Synchronize freely.">
+                Einfach sichern. Frei synchronisieren.
+            </h2>
+            <p data-de="LeoSync verbindet dein Android-Gerät direkt mit deinem eigenen Speicher. Du bestimmst, wohin deine Dateien gehen."
+               data-en="LeoSync connects your Android device directly to your own storage. You decide where your files go.">
+                LeoSync verbindet dein Android-Gerät direkt mit deinem
+                eigenen Speicher. Du bestimmst, wohin deine Dateien gehen.
+            </p>
+        </div>
+
+        <div class="intro-grid">
+            <article class="intro-card">
+                <div class="icon-box">📷</div>
+                <h3 data-de="Fotos automatisch sichern"
+                    data-en="Automatic photo backup">Fotos automatisch sichern</h3>
+                <p data-de="Neue Fotos und Videos werden automatisch erkannt und über dein Heim-WLAN auf deinen PC oder NAS übertragen. Die Ablage erfolgt übersichtlich nach Jahr, Monat und Reiseland."
+                   data-en="New photos and videos are detected automatically and transferred over your home Wi-Fi to your PC or NAS. Files are organized by year, month and country.">
+                    Neue Fotos und Videos werden automatisch erkannt und
+                    über dein Heim-WLAN auf deinen PC oder NAS übertragen.
+                    Die Ablage erfolgt übersichtlich nach Jahr, Monat
+                    und Reiseland.
+                </p>
+
+                <div class="folder-example">
+                    <span class="folder">📁 Fotos</span><br>
+                    &nbsp;&nbsp;📁 2026<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;📁 06 - Ägypten<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="file">IMG_20260620.jpg</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;📁 07<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="file">IMG_20260712.jpg</span>
+                </div>
+            </article>
+
+            <article class="intro-card">
+                <div class="icon-box">🔄</div>
+                <h3 data-de="Ordner in beide Richtungen"
+                    data-en="Folders in both directions">Ordner in beide Richtungen</h3>
+                <p data-de="Synchronisiere beliebige Ordner zwischen Handy und PC. Einseitig oder beidseitig – mit einem Abgleich, der Änderungen auf beiden Seiten berücksichtigt."
+                   data-en="Synchronize any folders between your mobile and PC. One-way or two-way – with reconciliation that takes changes on both sides into account.">
+                    Synchronisiere beliebige Ordner zwischen Handy und PC.
+                    Einseitig oder beidseitig – mit einem Abgleich, der
+                    Änderungen auf beiden Seiten berücksichtigt.
+                </p>
+
+                <div class="folder-example">
+                    <span class="folder">📁 Projekte</span><br>
+                    &nbsp;&nbsp;📁 Dokumente<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">Planung.pdf</span><br>
+                    &nbsp;&nbsp;📁 Bilder<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">Entwurf.png</span><br>
+                    &nbsp;&nbsp;📁 Notizen<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="file">Ideen.txt</span>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- MODES -->
+<section class="modes">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Zwei Profile. Viele Möglichkeiten."
+                data-en="Two profile types. Many possibilities.">
+                Zwei Profile. Viele Möglichkeiten.
+            </h2>
+            <p data-de="Wähle den passenden Profiltyp für deine Anforderungen."
+               data-en="Choose the profile type that fits your needs.">
+                Wähle den passenden Profiltyp für deine Anforderungen.
+            </p>
+        </div>
+
+        <div class="mode-grid">
+            <article class="mode-card">
+                <span class="mode-label">01 · PHOTO BACKUP</span>
+                <h3 data-de="Fotos & Videos sichern"
+                    data-en="Back up photos & videos">Fotos & Videos sichern</h3>
+                <p data-de="Deine Aufnahmen werden automatisch auf dem PC abgelegt und nach Aufnahmedatum sortiert."
+                   data-en="Your photos are automatically stored on your PC and organized by capture date.">
+                    Deine Aufnahmen werden automatisch auf dem PC abgelegt
+                    und nach Aufnahmedatum sortiert.
+                </p>
+                <ul>
+                    <li data-de="Handy → PC / NAS" data-en="Mobile → PC / NAS">Handy → PC / NAS</li>
+                    <li data-de="Sortierung nach Jahr, Monat und Land"
+                        data-en="Organized by year, month and country">Sortierung nach Jahr, Monat und Land</li>
+                    <li data-de="Erkennung von Duplikaten"
+                        data-en="Duplicate detection">Erkennung von Duplikaten</li>
+                    <li data-de="Prüfung nach dem Upload"
+                        data-en="Verification after upload">Prüfung nach dem Upload</li>
+                    <li data-de="Optionales Aufräumen nach erfolgreicher Sicherung"
+                        data-en="Optional cleanup after successful backup">Optionales Aufräumen nach erfolgreicher Sicherung</li>
+                </ul>
+            </article>
+
+            <article class="mode-card">
+                <span class="mode-label">02 · FOLDER SYNC</span>
+                <h3 data-de="Ordner synchronisieren"
+                    data-en="Synchronize folders">Ordner synchronisieren</h3>
+                <p data-de="Halte beliebige Ordner und Dateien auf Handy und PC auf demselben Stand."
+                   data-en="Keep any folders and files on your mobile and PC in sync.">
+                    Halte beliebige Ordner und Dateien auf Handy und PC
+                    auf demselben Stand.
+                </p>
+                <ul>
+                    <li data-de="Handy → PC, PC → Handy oder beidseitig"
+                        data-en="Mobile → PC, PC → mobile or both ways">Handy → PC, PC → Handy oder beidseitig</li>
+                    <li data-de="Alle Dateitypen"
+                        data-en="All file types">Alle Dateitypen</li>
+                    <li data-de="Drei-Wege-Abgleich mit Konflikterkennung"
+                        data-en="Three-way reconciliation with conflict detection">Drei-Wege-Abgleich mit Konflikterkennung</li>
+                    <li data-de="Alte Versionen im Papierkorb"
+                        data-en="Previous versions in the recycle bin">Alte Versionen im Papierkorb</li>
+                    <li data-de="Schutz vor unbeabsichtigtem Löschen"
+                        data-en="Protection against accidental deletion">Schutz vor unbeabsichtigtem Löschen</li>
+                </ul>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section id="funktionen">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Durchdacht bis ins Detail."
+                data-en="Thoughtful down to the details.">
+                Durchdacht bis ins Detail.
+            </h2>
+            <p data-de="Viele kleine Funktionen machen den Unterschied im Alltag."
+               data-en="Lots of small features make a difference in everyday use.">
+                Viele kleine Funktionen machen den Unterschied im Alltag.
+            </p>
+        </div>
+
+        <div class="features-grid">
+
+            <article class="feature">
+                <div class="feature-icon">📶</div>
+                <h3 data-de="Automatik im Heim-WLAN"
+                    data-en="Automatic home Wi-Fi">Automatik im Heim-WLAN</h3>
+                <p data-de="Die Synchronisierung startet, sobald dein Handy mit einem eingetragenen WLAN verbunden ist. Bei Unterbrechungen geht es automatisch weiter."
+                   data-en="Synchronization starts when your phone connects to a configured Wi-Fi network. It resumes automatically after interruptions.">
+                    Die Synchronisierung startet, sobald dein Handy mit
+                    einem eingetragenen WLAN verbunden ist. Bei
+                    Unterbrechungen geht es automatisch weiter.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🗂️</div>
+                <h3 data-de="Intelligente Sortierung"
+                    data-en="Smart organization">Intelligente Sortierung</h3>
+                <p data-de="Aufnahmedatum und GPS-Daten werden offline ausgewertet. So entstehen übersichtliche Jahres-, Monats- und Länderordner."
+                   data-en="Capture dates and GPS data are processed offline to create organized year, month and country folders.">
+                    Aufnahmedatum und GPS-Daten werden offline ausgewertet.
+                    So entstehen übersichtliche Jahres-, Monats- und Länderordner.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🧺</div>
+                <h3 data-de="Papierkorb & Wiederherstellung"
+                    data-en="Recycle bin & restore">Papierkorb & Wiederherstellung</h3>
+                <p data-de="Gelöschte Dateien und ersetzte Versionen bleiben erhalten. Stelle einzelne Dateien, ganze Ordner oder einen kompletten Tag wieder her."
+                   data-en="Deleted files and replaced versions are retained. Restore individual files, entire folders or a complete day.">
+                    Gelöschte Dateien und ersetzte Versionen bleiben erhalten.
+                    Stelle einzelne Dateien, ganze Ordner oder einen kompletten
+                    Tag wieder her.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+            <article class="feature">
+                <div class="feature-icon">🛡️</div>
+                <h3 data-de="Schutzbremse"
+                    data-en="Safety checks">Schutzbremse</h3>
+                <p data-de="Bei auffälligen Löschungen oder fehlenden Ordnern hält LeoSync an und fragt nach, bevor größere Änderungen übernommen werden."
+                   data-en="LeoSync pauses and asks for confirmation if unusual deletions or missing folders are detected.">
+                    Bei auffälligen Löschungen oder fehlenden Ordnern hält
+                    LeoSync an und fragt nach, bevor größere Änderungen
+                    übernommen werden.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">💾</div>
+                <h3 data-de="Speicher freigeben"
+                    data-en="Free up storage">Speicher freigeben</h3>
+                <p data-de="Gib Speicherplatz auf dem Handy frei. LeoSync prüft vorher, ob die Dateien tatsächlich auf dem PC vorhanden sind, und zeigt eine Vorschau."
+                   data-en="Free up space on your phone. LeoSync first verifies that files are safely stored on your PC and provides a preview.">
+                    Gib Speicherplatz auf dem Handy frei. LeoSync prüft
+                    vorher, ob die Dateien tatsächlich auf dem PC vorhanden
+                    sind, und zeigt eine Vorschau.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🎛️</div>
+                <h3 data-de="Flexible Filter"
+                    data-en="Flexible filters">Flexible Filter</h3>
+                <p data-de="Bestimme mit Mustern wie *.pdf oder Temp/**, welche Dateien synchronisiert oder ausgeschlossen werden."
+                   data-en="Use patterns such as *.pdf or Temp/** to choose which files are synchronized or excluded.">
+                    Bestimme mit Mustern wie *.pdf oder Temp/**, welche
+                    Dateien synchronisiert oder ausgeschlossen werden.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">📊</div>
+                <h3 data-de="Statistiken & Verlauf"
+                    data-en="Statistics & history">Statistiken & Verlauf</h3>
+                <p data-de="Behalte Anzahl und Speicherverbrauch deiner Dateien im Blick. Der Verlauf dokumentiert die Synchronisierung."
+                   data-en="Keep track of file counts and storage usage. The history records synchronization activity.">
+                    Behalte Anzahl und Speicherverbrauch deiner Dateien
+                    im Blick. Der Verlauf dokumentiert die Synchronisierung.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🔋</div>
+                <h3 data-de="Akkuschonend"
+                    data-en="Battery-conscious">Akkuschonend</h3>
+                <p data-de="Kein permanenter Hintergrunddienst. LeoSync nutzt Android-Systemfunktionen und bietet die Option „Nur beim Laden“."
+                   data-en="No permanent background service. LeoSync uses Android system features and offers a 'While charging only' option.">
+                    Kein permanenter Hintergrunddienst. LeoSync nutzt
+                    Android-Systemfunktionen und bietet die Option
+                    „Nur beim Laden“.
+                </p>
+            </article>
+
+            <article class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3 data-de="Automatische Updates"
+                    data-en="Automatic updates">Automatische Updates</h3>
+                <p data-de="LeoSync prüft täglich auf neue Versionen über GitHub Releases. Die Installation lässt sich direkt aus der App starten."
+                   data-en="LeoSync checks GitHub Releases daily for new versions. Installation can be started directly from the app.">
+                    LeoSync prüft täglich auf neue Versionen über GitHub
+                    Releases. Die Installation lässt sich direkt aus der
+                    App starten.
+                </p>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<!-- SAFETY -->
+<section class="safety" id="sicherheit">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Deine Daten. Deine Regeln."
+                data-en="Your data. Your rules.">
+                Deine Daten. Deine Regeln.
+            </h2>
+            <p data-de="LeoSync setzt auf direkte Verbindungen und gibt dir die Kontrolle über deine Dateien."
+               data-en="LeoSync uses direct connections and gives you control over your files.">
+                LeoSync setzt auf direkte Verbindungen und gibt dir
+                die Kontrolle über deine Dateien.
+            </p>
+        </div>
+
+        <div class="safety-grid">
+            <article class="safety-card">
+                <div class="feature-icon">🏠</div>
+                <h3 data-de="Eigener Speicher"
+                    data-en="Your own storage">Eigener Speicher</h3>
+                <p data-de="Die Dateien werden direkt auf deine Windows-Freigabe oder dein NAS übertragen. Du bestimmst den Speicherort."
+                   data-en="Files are transferred directly to your Windows share or NAS. You choose the storage location.">
+                    Die Dateien werden direkt auf deine Windows-Freigabe
+                    oder dein NAS übertragen. Du bestimmst den Speicherort.
+                </p>
+            </article>
+
+            <article class="safety-card">
+                <div class="feature-icon">🌍</div>
+                <h3 data-de="Offline-Ländererkennung"
+                    data-en="Offline country detection">Offline-Ländererkennung</h3>
+                <p data-de="Die Zuordnung des Reiselandes erfolgt lokal anhand der GPS-Daten. Dafür ist keine Online-Abfrage erforderlich."
+                   data-en="Travel countries are identified locally using GPS data. No online lookup is required.">
+                    Die Zuordnung des Reiselandes erfolgt lokal anhand
+                    der GPS-Daten. Dafür ist keine Online-Abfrage erforderlich.
+                </p>
+            </article>
+
+            <article class="safety-card">
+                <div class="feature-icon">🔐</div>
+                <h3 data-de="Kontrollierte Sicherung"
+                    data-en="Controlled backup">Kontrollierte Sicherung</h3>
+                <p data-de="Profile und Einstellungen lassen sich exportieren. SMB-Passwörter werden nur mit einem Export-Passwort verschlüsselt mitgesichert."
+                   data-en="Profiles and settings can be exported. SMB passwords are included only when encrypted with an export password.">
+                    Profile und Einstellungen lassen sich exportieren.
+                    SMB-Passwörter werden nur mit einem Export-Passwort
+                    verschlüsselt mitgesichert.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="In wenigen Schritten startklar."
+                data-en="Ready in just a few steps.">
+                In wenigen Schritten startklar.
+            </h2>
+            <p data-de="Die Einrichtung führt dich durch die wichtigsten Einstellungen."
+               data-en="The setup guides you through the essential settings.">
+                Die Einrichtung führt dich durch die wichtigsten Einstellungen.
+            </p>
+        </div>
+
+        <div class="workflow">
+            <article class="step">
+                <div class="step-number">1</div>
+                <h3 data-de="Installieren"
+                    data-en="Install">Installieren</h3>
+                <p data-de="Lade die aktuelle APK herunter und installiere LeoSync auf deinem Android-Gerät."
+                   data-en="Download the latest APK and install LeoSync on your Android device.">
+                    Lade die aktuelle APK herunter und installiere LeoSync
+                    auf deinem Android-Gerät.
+                </p>
+            </article>
+
+            <article class="step">
+                <div class="step-number">2</div>
+                <h3 data-de="Profil einrichten"
+                    data-en="Configure a profile">Profil einrichten</h3>
+                <p data-de="Wähle deine Freigabe, Zugangsdaten, dein WLAN und die zu synchronisierenden Ordner."
+                   data-en="Choose your network share, credentials, Wi-Fi and the folders to synchronize.">
+                    Wähle deine Freigabe, Zugangsdaten, dein WLAN und
+                    die zu synchronisierenden Ordner.
+                </p>
+            </article>
+
+            <article class="step">
+                <div class="step-number">3</div>
+                <h3 data-de="Synchronisieren"
+                    data-en="Synchronize">Synchronisieren</h3>
+                <p data-de="Starte zunächst eine Simulation oder Synchronisierung. Danach übernimmt LeoSync die Automatik."
+                   data-en="Start with a simulation or synchronization. LeoSync takes care of automation afterwards.">
+                    Starte zunächst eine Simulation oder Synchronisierung.
+                    Danach übernimmt LeoSync die Automatik.
+                </p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- REQUIREMENTS -->
+<section class="requirements">
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Was du brauchst."
+                data-en="What you need.">Was du brauchst.</h2>
+            <p data-de="Die technischen Voraussetzungen im Überblick."
+               data-en="An overview of the technical requirements.">
+                Die technischen Voraussetzungen im Überblick.
+            </p>
+        </div>
+
+        <div class="requirements-box">
+            <h3 data-de="Voraussetzungen"
+                data-en="Requirements">Voraussetzungen</h3>
+            <ul>
+                <li data-de="Android 10 oder neuer"
+                    data-en="Android 10 or later">Android 10 oder neuer</li>
+                <li data-de="Windows-PC oder NAS mit SMB2/SMB3-Freigabe"
+                    data-en="Windows PC or NAS with an SMB2/SMB3 share">Windows-PC oder NAS mit SMB2/SMB3-Freigabe</li>
+                <li data-de="Benutzerkonto mit Schreibrechten auf der Freigabe"
+                    data-en="User account with write permissions on the share">Benutzerkonto mit Schreibrechten auf der Freigabe</li>
+                <li data-de="Netzwerkverbindung zwischen Handy und Speicherziel"
+                    data-en="Network connection between mobile and storage destination">Netzwerkverbindung zwischen Handy und Speicherziel</li>
+            </ul>
+
+            <p data-de="Hinweis: Für die automatische WLAN-Erkennung benötigt Android bestimmte Berechtigungen. Die App erklärt die erforderlichen Schritte während der Einrichtung. Die Standortberechtigung wird dabei nicht zur Standortbestimmung verwendet."
+               data-en="Note: Android requires certain permissions for automatic Wi-Fi detection. The app explains the required steps during setup. Location permission is not used to determine your location.">
+                Hinweis: Für die automatische WLAN-Erkennung benötigt Android
+                bestimmte Berechtigungen. Die App erklärt die erforderlichen
+                Schritte während der Einrichtung. Die Standortberechtigung
+                wird dabei nicht zur Standortbestimmung verwendet.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section class="download" id="download">
+    <div class="container">
+        <div class="download-panel">
+            <span class="beta-label">BETA · 0.10.0</span>
+
+            <h2 data-de="Bereit für deine eigene Synchronisierung?"
+                data-en="Ready for your own synchronization?">
+                Bereit für deine eigene Synchronisierung?
+            </h2>
+
+            <p data-de="Lade LeoSync herunter und behalte deine Fotos, Videos und Dateien unter deiner Kontrolle."
+               data-en="Download LeoSync and keep your photos, videos and files under your control.">
+                Lade LeoSync herunter und behalte deine Fotos, Videos
+                und Dateien unter deiner Kontrolle.
+            </p>
+
+            <a class="button button-primary"
+               href="https://github.com/Apop85/Sync2PC/releases/latest"
+               target="_blank" rel="noopener noreferrer">
+                ↓ <span data-de="Aktuelle Version herunterladen"
+                        data-en="Download latest version">Aktuelle Version herunterladen</span>
+            </a>
+
+            <div class="download-info"
+                 data-de="Die neueste APK findest du bei GitHub Releases. LeoSync kann sich danach selbst aktualisieren."
+                 data-en="The latest APK is available on GitHub Releases. LeoSync can update itself afterwards.">
+                Die neueste APK findest du bei GitHub Releases.
+                LeoSync kann sich danach selbst aktualisieren.
+            </div>
+
+            <div class="links">
+                <a href="https://github.com/Apop85/Sync2PC"
+                   target="_blank" rel="noopener noreferrer"
+                   data-de="GitHub Repository"
+                   data-en="GitHub Repository">GitHub Repository</a>
+
+                <a href="https://github.com/Apop85/Sync2PC/blob/main/README.md"
+                   target="_blank" rel="noopener noreferrer"
+                   data-de="Dokumentation"
+                   data-en="Documentation">Dokumentation</a>
+
+                <a href="https://github.com/Apop85/Sync2PC/blob/main/PATCHNOTES.md"
+                   target="_blank" rel="noopener noreferrer"
+                   data-de="Patchnotes"
+                   data-en="Release notes">Patchnotes</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section>
+    <div class="container">
+        <div class="section-title">
+            <h2 data-de="Häufige Fragen."
+                data-en="Frequently asked questions.">
+                Häufige Fragen.
+            </h2>
+            <p data-de="Die wichtigsten Antworten rund um LeoSync."
+               data-en="The most important answers about LeoSync.">
+                Die wichtigsten Antworten rund um LeoSync.
+            </p>
+        </div>
+
+        <div class="faq-list">
+
+            <details>
+                <summary data-de="Brauche ich ein Cloud-Konto?"
+                         data-en="Do I need a cloud account?">
+                    Brauche ich ein Cloud-Konto?
+                </summary>
+                <p data-de="Nein. LeoSync überträgt deine Dateien direkt über SMB auf deinen eigenen PC oder NAS. Ein externer Cloud-Dienst ist dafür nicht erforderlich."
+                   data-en="No. LeoSync transfers your files directly via SMB to your own PC or NAS. No external cloud service is required.">
+                    Nein. LeoSync überträgt deine Dateien direkt über SMB
+                    auf deinen eigenen PC oder NAS. Ein externer Cloud-Dienst
+                    ist dafür nicht erforderlich.
+                </p>
+            </details>
+
+            <details>
+                <summary data-de="Funktioniert LeoSync mit einem NAS?"
+                         data-en="Does LeoSync work with a NAS?">
+                    Funktioniert LeoSync mit einem NAS?
+                </summary>
+                <p data-de="Ja, sofern dein NAS eine kompatible SMB2- oder SMB3-Freigabe bereitstellt und dein Benutzerkonto Schreibrechte besitzt."
+                   data-en="Yes, provided your NAS offers a compatible SMB2 or SMB3 share and your account has write permissions.">
+                    Ja, sofern dein NAS eine kompatible SMB2- oder SMB3-Freigabe
+                    bereitstellt und dein Benutzerkonto Schreibrechte besitzt.
+                </p>
+            </details>
+
+            <details>
+                <summary data-de="Kann ich auch Dateien vom PC auf das Handy übertragen?"
+                         data-en="Can I also transfer files from PC to mobile?">
+                    Kann ich auch Dateien vom PC auf das Handy übertragen?
+                </summary>
+                <p data-de="Ja. Mit Ordner-Profilen kannst du vom Handy zum PC, vom PC zum Handy oder in beide Richtungen synchronisieren."
+                   data-en="Yes. Folder profiles support mobile-to-PC, PC-to-mobile or two-way synchronization.">
+                    Ja. Mit Ordner-Profilen kannst du vom Handy zum PC,
+                    vom PC zum Handy oder in beide Richtungen synchronisieren.
+                </p>
+            </details>
+
+            <details>
+                <summary data-de="Was passiert bei einem Synchronisierungskonflikt?"
+                         data-en="What happens when a synchronization conflict occurs?">
+                    Was passiert bei einem Synchronisierungskonflikt?
+                </summary>
+                <p data-de="LeoSync verwendet einen Drei-Wege-Abgleich. Änderungen auf beiden Seiten werden erkannt. Ersetzte und gelöschte Versionen können im Papierkorb aufbewahrt und wiederhergestellt werden."
+                   data-en="LeoSync uses three-way reconciliation. Changes on both sides are detected. Replaced and deleted versions can be retained in the recycle bin and restored.">
+                    LeoSync verwendet einen Drei-Wege-Abgleich. Änderungen
+                    auf beiden Seiten werden erkannt. Ersetzte und gelöschte
+                    Versionen können im Papierkorb aufbewahrt und
+                    wiederhergestellt werden.
+                </p>
+            </details>
+
+            <details>
+                <summary data-de="Ist LeoSync kostenlos?"
+                         data-en="Is LeoSync free?">
+                    Ist LeoSync kostenlos?
+                </summary>
+                <p data-de="Die aktuelle Version wird als Beta über GitHub Releases bereitgestellt. Informationen zu Lizenz und Quellcode findest du im GitHub-Repository."
+                   data-en="The current version is provided as a beta via GitHub Releases. Information about the license and source code is available in the GitHub repository.">
+                    Die aktuelle Version wird als Beta über GitHub Releases
+                    bereitgestellt. Informationen zu Lizenz und Quellcode
+                    findest du im GitHub-Repository.
+                </p>
+            </details>
+
+            <details>
+                <summary data-de="Wie bekomme ich Hilfe?"
+                         data-en="How can I get help?">
+                    Wie bekomme ich Hilfe?
+                </summary>
+                <p data-de="Im GitHub-Repository findest du die Dokumentation. Fragen, Fehlerberichte und Verbesserungsvorschläge kannst du über GitHub Issues einreichen."
+                   data-en="You can find the documentation in the GitHub repository. Submit questions, bug reports and suggestions through GitHub Issues.">
+                    Im GitHub-Repository findest du die Dokumentation.
+                    Fragen, Fehlerberichte und Verbesserungsvorschläge
+                    kannst du über GitHub Issues einreichen.
+                </p>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-content">
+        <div>
+            <strong>LeoSync</strong> · © 2026 Leo – Independent Software
+        </div>
+
+        <div class="footer-links">
+            <a href="../"
+               data-de="Leo Startseite"
+               data-en="Leo Homepage">Leo Startseite</a>
+
+            <a href="https://github.com/Apop85/Sync2PC"
+               target="_blank" rel="noopener noreferrer">GitHub</a>
+
+            <a href="../privacy.html"
+               data-de="Datenschutz"
+               data-en="Privacy">Datenschutz</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+let currentLanguage = "de";
+
+function toggleLanguage() {
+    currentLanguage = currentLanguage === "de" ? "en" : "de";
+
+    document.documentElement.lang = currentLanguage;
+
+    document.querySelectorAll("[data-de]").forEach(element => {
+        const translation = element.getAttribute("data-" + currentLanguage);
+
+        if (translation !== null) {
+            if (element.tagName === "H1") {
+                element.innerHTML = translation;
+            } else {
+                element.textContent = translation;
+            }
+        }
+    });
+
+    document.getElementById("languageButton").textContent =
+        currentLanguage === "de" ? "EN" : "DE";
+
+    document.title = currentLanguage === "de"
+        ? "LeoSync – Deine Fotos. Dein Speicher. Deine Kontrolle."
+        : "LeoSync – Your photos. Your storage. Your control.";
+}
+</script>
+
+</body>
+</html>
