@@ -1497,3 +1497,8 @@ section {
         max-width: 145px;
     }
 }
+
+.download-splash, .app-preview-image, .mode-card-preview {
+  border: 3px solid black !important;
+  border-radius: 18px;
+}
