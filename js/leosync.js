@@ -83,6 +83,21 @@
             document.title = title.getAttribute("data-title-" + language);
         }
 
+        // Update language-dependent meta description
+        const description = document.querySelector(
+            'meta[name="description"][data-description-de]'
+        );
+
+        if (description) {
+            const translatedDescription = description.getAttribute(
+                "data-description-" + language
+            );
+
+            if (translatedDescription) {
+                description.setAttribute("content", translatedDescription);
+            }
+        }
+
         try {
             localStorage.setItem("leosync-language", language);
         } catch (error) {
