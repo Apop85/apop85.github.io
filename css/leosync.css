@@ -1033,6 +1033,7 @@ section {
 
     .nav-links {
         gap: 16px;
+        flex-wrap: wrap;
     }
 }
 
@@ -1059,9 +1060,19 @@ section {
 
     .nav-links {
         width: 100%;
-        justify-content: space-between;
-        gap: 10px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        column-gap: 16px;
+        row-gap: 6px;
         padding: 5px 0;
+    }
+
+    .nav-links a {
+        white-space: nowrap;
+    }
+
+    html {
+        scroll-padding-top: 125px;
     }
 
     .nav-links a {
