@@ -44,7 +44,20 @@
         });
 
         // Update language-dependent images
-        document.querySelectorAll("[data-de-src][data-en-src]").forEach(img => {
+        document.querySelectorAll("img[data-de-src][data-en-src]").forEach(img => {
+
+            const picture = img.closest("picture");
+            const pictureSource = picture
+                ? picture.querySelector("source[data-de-src][data-en-src]")
+                : null;
+
+            if (pictureSource) {
+                const webpSource = pictureSource.getAttribute("data-" + language + "-src");
+
+                if (webpSource) {
+                    pictureSource.srcset = webpSource;
+                }
+            }
 
             const imageSource = img.getAttribute("data-" + language + "-src");
 
