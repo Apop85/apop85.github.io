@@ -53,6 +53,17 @@
             }
 
         });
+
+        // Update language-dependent image descriptions
+        document.querySelectorAll("[data-de-alt][data-en-alt]").forEach(img => {
+
+            const imageDescription = img.getAttribute("data-" + language + "-alt");
+
+            if (imageDescription) {
+                img.alt = imageDescription;
+            }
+
+        });
         
         const button = document.querySelector("[data-language-toggle]");
 
