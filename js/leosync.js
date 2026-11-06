@@ -43,6 +43,17 @@
             }
         });
 
+        // Update language-dependent images
+        document.querySelectorAll("[data-de-src][data-en-src]").forEach(img => {
+
+            const imageSource = img.getAttribute("data-" + language + "-src");
+
+            if (imageSource) {
+                img.src = imageSource;
+            }
+
+        });
+        
         const button = document.querySelector("[data-language-toggle]");
 
         if (button) {
