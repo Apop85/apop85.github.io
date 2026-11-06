@@ -1,581 +1,925 @@
-
 <!DOCTYPE html>
 <html lang="de">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#3972a6">
+    <meta name="description"
+          content="Datenschutzerklärung von LeoSync. Informationen zur lokalen Verarbeitung von Fotos, Videos, Standortinformationen und Synchronisationsdaten.">
+
     <meta name="robots" content="index, follow">
 
     <title>Datenschutzerklärung – LeoSync</title>
 
-    <link rel="icon"
-          type="image/png"
-          href="../images/logo.png">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet"
-          href="../css/leosync.css">
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f6f8;
+            color: #252525;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 30px;
+            line-height: 1.3;
+        }
+
+        h2 {
+            margin-top: 38px;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e5e5e5;
+            font-size: 22px;
+        }
+
+        h3 {
+            margin-top: 26px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .meta {
+            margin-bottom: 30px;
+            color: #777777;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 25px;
+        }
+
+        .notice {
+            margin: 18px 0;
+            padding: 16px 20px;
+            background: #f3f6fa;
+            border-left: 4px solid #64748b;
+            border-radius: 4px;
+        }
+
+        footer {
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            color: #777777;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer img {
+            max-width: 110px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            margin-top: 12px;
+        }
+
+        .footer-links a {
+            margin: 0 8px;
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                margin: 0;
+                padding: 24px 20px;
+                border-radius: 0;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
 </head>
 
-<body class="privacy-page">
+<body>
 
-<header class="privacy-header">
+<div class="container">
 
-    <div class="container">
+    <a class="back-link" href="./">
+        ← Zurück zu LeoSync
+    </a>
 
-        <a class="privacy-back" href="index.html"
-           style="color: white;"
-           data-de="← Zurück zu LeoSync"
-           data-en="← Back to LeoSync">
-            ← Zurück zu LeoSync
-        </a>
+    <h1>Datenschutzerklärung – LeoSync</h1>
 
-        <h1>Datenschutzerklärung – LeoSync</h1>
-
-        <p>Stand: 4. November 2026 · Version 1.0</p>
-
+    <div class="meta">
+        Stand: 6. November 2026 · Version 1.1
     </div>
 
-</header>
+    <p>
+        Diese Datenschutzerklärung informiert darüber, welche Daten
+        durch die Android-App LeoSync verarbeitet werden und wie
+        mit diesen Daten umgegangen wird.
+    </p>
 
-<main class="container">
+    <p>
+        LeoSync ist eine Anwendung der Marke Leo und wurde mit dem Ziel
+        entwickelt, Fotos und Videos ohne externe Cloud-Dienste zwischen
+        Android-Geräten und eigenen Netzwerkfreigaben zu synchronisieren.
+    </p>
 
-    <article class="privacy-content">
+
+    <!-- 1. VERANTWORTLICHER -->
+
+    <h2>1. Verantwortlicher</h2>
+
+    <p>
+        Verantwortlich für die Datenverarbeitung:
+    </p>
+
+    <ul>
+        <li>Entwickler: [Vor- und Nachname]</li>
+        <li>Land: Schweiz</li>
+        <li>Kontakt: [E-Mail-Adresse]</li>
+    </ul>
+
+
+    <!-- 2. GRUNDSÄTZE -->
+
+    <h2>2. Grundsätze der Datenverarbeitung</h2>
+
+    <p>
+        LeoSync wurde nach dem Grundsatz entwickelt, möglichst wenige
+        Daten an externe Stellen zu übertragen.
+    </p>
+
+    <p>
+        Die Verarbeitung von Fotos, Videos, Metadaten und
+        Synchronisationsinformationen erfolgt grundsätzlich lokal
+        auf dem Android-Gerät.
+    </p>
+
+    <p>
+        Dateien werden direkt zwischen dem Android-Gerät und der
+        vom Nutzer konfigurierten SMB-Netzwerkfreigabe übertragen.
+    </p>
+
+    <p>
+        LeoSync verwendet keine:
+    </p>
+
+    <ul>
+        <li>Externen Cloud-Speicherdienste</li>
+        <li>Werbenetzwerke</li>
+        <li>Analytics- oder Tracking-Dienste</li>
+        <li>Externen Synchronisationsdienste</li>
+        <li>Werbe- oder Analyse-SDKs</li>
+    </ul>
+
+    <p>
+        Es findet keine automatische Übermittlung von Nutzungsstatistiken
+        oder persönlichen Daten an den Entwickler statt.
+    </p>
+
+    <p>
+        Eine Ausnahme stellen technisch erforderliche Verbindungen
+        zur Abfrage verfügbarer App-Updates über GitHub Releases dar.
+        Dabei werden keine Fotos, Videos, GPS-Koordinaten oder
+        Synchronisationsdateien an GitHub übertragen.
+        Weitere Informationen dazu befinden sich in Abschnitt 9.
+    </p>
+
+
+    <!-- 3. FOTOS UND VIDEOS -->
+
+    <h2>3. Fotos und Videos</h2>
+
+    <p>
+        LeoSync benötigt Zugriff auf die vom Nutzer zur Synchronisierung
+        ausgewählten Fotos und Videos.
+    </p>
+
+    <p>
+        Die Dateien werden lokal auf dem Android-Gerät verarbeitet
+        und direkt an die konfigurierte SMB-Netzwerkfreigabe übertragen.
+    </p>
+
+    <p>
+        Es erfolgt keine Übertragung über einen von LeoSync oder dem
+        Entwickler betriebenen Cloud-Dienst.
+    </p>
+
+    <p>
+        Abhängig vom gewählten Synchronisationsmodus können Dateien
+        auch vom SMB-Server auf das Android-Gerät übertragen werden.
+    </p>
+
+    <p>
+        Die Speicherung und Verwaltung der übertragenen Dateien
+        erfolgt auf den vom Nutzer ausgewählten Speicherorten.
+    </p>
+
+
+    <!-- 4. EXIF UND STANDORTINFORMATIONEN -->
+
+    <h2>4. EXIF-Metadaten und Standortinformationen</h2>
+
+    <p>
+        LeoSync kann GPS-Koordinaten aus den EXIF-Metadaten von Fotos
+        sowie aus unterstützten Video-Metadaten auslesen.
+    </p>
+
+    <p>
+        Diese Informationen werden lokal verarbeitet und mit einer
+        integrierten Offline-Datenbank abgeglichen, um beispielsweise
+        das Land zu bestimmen, in dem ein Foto oder Video aufgenommen
+        wurde.
+    </p>
+
+    <p>
+        Dafür werden keine externen Geolocation-, Karten- oder
+        Standortdienste kontaktiert.
+    </p>
+
+    <p>
+        GPS-Koordinaten werden nicht automatisch an den Entwickler
+        übertragen.
+    </p>
+
+    <p>
+        Bei der Übertragung von Originalfotos und Videos können deren
+        ursprüngliche Metadaten Bestandteil der übertragenen Dateien
+        bleiben. Dazu können auch GPS-Koordinaten gehören.
+    </p>
+
+    <div class="notice">
+        <strong>Hinweis:</strong>
+        Die GPS-Auswertung zur Länderbestimmung erfolgt vollständig
+        offline auf dem Gerät. Sie ist unabhängig von der
+        Android-Standortberechtigung, die LeoSync für die automatische
+        WLAN-Erkennung benötigt.
+    </div>
+
+
+    <!-- 5. ANDROID-BERECHTIGUNGEN -->
+
+    <h2>5. Android-Berechtigungen</h2>
+
+    <p>
+        LeoSync benötigt abhängig von der Android-Version und den
+        verwendeten Funktionen bestimmte Berechtigungen, die vom
+        Nutzer ausdrücklich freigegeben werden müssen.
+    </p>
+
+    <p>
+        Die Berechtigungen dienen ausschließlich der Bereitstellung
+        der beschriebenen App-Funktionen.
+    </p>
+
+
+    <h3>5.1 Zugriff auf Fotos und Videos</h3>
+
+    <p>
+        LeoSync benötigt Zugriff auf deine Fotos und Videos, um die
+        ausgewählten Medien lokal zu verarbeiten und mit der
+        konfigurierten SMB-Netzwerkfreigabe zu synchronisieren.
+    </p>
+
+    <p>
+        Je nach Android-Version kann der Zugriff auf alle Medien
+        oder auf ausgewählte Fotos und Videos beschränkt werden.
+        Der Nutzer entscheidet über die erteilten Medienzugriffsrechte.
+    </p>
+
+
+    <h3>5.2 Zugriff auf GPS-Metadaten von Medien</h3>
+
+    <p>
+        Damit LeoSync die in Fotos und unterstützten Videos
+        gespeicherten GPS-Koordinaten zur Ländererkennung auslesen
+        kann, benötigt Android gegebenenfalls eine zusätzliche
+        Freigabe für Standortinformationen in Mediendateien.
+    </p>
+
+    <p>
+        Diese Berechtigung betrifft ausschließlich die in den
+        Mediendateien gespeicherten Standortmetadaten.
+        Sie ermöglicht LeoSync nicht, den aktuellen Standort des
+        Geräts zu ermitteln.
+    </p>
+
+    <p>
+        Die Auswertung erfolgt lokal und vollständig offline
+        auf dem Android-Gerät.
+    </p>
+
+
+    <h3>5.3 Standortberechtigung für die WLAN-Erkennung</h3>
+
+    <p>
+        Android knüpft den Zugriff auf den Namen des verbundenen
+        WLAN-Netzwerks (SSID) an bestimmte Standortberechtigungen.
+    </p>
+
+    <p>
+        Deshalb benötigt LeoSync gegebenenfalls Zugriff auf den
+        ungefähren oder genauen Standort sowie auf den Standort
+        im Hintergrund.
+    </p>
+
+    <p>
+        Diese Berechtigungen werden von LeoSync ausschließlich
+        benötigt, um das verbundene WLAN-Netzwerk automatisch
+        zu erkennen.
+    </p>
+
+    <p>
+        Der Hintergrundzugriff ermöglicht diese Erkennung auch
+        dann, wenn die App nicht geöffnet ist.
+    </p>
+
+    <p>
+        Je nach Android-Version und Gerätekonfiguration muss dafür
+        die Einstellung „Standort – Immer zulassen“ aktiviert werden.
+    </p>
+
+    <div class="notice">
+        <strong>Wichtig zum Datenschutz:</strong>
+
+        LeoSync verwendet die Standortberechtigung ausschließlich
+        zur WLAN-Erkennung. Die App fragt dafür nicht die aktuellen
+        GPS-Koordinaten des Geräts ab und überträgt keinen aktuellen
+        Gerätestandort an den Entwickler oder externe Standortdienste.
+
+        <br><br>
+
+        Die Standorterkennung zur Länderbestimmung von Fotos und Videos
+        ist davon unabhängig und erfolgt ausschließlich anhand der
+        in den Mediendateien gespeicherten GPS-Metadaten.
+    </div>
+
+
+    <h3>5.4 Benachrichtigungen</h3>
+
+    <p>
+        LeoSync kann Benachrichtigungen verwenden, um über laufende
+        und abgeschlossene Synchronisierungen zu informieren.
+    </p>
+
+    <p>
+        Unter Android 13 und neuer muss der Nutzer der Anzeige von
+        Benachrichtigungen ausdrücklich zustimmen.
+    </p>
+
+    <p>
+        Die Benachrichtigungen dienen ausschließlich der Anzeige
+        von Informationen über den Betrieb und Status der App.
+    </p>
+
+
+    <h3>5.5 Hintergrundbetrieb und Akkuoptimierung</h3>
+
+    <p>
+        Damit Synchronisierungen auch bei geschlossener App möglichst
+        zuverlässig ausgeführt werden können, verwendet LeoSync die
+        vom Android-Betriebssystem bereitgestellten Mechanismen
+        für Hintergrundaufgaben.
+    </p>
+
+    <p>
+        Je nach Gerät und Android-Version kann es erforderlich sein,
+        LeoSync von bestimmten Einschränkungen der Akkuoptimierung
+        auszunehmen.
+    </p>
+
+    <p>
+        Hierfür kann die App eine entsprechende Ausnahme in den
+        Android-Einstellungen anfordern. Die Freigabe erfolgt
+        ausdrücklich durch den Nutzer.
+    </p>
+
+    <p>
+        Diese Einstellung dient ausschließlich dazu, die zuverlässige
+        Ausführung von Synchronisierungen zu ermöglichen.
+    </p>
+
+
+    <h3>5.6 Installation von App-Updates</h3>
+
+    <p>
+        LeoSync kann Aktualisierungen direkt über APK-Dateien
+        bereitstellen.
+    </p>
+
+    <p>
+        Dafür kann Android die Berechtigung verlangen, Apps aus
+        dieser Quelle installieren zu dürfen.
+    </p>
+
+    <p>
+        Die Freigabe erfolgt durch den Nutzer in den
+        Android-Einstellungen. Auch die Installation eines Updates
+        muss anschließend ausdrücklich bestätigt werden.
+    </p>
+
+    <p>
+        Diese Berechtigung wird ausschließlich für die Installation
+        von LeoSync-Updates verwendet und nicht zur Installation
+        anderer Anwendungen.
+    </p>
+
+
+    <!-- 6. SMB UND ZUGANGSDATEN -->
+
+    <h2>6. SMB-Verbindungen und Zugangsdaten</h2>
+
+    <p>
+        Für die Verbindung mit einer SMB-Netzwerkfreigabe benötigt
+        LeoSync die vom Nutzer angegebenen Verbindungsinformationen.
+    </p>
+
+    <p>
+        Dazu gehören gegebenenfalls:
+    </p>
+
+    <ul>
+        <li>Serveradresse</li>
+        <li>Freigabepfad</li>
+        <li>Benutzername</li>
+        <li>Passwort</li>
+        <li>Weitere Verbindungsparameter</li>
+    </ul>
+
+    <p>
+        SMB-Passwörter werden mithilfe des Android Keystore
+        geschützt gespeichert.
+    </p>
+
+    <p>
+        Die Zugangsdaten werden nicht an den Entwickler oder externe
+        Cloud-Dienste übertragen.
+    </p>
+
+    <p>
+        Die Dateiübertragung erfolgt direkt zwischen dem Android-Gerät
+        und dem konfigurierten SMB-Server.
+    </p>
+
+    <p>
+        Die Sicherheit der Verbindung hängt zusätzlich von der
+        Netzwerkkonfiguration und den Sicherheitseinstellungen
+        des jeweiligen SMB-Servers ab.
+    </p>
+
+
+    <!-- 7. DIAGNOSEBERICHTE -->
+
+    <h2>7. Diagnose- und Fehlerberichte</h2>
+
+    <p>
+        LeoSync bietet eine Funktion zum Export technischer
+        Diagnoseberichte.
+    </p>
+
+    <p>
+        Diese Berichte dienen dazu, Fehler zu untersuchen,
+        Kompatibilitätsprobleme zu erkennen und die Stabilität
+        der Anwendung zu verbessern.
+    </p>
+
+    <p>
+        Ein Diagnosebericht kann abhängig von der Implementierung
+        und dem jeweiligen Gerät folgende Informationen enthalten:
+    </p>
+
+
+    <h3>7.1 Geräte- und Anwendungsinformationen</h3>
+
+    <ul>
+        <li>Gerätehersteller und Gerätemodell</li>
+        <li>Android-Version und SDK-Version</li>
+        <li>App-Version und Build-Informationen</li>
+        <li>Hersteller- und Betriebssystemversion</li>
+    </ul>
+
+
+    <h3>7.2 Systemstatus und Berechtigungen</h3>
+
+    <ul>
+        <li>Akkustand und Ladezustand</li>
+        <li>Status der Akkuoptimierung</li>
+        <li>Energiespar- und Hintergrundausführungsstatus</li>
+        <li>Status relevanter App-Berechtigungen</li>
+        <li>Verfügbare Ordnerfreigaben</li>
+    </ul>
+
+
+    <h3>7.3 Netzwerk- und Synchronisationsinformationen</h3>
+
+    <ul>
+        <li>WLAN-Verbindungsstatus</li>
+        <li>WLAN-Name (SSID)</li>
+        <li>Netzwerktyp und Verbindungsstatus</li>
+        <li>Synchronisationseinstellungen</li>
+        <li>Konfigurierte Synchronisationsprofile</li>
+        <li>Technischer Status der SMB-Verbindungen</li>
+        <li>Synchronisationsverlauf und Fehlerzustände</li>
+    </ul>
+
+
+    <h3>7.4 Technische Protokolle</h3>
+
+    <ul>
+        <li>Hintergrundaufträge und WorkManager-Status</li>
+        <li>Warnungen und Fehlermeldungen</li>
+        <li>Informationen über abgebrochene Prozesse</li>
+        <li>Synchronisationsstatistiken</li>
+        <li>Zeitstempel relevanter Ereignisse</li>
+    </ul>
+
+    <p>
+        Je nach Umfang des Diagnoseberichts können auch technische
+        Angaben wie WLAN-Namen, lokale Serveradressen, Freigabepfade
+        oder Dateinamen enthalten sein.
+    </p>
+
+    <p>
+        SMB-Passwörter werden nicht absichtlich in Diagnoseberichte
+        aufgenommen.
+    </p>
+
+
+    <h3>7.5 Pseudonyme Installationskennung</h3>
+
+    <p>
+        Diagnoseberichte können eine zufällig generierte
+        Installationskennung (UUID) enthalten.
+    </p>
+
+    <p>
+        Diese UUID:
+    </p>
+
+    <ul>
+        <li>Wird lokal auf dem Gerät erzeugt.</li>
+        <li>Wird nicht aus Hardware- oder Gerätekennungen abgeleitet.</li>
+        <li>Enthält keine unmittelbar personenbezogenen Informationen.</li>
+        <li>Dient dazu, mehrere Diagnoseberichte derselben App-Installation einander zuzuordnen.</li>
+    </ul>
+
+    <p>
+        Bei einer Neuinstallation der App wird eine neue
+        Installationskennung erzeugt.
+    </p>
+
+    <p>
+        Die UUID ermöglicht keine direkte Identifizierung einer Person.
+        Da sie jedoch zur Zuordnung mehrerer Berichte verwendet werden
+        kann, ist sie als pseudonyme Kennung zu betrachten.
+    </p>
+
+
+    <!-- 8. VERSAND VON DIAGNOSEBERICHTEN -->
+
+    <h2>8. Versand von Diagnoseberichten</h2>
+
+    <p>
+        Diagnoseberichte werden nicht automatisch übertragen.
+    </p>
+
+    <p>
+        Der Nutzer entscheidet selbst, ob er einen Bericht exportiert
+        und per E-Mail an den Entwickler sendet.
+    </p>
+
+    <p>
+        Der Versand erfolgt über die vom Nutzer ausgewählte
+        E-Mail-Anwendung beziehungsweise den gewählten E-Mail-Dienst.
+    </p>
+
+    <p>
+        Mit dem Versand können die im Diagnosebericht enthaltenen
+        technischen Informationen an den Entwickler übermittelt werden.
+    </p>
+
+    <p>
+        Dazu können insbesondere WLAN-Namen (SSID), lokale
+        Serveradressen, Freigabepfade und Geräteinformationen gehören.
+    </p>
+
+    <p>
+        Vor dem Versand sollte der Nutzer den Bericht prüfen und
+        berücksichtigen, dass technische Angaben Rückschlüsse auf
+        seine Netzwerk- und Geräteumgebung ermöglichen können.
+    </p>
+
+    <p>
+        Für die Verarbeitung der E-Mail gelten zusätzlich die
+        Datenschutzbestimmungen des jeweiligen E-Mail-Anbieters.
+    </p>
+
+    <p>
+        Der Entwickler verwendet freiwillig übermittelte
+        Diagnoseberichte ausschließlich zur Untersuchung technischer
+        Probleme und zur Verbesserung von LeoSync.
+    </p>
+
+
+    <!-- 9. DRITTANBIETER -->
+
+    <h2>9. Drittanbieter und externe Dienste</h2>
+
+    <p>
+        LeoSync verwendet keine externen Analytics-, Werbe-,
+        Tracking- oder Cloud-SDKs.
+    </p>
+
+    <p>
+        Es findet keine automatische Weitergabe von Nutzerdaten
+        an Werbe- oder Analyseanbieter statt.
+    </p>
+
+    <p>
+        Daten können das Gerät insbesondere im Rahmen folgender
+        Aktionen verlassen:
+    </p>
+
+    <ul>
+        <li>
+            Synchronisierung mit der vom Nutzer konfigurierten
+            SMB-Netzwerkfreigabe.
+        </li>
+
+        <li>
+            Freiwilliger Versand eines Diagnoseberichts per E-Mail.
+        </li>
+
+        <li>
+            Technische Abfrage verfügbarer App-Updates über
+            GitHub Releases.
+        </li>
+    </ul>
+
+    <h3>9.1 Update-Abfragen über GitHub</h3>
+
+    <p>
+        LeoSync kann regelmäßig prüfen, ob eine neue App-Version
+        verfügbar ist. Hierfür wird eine Verbindung zu GitHub
+        Releases hergestellt.
+    </p>
+
+    <p>
+        Bei dieser Abfrage werden technische Verbindungsinformationen
+        verarbeitet, die bei einer gewöhnlichen Internetverbindung
+        anfallen können, insbesondere die IP-Adresse und Informationen
+        zur angefragten Ressource.
+    </p>
+
+    <p>
+        Über diese Update-Abfrage werden keine Fotos, Videos,
+        GPS-Koordinaten, SMB-Zugangsdaten oder persönlichen
+        Synchronisationsdaten übertragen.
+    </p>
+
+    <p>
+        Für die Verarbeitung technischer Verbindungsdaten durch
+        GitHub gelten die Datenschutzbestimmungen von GitHub:
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement"
+           target="_blank"
+           rel="noopener noreferrer">
+            GitHub Privacy Statement
+        </a>.
+    </p>
+
+    <h3>9.2 Vom Nutzer veranlasste Datenübertragungen</h3>
+
+    <p>
+        Das Android-Betriebssystem sowie vom Nutzer verwendete
+        E-Mail- und Netzwerkdienste können im Rahmen ihrer eigenen
+        Funktionen zusätzliche technische Daten verarbeiten.
+        Dafür gelten die jeweiligen Datenschutzbestimmungen
+        der Anbieter.
+    </p>
+
+
+    <!-- 10. DATENSICHERHEIT -->
+
+    <h2>10. Datensicherheit</h2>
+
+    <p>
+        LeoSync verwendet die vom Android-Betriebssystem
+        bereitgestellten Sicherheitsmechanismen.
+    </p>
+
+    <p>
+        Insbesondere werden gespeicherte SMB-Passwörter mithilfe
+        des Android Keystore geschützt.
+    </p>
+
+    <p>
+        Die Anwendung ist darauf ausgelegt, unnötige
+        Datenübertragungen zu vermeiden und die Verarbeitung
+        möglichst lokal durchzuführen.
+    </p>
+
+    <p>
+        Die Sicherheit der Dateiübertragung hängt zusätzlich
+        von folgenden Faktoren ab:
+    </p>
+
+    <ul>
+        <li>Sicherheit des lokalen Netzwerks</li>
+        <li>Konfiguration des SMB-Servers</li>
+        <li>Verwendete SMB-Version</li>
+        <li>Aktivierte Authentifizierungs- und Verschlüsselungsmechanismen</li>
+    </ul>
+
+    <p>
+        Nutzer sollten ihre Netzwerkfreigaben angemessen absichern
+        und SMB-Dienste nicht ungeschützt über das öffentliche
+        Internet erreichbar machen.
+    </p>
+
+
+    <!-- 11. SPEICHERUNG UND LÖSCHUNG -->
+
+    <h2>11. Speicherung und Löschung</h2>
+
+    <p>
+        LeoSync betreibt keinen eigenen Cloud-Speicher
+        für Nutzerdaten.
+    </p>
+
+    <p>
+        Dateien werden auf dem Android-Gerät und den vom Nutzer
+        konfigurierten SMB-Speicherorten gespeichert.
+    </p>
+
+    <p>
+        Lokale App-Daten und Einstellungen können über die
+        Android-App-Verwaltung gelöscht werden. Beim Deinstallieren
+        der Anwendung werden die zugehörigen lokalen App-Daten
+        im Rahmen der Android-Systemfunktionen entfernt.
+    </p>
+
+    <p>
+        Bereits auf eine SMB-Freigabe übertragene Dateien werden
+        durch die Deinstallation nicht automatisch gelöscht.
+    </p>
+
+    <p>
+        Diese müssen direkt auf dem jeweiligen Speicher verwaltet
+        werden.
+    </p>
+
+    <p>
+        Diagnoseberichte werden zunächst lokal exportiert.
+        Erst durch den freiwilligen Versand per E-Mail erhält
+        der Entwickler Zugriff auf deren Inhalt.
+    </p>
+
+
+    <!-- 12. RECHTE BETROFFENER PERSONEN -->
+
+    <h2>12. Rechte betroffener Personen</h2>
+
+    <p>
+        Im Rahmen des anwendbaren Datenschutzrechts können
+        betroffene Personen insbesondere folgende Rechte haben:
+    </p>
+
+    <ul>
+        <li>Recht auf Auskunft über verarbeitete personenbezogene Daten</li>
+        <li>Recht auf Berichtigung unrichtiger Daten</li>
+        <li>Recht auf Löschung personenbezogener Daten, sofern die gesetzlichen Voraussetzungen erfüllt sind</li>
+        <li>Recht auf Widerspruch gegen bestimmte Datenverarbeitungen</li>
+    </ul>
+
+    <p>
+        Da LeoSync keine Nutzerdaten automatisch an den Entwickler
+        übermittelt, hat dieser grundsätzlich keinen Zugriff auf
+        die lokal gespeicherten Fotos, Videos, Einstellungen oder
+        Synchronisationsdaten der Nutzer.
+    </p>
+
+    <p>
+        Für Datenschutzanfragen kann der unter Abschnitt 1
+        genannte Kontakt verwendet werden.
+    </p>
+
+    <p>
+        Für Nutzer in der Schweiz ist zusätzlich der
+        Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte
+        (EDÖB) zuständig.
+    </p>
+
+    <p>
+        <a href="https://www.edoeb.admin.ch/"
+           target="_blank"
+           rel="noopener noreferrer">
+            Eidgenössischer Datenschutz- und Öffentlichkeitsbeauftragter (EDÖB)
+        </a>
+    </p>
+
+
+    <!-- 13. ÄNDERUNGEN -->
+
+    <h2>13. Änderungen dieser Datenschutzerklärung</h2>
+
+    <p>
+        Diese Datenschutzerklärung kann angepasst werden,
+        wenn sich die Funktionen von LeoSync, die technische
+        Datenverarbeitung oder die rechtlichen Anforderungen ändern.
+    </p>
+
+    <p>
+        Die jeweils aktuelle Fassung wird auf der offiziellen
+        Website der Marke Leo veröffentlicht.
+    </p>
+
+
+    <!-- 14. KONTAKT -->
+
+    <h2>14. Kontakt</h2>
+
+    <p>
+        Bei Fragen zur Anwendung oder zum Datenschutz:
+    </p>
+
+    <p>
+        <strong>Leo – Independent Software</strong>
+    </p>
+
+    <p>
+        Land: Schweiz
+    </p>
+
+    <p>
+        E-Mail: [Kontakt-E-Mail]
+    </p>
+
+
+    <!-- FOOTER -->
+
+    <footer>
 
         <p>
-            Diese Datenschutzerklärung informiert darüber,
-            welche Daten durch die Android-App LeoSync
-            verarbeitet werden und wie mit diesen Daten
-            umgegangen wird.
+            <strong>LeoSync · Leo – Independent Software</strong>
         </p>
 
-        <p>
-            LeoSync ist eine Anwendung der Marke Leo und wurde
-            mit dem Ziel entwickelt, Fotos und Videos ohne
-            externe Cloud-Dienste zwischen Android-Geräten
-            und eigenen Netzwerkfreigaben zu synchronisieren.
-        </p>
-
-        <h2>1. Verantwortlicher</h2>
-
-        <p>Verantwortlich für die Datenverarbeitung:</p>
-
-        <ul>
-            <li><strong>Entwickler:</strong> [Vor- und Nachname]</li>
-            <li><strong>Land:</strong> Schweiz</li>
-            <li><strong>Kontakt:</strong> [E-Mail-Adresse]</li>
-        </ul>
-
-        <h2>2. Grundsätze der Datenverarbeitung</h2>
-
-        <p>
-            LeoSync wurde nach dem Grundsatz entwickelt,
-            möglichst wenige Daten an externe Stellen
-            zu übertragen.
-        </p>
-
-        <p>
-            Die Verarbeitung von Fotos, Videos, Metadaten
-            und Synchronisationsinformationen erfolgt
-            grundsätzlich lokal auf dem Android-Gerät.
-        </p>
-
-        <p>
-            Dateien werden direkt zwischen dem Android-Gerät
-            und der vom Nutzer konfigurierten
-            SMB-Netzwerkfreigabe übertragen.
-        </p>
-
-        <p>LeoSync verwendet keine:</p>
-
-        <ul>
-            <li>Externen Cloud-Speicherdienste</li>
-            <li>Werbenetzwerke</li>
-            <li>Analytics- oder Tracking-Dienste</li>
-            <li>Externen Synchronisationsdienste</li>
-            <li>Werbe- oder Analyse-SDKs</li>
-        </ul>
-
-        <p>
-            Es findet keine automatische Übermittlung von
-            Nutzungsstatistiken oder persönlichen Daten
-            an den Entwickler statt.
-        </p>
-
-        <h2>3. Fotos und Videos</h2>
-
-        <p>
-            LeoSync benötigt Zugriff auf die vom Nutzer
-            zur Synchronisierung ausgewählten Fotos
-            und Videos.
-        </p>
-
-        <p>
-            Die Dateien werden lokal auf dem Android-Gerät
-            verarbeitet und direkt an die konfigurierte
-            SMB-Netzwerkfreigabe übertragen.
-        </p>
-
-        <p>
-            Es erfolgt keine Übertragung über einen von
-            LeoSync oder dem Entwickler betriebenen
-            Cloud-Dienst.
-        </p>
-
-        <p>
-            Abhängig vom gewählten Synchronisationsmodus
-            können Dateien auch vom SMB-Server auf das
-            Android-Gerät übertragen werden.
-        </p>
-
-        <p>
-            Die Speicherung und Verwaltung der übertragenen
-            Dateien erfolgt auf den vom Nutzer ausgewählten
-            Speicherorten.
-        </p>
-
-        <h2>4. EXIF-Metadaten und Standortinformationen</h2>
-
-        <p>
-            LeoSync kann GPS-Koordinaten aus den
-            EXIF-Metadaten von Fotos auslesen.
-        </p>
-
-        <p>
-            Diese Informationen werden lokal verarbeitet
-            und mit einer integrierten Offline-Datenbank
-            abgeglichen, um beispielsweise das Land zu
-            bestimmen, in dem ein Foto aufgenommen wurde.
-        </p>
-
-        <p>
-            Dafür werden keine externen Geolocation-,
-            Karten- oder Standortdienste kontaktiert.
-        </p>
-
-        <p>
-            GPS-Koordinaten werden nicht automatisch
-            an den Entwickler übertragen.
-        </p>
-
-        <p>
-            Bei der Übertragung von Originalfotos können
-            deren ursprüngliche EXIF-Metadaten Bestandteil
-            der übertragenen Dateien bleiben.
-        </p>
-
-        <h2>5. SMB-Verbindungen und Zugangsdaten</h2>
-
-        <p>
-            Für die Verbindung mit einer SMB-Netzwerkfreigabe
-            benötigt LeoSync die vom Nutzer angegebenen
-            Verbindungsinformationen.
-        </p>
-
-        <p>Dazu gehören gegebenenfalls:</p>
-
-        <ul>
-            <li>Serveradresse</li>
-            <li>Freigabepfad</li>
-            <li>Benutzername</li>
-            <li>Passwort</li>
-            <li>Weitere Verbindungsparameter</li>
-        </ul>
-
-        <p>
-            SMB-Passwörter werden mithilfe des Android
-            Keystore geschützt gespeichert.
-        </p>
-
-        <p>
-            Die Zugangsdaten werden nicht an den Entwickler
-            oder externe Cloud-Dienste übertragen.
-        </p>
-
-        <p>
-            Die Dateiübertragung erfolgt direkt zwischen
-            dem Android-Gerät und dem konfigurierten
-            SMB-Server.
-        </p>
-
-        <p>
-            Die Sicherheit der Verbindung hängt zusätzlich
-            von der Netzwerkkonfiguration und den
-            Sicherheitseinstellungen des jeweiligen
-            SMB-Servers ab.
-        </p>
-
-        <h2>6. Diagnose- und Fehlerberichte</h2>
-
-        <p>
-            LeoSync bietet eine Funktion zum Export
-            technischer Diagnoseberichte.
-        </p>
-
-        <p>
-            Diese Berichte dienen dazu, Fehler zu untersuchen,
-            Kompatibilitätsprobleme zu erkennen und die
-            Stabilität der Anwendung zu verbessern.
-        </p>
-
-        <p>
-            Ein Diagnosebericht kann abhängig von der
-            Implementierung und dem jeweiligen Gerät
-            folgende Informationen enthalten:
-        </p>
-
-        <h3>6.1 Geräte- und Anwendungsinformationen</h3>
-
-        <ul>
-            <li>Gerätehersteller und Gerätemodell</li>
-            <li>Android-Version und SDK-Version</li>
-            <li>App-Version und Build-Informationen</li>
-            <li>Hersteller- und Betriebssystemversion</li>
-        </ul>
-
-        <h3>6.2 Systemstatus und Berechtigungen</h3>
-
-        <ul>
-            <li>Akkustand und Ladezustand</li>
-            <li>Status der Akkuoptimierung</li>
-            <li>Energiespar- und Hintergrundausführungsstatus</li>
-            <li>Status relevanter App-Berechtigungen</li>
-            <li>Verfügbare Ordnerfreigaben</li>
-        </ul>
-
-        <h3>6.3 Netzwerk- und Synchronisationsinformationen</h3>
-
-        <ul>
-            <li>WLAN-Verbindungsstatus</li>
-            <li>Netzwerktyp und Verbindungsstatus</li>
-            <li>Synchronisationseinstellungen</li>
-            <li>Konfigurierte Synchronisationsprofile</li>
-            <li>Technischer Status der SMB-Verbindungen</li>
-            <li>Synchronisationsverlauf und Fehlerzustände</li>
-        </ul>
-
-        <h3>6.4 Technische Protokolle</h3>
-
-        <ul>
-            <li>Hintergrundaufträge und WorkManager-Status</li>
-            <li>Warnungen und Fehlermeldungen</li>
-            <li>Informationen über abgebrochene Prozesse</li>
-            <li>Synchronisationsstatistiken</li>
-            <li>Zeitstempel relevanter Ereignisse</li>
-        </ul>
-
-        <p>
-            Je nach Umfang des Diagnoseberichts können auch
-            technische Angaben wie WLAN-Namen, lokale
-            Serveradressen, Freigabepfade oder Dateinamen
-            enthalten sein.
-        </p>
-
-        <p>
-            <strong>
-                SMB-Passwörter werden nicht absichtlich
-                in Diagnoseberichte aufgenommen.
-            </strong>
-        </p>
-
-        <h3>6.5 Pseudonyme Installationskennung</h3>
-
-        <p>
-            Diagnoseberichte können eine zufällig generierte
-            Installationskennung (UUID) enthalten.
-        </p>
-
-        <p>Diese UUID:</p>
-
-        <ul>
-            <li>Wird lokal auf dem Gerät erzeugt.</li>
-            <li>Wird nicht aus Hardware- oder Gerätekennungen abgeleitet.</li>
-            <li>Enthält keine unmittelbar personenbezogenen Informationen.</li>
-            <li>
-                Dient dazu, mehrere Diagnoseberichte derselben
-                App-Installation einander zuzuordnen.
-            </li>
-        </ul>
-
-        <p>
-            Bei einer Neuinstallation der App wird eine neue
-            Installationskennung erzeugt.
-        </p>
-
-        <p>
-            Die UUID ermöglicht keine direkte Identifizierung
-            einer Person. Da sie jedoch zur Zuordnung mehrerer
-            Berichte verwendet werden kann, ist sie als
-            pseudonyme Kennung zu betrachten.
-        </p>
-
-        <h2>7. Versand von Diagnoseberichten</h2>
-
-        <p>
-            Diagnoseberichte werden nicht automatisch übertragen.
-        </p>
-
-        <p>
-            Der Nutzer entscheidet selbst, ob er einen Bericht
-            exportiert und per E-Mail an den Entwickler sendet.
-        </p>
-
-        <p>
-            Der Versand erfolgt über die vom Nutzer ausgewählte
-            E-Mail-Anwendung beziehungsweise den gewählten
-            E-Mail-Dienst.
-        </p>
-
-        <p>
-            Mit dem Versand können die im Diagnosebericht
-            enthaltenen technischen Informationen an den
-            Entwickler übermittelt werden.
-        </p>
-
-        <p>
-            Vor dem Versand sollte der Nutzer den Bericht prüfen
-            und berücksichtigen, dass technische Angaben
-            Rückschlüsse auf seine Netzwerk- und Geräteumgebung
-            ermöglichen können.
-        </p>
-
-        <p>
-            Für die Verarbeitung der E-Mail gelten zusätzlich
-            die Datenschutzbestimmungen des jeweiligen
-            E-Mail-Anbieters.
-        </p>
-
-        <p>
-            Der Entwickler verwendet freiwillig übermittelte
-            Diagnoseberichte ausschließlich zur Untersuchung
-            technischer Probleme und zur Verbesserung von LeoSync.
-        </p>
-
-        <h2>8. Drittanbieter und externe Dienste</h2>
-
-        <p>
-            LeoSync verwendet keine externen Analytics-,
-            Werbe-, Tracking- oder Cloud-SDKs.
-        </p>
-
-        <p>
-            Es findet keine automatische Weitergabe von
-            Nutzerdaten an Werbe- oder Analyseanbieter statt.
-        </p>
-
-        <p>
-            Daten können das Gerät insbesondere im Rahmen
-            folgender, vom Nutzer veranlasster Aktionen verlassen:
-        </p>
-
-        <ul>
-            <li>
-                Synchronisierung mit der konfigurierten
-                SMB-Netzwerkfreigabe.
-            </li>
-            <li>
-                Freiwilliger Versand eines Diagnoseberichts
-                per E-Mail.
-            </li>
-        </ul>
-
-        <p>
-            Das Android-Betriebssystem sowie vom Nutzer
-            verwendete E-Mail- und Netzwerkdienste können
-            im Rahmen ihrer eigenen Funktionen zusätzliche
-            technische Daten verarbeiten. Dafür gelten die
-            jeweiligen Datenschutzbestimmungen der Anbieter.
-        </p>
-
-        <h2>9. Datensicherheit</h2>
-
-        <p>
-            LeoSync verwendet die vom Android-Betriebssystem
-            bereitgestellten Sicherheitsmechanismen.
-        </p>
-
-        <p>
-            Insbesondere werden gespeicherte SMB-Passwörter
-            mithilfe des Android Keystore geschützt.
-        </p>
-
-        <p>
-            Die Anwendung ist darauf ausgelegt, unnötige
-            Datenübertragungen zu vermeiden und die Verarbeitung
-            möglichst lokal durchzuführen.
-        </p>
-
-        <p>
-            Die Sicherheit der Dateiübertragung hängt
-            zusätzlich von folgenden Faktoren ab:
-        </p>
-
-        <ul>
-            <li>Sicherheit des lokalen Netzwerks</li>
-            <li>Konfiguration des SMB-Servers</li>
-            <li>Verwendete SMB-Version</li>
-            <li>
-                Aktivierte Authentifizierungs- und
-                Verschlüsselungsmechanismen
-            </li>
-        </ul>
-
-        <p>
-            Nutzer sollten ihre Netzwerkfreigaben angemessen
-            absichern und SMB-Dienste nicht ungeschützt über
-            das öffentliche Internet erreichbar machen.
-        </p>
-
-        <h2>10. Speicherung und Löschung</h2>
-
-        <p>
-            LeoSync betreibt keinen eigenen Cloud-Speicher
-            für Nutzerdaten.
-        </p>
-
-        <p>
-            Dateien werden auf dem Android-Gerät und den vom
-            Nutzer konfigurierten SMB-Speicherorten gespeichert.
-        </p>
-
-        <p>
-            Lokale App-Daten und Einstellungen können über
-            die Android-App-Verwaltung gelöscht werden.
-            Beim Deinstallieren der Anwendung werden die
-            zugehörigen lokalen App-Daten im Rahmen der
-            Android-Systemfunktionen entfernt.
-        </p>
-
-        <p>
-            Bereits auf eine SMB-Freigabe übertragene Dateien
-            werden durch die Deinstallation nicht automatisch
-            gelöscht.
-        </p>
-
-        <p>
-            Diese müssen direkt auf dem jeweiligen Speicher
-            verwaltet werden.
-        </p>
-
-        <p>
-            Diagnoseberichte werden zunächst lokal exportiert.
-            Erst durch den freiwilligen Versand per E-Mail
-            erhält der Entwickler Zugriff auf deren Inhalt.
-        </p>
-
-        <h2>11. Rechte betroffener Personen</h2>
-
-        <p>
-            Im Rahmen des anwendbaren Datenschutzrechts
-            können betroffene Personen insbesondere folgende
-            Rechte haben:
-        </p>
-
-        <ul>
-            <li>
-                Recht auf Auskunft über verarbeitete
-                personenbezogene Daten
-            </li>
-            <li>
-                Recht auf Berichtigung unrichtiger Daten
-            </li>
-            <li>
-                Recht auf Löschung personenbezogener Daten,
-                sofern die gesetzlichen Voraussetzungen erfüllt sind
-            </li>
-            <li>
-                Recht auf Widerspruch gegen bestimmte
-                Datenverarbeitungen
-            </li>
-        </ul>
-
-        <p>
-            Da LeoSync keine Nutzerdaten automatisch an den
-            Entwickler übermittelt, hat dieser grundsätzlich
-            keinen Zugriff auf die lokal gespeicherten Fotos,
-            Videos, Einstellungen oder Synchronisationsdaten
-            der Nutzer.
-        </p>
-
-        <p>
-            Für Datenschutzanfragen kann der unter Abschnitt 1
-            genannte Kontakt verwendet werden.
-        </p>
-
-        <p>
-            Für Nutzer in der Schweiz ist zusätzlich der
-            Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte
-            (EDÖB) zuständig.
-        </p>
-
-        <p>
-            <a href="https://www.edoeb.admin.ch/"
+        <div class="footer-links">
+            <a href="./">LeoSync</a>
+            <a href="privacy-en.html">English</a>
+            <a href="https://github.com/Apop85/Sync2PC"
                target="_blank"
                rel="noopener noreferrer">
-                https://www.edoeb.admin.ch/
-            </a>
-        </p>
-
-        <h2>12. Änderungen dieser Datenschutzerklärung</h2>
-
-        <p>
-            Diese Datenschutzerklärung kann angepasst werden,
-            wenn sich die Funktionen von LeoSync, die technische
-            Datenverarbeitung oder die rechtlichen Anforderungen
-            ändern.
-        </p>
-
-        <p>
-            Die jeweils aktuelle Fassung wird auf der offiziellen
-            Website der Marke Leo veröffentlicht.
-        </p>
-
-        <h2>13. Kontakt</h2>
-
-        <p>
-            Bei Fragen zur Anwendung oder zum Datenschutz:
-        </p>
-
-        <p>
-            <strong>Leo – Independent Software</strong>
-        </p>
-
-        <p>Land: Schweiz</p>
-
-        <p>E-Mail: [Kontakt-E-Mail]</p>
-
-    </article>
-
-</main>
-
-<footer class="site-footer">
-
-    <div class="container footer-content">
-
-        <div class="footer-brand">
-            <img src="../images/logo.png" alt="Leo Logo">
-            <span>LeoSync · Leo – Independent Software</span>
-        </div>
-
-        <nav class="footer-links">
-
-            <a href="index.html">LeoSync</a>
-            <a href="privacy-en.html">English</a>
-            <a href="https://github.com/Apop85/Sync2PC">
                 GitHub
             </a>
-
-        </nav>
-
-        <div class="footer-copy">
-            © 2026 Leo – Independent Software
         </div>
 
-    </div>
+        <p>
+            © 2026 Leo – Independent Software
+        </p>
 
-</footer>
+    </footer>
+
+</div>
 
 </body>
 </html>
