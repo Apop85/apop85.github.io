@@ -21,9 +21,11 @@
     <meta property="og:site_name" content="Leo – Independent Software">
 
     <meta property="og:title"
+        id="og-title"
         content="Leo – Unabhängige Software & LeoSync">
 
     <meta property="og:description"
+        id="og-description"
         content="Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.">
 
     <meta property="og:url"
@@ -974,6 +976,8 @@
                     <img
                         src="images/sit.png"
                         alt="Leo – sitzendes Maskottchen von Independent Software"
+                        data-alt-de="Leo – sitzendes Maskottchen von Independent Software"
+                        data-alt-en="Leo – sitting mascot of Independent Software"
                         fetchpriority="high">
                 </picture>
             </div>
@@ -1401,30 +1405,56 @@
         const seoData = {
             de: {
                 title: "Leo – Unabhängige Software & LeoSync",
-                description: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle."
+                description: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.",
+                ogTitle: "Leo – Unabhängige Software & LeoSync",
+                ogDescription: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle."
             },
             en: {
                 title: "Leo – Independent Software & LeoSync",
-                description: "Discover LeoSync: Synchronize photos and files between Android, Windows PCs and NAS devices. No cloud dependency and full control over your data."
+                description: "Discover LeoSync: Synchronize photos and files between Android, Windows PCs and NAS devices. No cloud dependency and full control over your data.",
+                ogTitle: "Leo – Independent Software & LeoSync",
+                ogDescription: "Discover LeoSync: Synchronize photos and files between Android, Windows and NAS devices. No cloud dependency and full control over your data."
             }
         };
 
+        // Update page title
         document.title = seoData[currentLanguage].title;
 
+        // Update meta description
         document.querySelector('meta[name="description"]')
             .setAttribute(
                 "content",
                 seoData[currentLanguage].description
             );
 
+        // Update Open Graph title
+        document.getElementById("og-title")
+            .setAttribute(
+                "content",
+                seoData[currentLanguage].ogTitle
+            );
+
+        // Update Open Graph description
+        document.getElementById("og-description")
+            .setAttribute(
+                "content",
+                seoData[currentLanguage].ogDescription
+            );
+
         // Translate all elements
         document.querySelectorAll("[data-de]").forEach(element => {
+            // ...
+        });
 
-            const translation =
-                element.getAttribute("data-" + currentLanguage);
+        // Translate image descriptions
+        document.querySelectorAll("img[data-alt-de]").forEach(image => {
 
-            if (translation !== null) {
-                element.innerHTML = translation;
+            const altText = image.getAttribute(
+                "data-alt-" + currentLanguage
+            );
+
+            if (altText !== null) {
+                image.alt = altText;
             }
 
         });
