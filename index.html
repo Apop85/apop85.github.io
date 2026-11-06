@@ -826,6 +826,8 @@
                 <img
                     src="images/head.png"
                     alt="Leo – Maskottchen von Independent Software"
+                    data-alt-de="Leo – Maskottchen von Independent Software"
+                    data-alt-en="Leo – mascot of Independent Software"
                     class="loading-mascot">
             </picture>
 
@@ -870,6 +872,8 @@
                     <img
                         src="images/logo.png"
                         alt="Leo – Independent Software"
+                        data-alt-de="Leo – Logo von Independent Software"
+                        data-alt-en="Leo – logo of Independent Software"
                         class="brand-logo">
                 </picture>
 
@@ -1030,7 +1034,9 @@
 
                         <img
                             src="images/logo.png"
-                            alt="LeoSync – Logo der Synchronisationssoftware">
+                            alt="LeoSync – Logo der Synchronisationssoftware"
+                            data-alt-de="LeoSync – Logo der Synchronisationssoftware"
+                            data-alt-en="LeoSync – synchronization software logo">
                     </picture>
                 </div>
 
@@ -1217,6 +1223,8 @@
                         <img
                             src="images/walk.png"
                             alt="Leo – neugierig laufendes Maskottchen von Independent Software"
+                            data-alt-de="Leo – neugierig laufendes Maskottchen von Independent Software"
+                            data-alt-en="Leo – curious walking mascot of Independent Software"
                             loading="lazy">
                     </picture>
                 </div>
@@ -1283,6 +1291,8 @@
                         <img
                             src="images/stand.png"
                             alt="Leo – stehendes Maskottchen im Kontaktbereich"
+                            data-alt-de="Leo – stehendes Maskottchen im Kontaktbereich"
+                            data-alt-en="Leo – standing mascot in the contact section"
                             loading="lazy">
                     </picture>
                 </div>
@@ -1441,9 +1451,29 @@
                 seoData[currentLanguage].ogDescription
             );
 
-        // Translate all elements
+        // Translate all text elements
         document.querySelectorAll("[data-de]").forEach(element => {
-            // ...
+
+            const translation =
+                element.getAttribute("data-" + currentLanguage);
+
+            if (translation !== null) {
+                element.innerHTML = translation;
+            }
+
+        });
+
+        // Translate image descriptions
+        document.querySelectorAll("img[data-alt-de]").forEach(image => {
+
+            const altText = image.getAttribute(
+                "data-alt-" + currentLanguage
+            );
+
+            if (altText !== null) {
+                image.alt = altText;
+            }
+
         });
 
         // Translate image descriptions
