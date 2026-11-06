@@ -5,8 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Leo – Independent Software</title>
-    <meta name="description" content="Leo creates practical software solutions with a focus on privacy, simplicity and user control.">
+    <title>Leo – Unabhängige Software & LeoSync für Android und Windows</title>
+
+    <meta name="description"
+        content="Entdecke LeoSync: Software zur automatischen Synchronisation von Fotos und Dateien zwischen Android, Windows-PC und NAS. Privat, einfach und ohne Cloud-Zwang.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Leo – Independent Software">
+    <link rel="canonical" href="https://apop85.github.io/">
+    <meta name="theme-color" content="#285681">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_CH">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Leo – Independent Software">
+
+    <meta property="og:title"
+        content="Leo – Unabhängige Software & LeoSync">
+
+    <meta property="og:description"
+        content="Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.">
+
+    <meta property="og:url"
+        content="https://apop85.github.io/">
+
+    <meta property="og:image"
+        content="https://apop85.github.io/images/logo.webp">
+
+    <meta property="og:image:alt"
+        content="Leo – Maskottchen und Logo von Independent Software">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title"
+        content="Leo – Independent Software">
+
+    <meta name="twitter:description"
+        content="Praktische Softwarelösungen mit Fokus auf Datenschutz, Einfachheit und Benutzerkontrolle.">
+
+    <meta name="twitter:image"
+        content="https://apop85.github.io/images/logo.webp">
 
     <style>
         /* =====================================================
@@ -783,7 +821,9 @@
                 alt="Leo"
                 class="loading-mascot">
 
-            <div class="loading-title">
+            <div class="loading-title"
+                data-de="Leo lädt ..."
+                data-en="Leo is loading ...">
                 Leo lädt ...
             </div>
 
@@ -791,7 +831,9 @@
                 <div class="loading-progress"></div>
             </div>
 
-            <div class="loading-subtitle">
+            <div class="loading-subtitle"
+                data-de="Einen kleinen Moment bitte"
+                data-en="Just a moment, please">
                 Einen kleinen Moment bitte
             </div>
 
@@ -886,18 +928,19 @@
                 </span>
 
                 <h1
-                    data-de="Software mit Herz und <span>Verstand.</span>"
-                    data-en="Software with heart and <span>purpose.</span>">
-                    Software mit Herz und
-                    <span>Verstand.</span>
+                    data-de="Unabhängige Software für <span>Android und Windows.</span>"
+                    data-en="Independent software for <span>Android and Windows.</span>">
+                    Unabhängige Software für
+                    <span>Android und Windows.</span>
                 </h1>
 
                 <p
-                    data-de="Praktische Softwarelösungen, entwickelt mit Leidenschaft und dem Anspruch, den digitalen Alltag einfacher zu machen."
-                    data-en="Practical software solutions developed with passion and the ambition to make everyday digital life easier.">
-                    Praktische Softwarelösungen, entwickelt
-                    mit Leidenschaft und dem Anspruch,
-                    den digitalen Alltag einfacher zu machen.
+                    data-de="Entdecke LeoSync: eine einfache Software zur automatischen Synchronisation von Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Kontrolle über deine Daten."
+                    data-en="Discover LeoSync: simple software for automatically synchronizing photos and files between Android devices, Windows PCs and NAS systems. No cloud dependency and full control over your data.">
+                    Entdecke LeoSync: eine einfache Software zur automatischen
+                    Synchronisation von Fotos und Dateien zwischen Android,
+                    Windows-PC und NAS. Ohne Cloud-Zwang und mit voller
+                    Kontrolle über deine Daten.
                 </p>
 
                 <a href="#produkte"
@@ -975,15 +1018,19 @@
                         ANDROID · WINDOWS
                     </span>
 
-                    <h3>LeoSync</h3>
+                    <h3
+                        data-de="LeoSync – Fotos und Dateien synchronisieren"
+                        data-en="LeoSync – Photo and file synchronization">
+                        LeoSync – Fotos und Dateien synchronisieren
+                    </h3>
 
                     <p
-                        data-de="Deine Fotos und Dateien automatisch zwischen Android und deinem PC oder NAS synchronisieren. Ohne Cloud-Zwang und mit voller Kontrolle über deine Daten."
-                        data-en="Automatically synchronize your photos and files between Android and your PC or NAS. No cloud dependency and full control over your data.">
-                        Deine Fotos und Dateien automatisch zwischen
-                        Android und deinem PC oder NAS synchronisieren.
-                        Ohne Cloud-Zwang und mit voller Kontrolle
-                        über deine Daten.
+                        data-de="LeoSync synchronisiert Fotos, Bilder und Dateien automatisch zwischen deinem Android-Smartphone und deinem Windows-PC oder NAS. Übertrage und organisiere deine Daten direkt, ohne Cloud-Zwang und mit voller Kontrolle über deine Dateien."
+                        data-en="LeoSync automatically synchronizes photos, images and files between your Android smartphone and your Windows PC or NAS. Transfer and organize your data directly, without cloud dependency and with full control over your files.">
+                        LeoSync synchronisiert Fotos, Bilder und Dateien automatisch
+                        zwischen deinem Android-Smartphone und deinem Windows-PC
+                        oder NAS. Übertrage und organisiere deine Daten direkt,
+                        ohne Cloud-Zwang und mit voller Kontrolle über deine Dateien.
                     </p>
 
 
@@ -1315,10 +1362,30 @@
     function toggleLanguage() {
 
         currentLanguage =
-            currentLanguage === "de" ? "en" : "de";
+        currentLanguage === "de" ? "en" : "de";
 
         // HTML language attribute
         document.documentElement.lang = currentLanguage;
+
+        // SEO metadata
+        const seoData = {
+            de: {
+                title: "Leo – Unabhängige Software & LeoSync",
+                description: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle."
+            },
+            en: {
+                title: "Leo – Independent Software & LeoSync",
+                description: "Discover LeoSync: Synchronize photos and files between Android, Windows PCs and NAS devices. No cloud dependency and full control over your data."
+            }
+        };
+
+        document.title = seoData[currentLanguage].title;
+
+        document.querySelector('meta[name="description"]')
+            .setAttribute(
+                "content",
+                seoData[currentLanguage].description
+            );
 
         // Translate all elements
         document.querySelectorAll("[data-de]").forEach(element => {
