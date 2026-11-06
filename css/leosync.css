@@ -1498,7 +1498,7 @@ section {
     }
 }
 
-.download-splash, .app-preview-image, .mode-card-preview img {
+.download-splash, .app-preview-image img, .mode-card-preview img {
   border: 3px solid black !important;
   border-radius: 18px;
 }
