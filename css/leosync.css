@@ -204,7 +204,7 @@ section {
 .hero {
     position: relative;
     overflow: hidden;
-    padding: 95px 0 105px;
+    padding: 45px 0 105px;
     background:
         radial-gradient(
             circle at 78% 30%,
@@ -1094,7 +1094,7 @@ section {
     }
 
     .hero h1 {
-        font-size: clamp(2.5rem, 12vw, 3.7rem);
+        font-size: clamp(2.5rem, 9vw, 3.7rem);
     }
 
     .hero-visual {
@@ -1253,9 +1253,7 @@ section {
     .feature-icon {
         width: 56px;
         height: 56px;
-
         border-radius: 16px;
-
         margin-bottom: 14px;
     }
 
@@ -1269,6 +1267,13 @@ section {
         height: 54px;
     }
 
+    .section-title h2 {
+        font-size: clamp(1.8rem, 4vw, 2.8rem);
+    }
+
+    h2 {
+        font-size: clamp(1.3rem, 4vw, 2.8rem);
+    }
 }
 
 
