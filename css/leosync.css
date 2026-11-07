@@ -1285,16 +1285,12 @@ section {
     position: fixed;
     inset: 0;
     z-index: 9999;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     background: var(--background, #f5f8fc);
-
     opacity: 1;
     visibility: visible;
-
     transition:
         opacity 0.6s ease,
         visibility 0.6s ease;
@@ -1314,51 +1310,38 @@ section {
 .loading-mascot {
     width: 150px;
     height: 150px;
-
     object-fit: contain;
-
     margin: 0 auto 20px;
-
     animation: leo-bounce 1.8s ease-in-out infinite;
 }
 
 .loading-title {
     color: var(--blue-dark, #285681);
-
     font-size: 1.5rem;
     font-weight: 800;
-
     margin-bottom: 22px;
 }
 
 .loading-bar {
     width: 100%;
     height: 9px;
-
     overflow: hidden;
-
     background: #dce7f1;
     border-radius: 20px;
-
     border: 1px solid #dce7f1;
 }
 
 .loading-progress {
     width: 35%;
     height: 100%;
-
     background: var(--blue, #3972a6);
-
     border-radius: 20px;
-
     animation: loading-progress 1.5s ease-in-out infinite;
 }
 
 .loading-subtitle {
     color: var(--muted, #647b91);
-
     font-size: 0.85rem;
-
     margin-top: 15px;
 }
 
@@ -1531,13 +1514,10 @@ section {
     border: 3px solid #17191D !important;
     border-right: 7px solid #454A52 !important;
     border-bottom: 7px solid #454A52 !important;
-
     border-radius: 20px;
-
     box-shadow:
         0 2px 4px rgba(0, 0, 0, 0.25),
         3px 5px 10px rgba(30, 77, 119, 0.22);
-
     background: #17191D;
 }
 
