@@ -38,12 +38,13 @@
         content="Leo – Maskottchen und Logo von Independent Software">
 
     <!-- Twitter / X -->
-    <meta name="twitter:card" content="summary">
     <meta name="twitter:title"
-        content="Leo – Independent Software">
+        id="twitter-title"
+        content="Leo – Unabhängige Software & LeoSync">
 
     <meta name="twitter:description"
-        content="Praktische Softwarelösungen mit Fokus auf Datenschutz, Einfachheit und Benutzerkontrolle.">
+        id="twitter-description"
+        content="Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.">
 
     <meta name="twitter:image"
         content="https://apop85.github.io/images/logo.webp">
@@ -873,12 +874,12 @@
 
                     <img
                         src="images/logo.png"
-                        alt="Leo – Independent Software"
+                        alt="Leo – Logo von Independent Software"
                         data-alt-de="Leo – Logo von Independent Software"
                         data-alt-en="Leo – logo of Independent Software"
+                        class="brand-logo"
                         width="312"
-                        height="314"
-                        class="brand-logo">
+                        height="314">
                 </picture>
 
                 <span>Leo</span>
@@ -1429,13 +1430,17 @@
                 title: "Leo – Unabhängige Software & LeoSync",
                 description: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.",
                 ogTitle: "Leo – Unabhängige Software & LeoSync",
-                ogDescription: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle."
+                ogDescription: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle.",
+                twitterTitle: "Leo – Unabhängige Software & LeoSync",
+                twitterDescription: "Entdecke LeoSync: Synchronisiere Fotos und Dateien zwischen Android, Windows-PC und NAS. Ohne Cloud-Zwang und mit voller Datenkontrolle."
             },
             en: {
                 title: "Leo – Independent Software & LeoSync",
                 description: "Discover LeoSync: Synchronize photos and files between Android, Windows PCs and NAS devices. No cloud dependency and full control over your data.",
                 ogTitle: "Leo – Independent Software & LeoSync",
-                ogDescription: "Discover LeoSync: Synchronize photos and files between Android, Windows and NAS devices. No cloud dependency and full control over your data."
+                ogDescription: "Discover LeoSync: Synchronize photos and files between Android, Windows and NAS devices. No cloud dependency and full control over your data.",
+                twitterTitle: "Leo – Independent Software & LeoSync",
+                twitterDescription: "Discover LeoSync: Synchronize photos and files between Android, Windows PCs and NAS devices. No cloud dependency and full control over your data."
             }
         };
 
@@ -1463,6 +1468,20 @@
                 seoData[currentLanguage].ogDescription
             );
 
+        // Update Twitter title
+        document.getElementById("twitter-title")
+            .setAttribute(
+                "content",
+                seoData[currentLanguage].twitterTitle
+            );
+
+        // Update Twitter description
+        document.getElementById("twitter-description")
+            .setAttribute(
+                "content",
+                seoData[currentLanguage].twitterDescription
+            );
+
         // Translate all text elements
         document.querySelectorAll("[data-de]").forEach(element => {
 
@@ -1471,19 +1490,6 @@
 
             if (translation !== null) {
                 element.innerHTML = translation;
-            }
-
-        });
-
-        // Translate image descriptions
-        document.querySelectorAll("img[data-alt-de]").forEach(image => {
-
-            const altText = image.getAttribute(
-                "data-alt-" + currentLanguage
-            );
-
-            if (altText !== null) {
-                image.alt = altText;
             }
 
         });
