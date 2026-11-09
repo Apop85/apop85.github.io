@@ -114,6 +114,25 @@
             <li>Die IP-Adresse des PCs findest du mit <code>ipconfig</code> in der Eingabeaufforderung (z. B. <code>192.168.1.20</code>). Am besten richtest du im Router eine feste Adresse für den PC ein.</li>
         </ol>
 
+        <div class="help-shots cols-2">
+            <figure>
+                <picture>
+                    <source srcset="../images/LeoSync/help/Erweiterte_Freigabe.webp" type="image/webp">
+                    <img src="../images/LeoSync/help/Erweiterte_Freigabe.png" width="1729" height="1203" loading="lazy"
+                         alt="Windows-Fenster «Erweiterte Freigabe» mit angehaktem «Diesen Ordner freigeben» und Freigabename">
+                </picture>
+                <figcaption>Schritte 1 und 2: Ordner freigeben und Freigabenamen vergeben</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../images/LeoSync/help/Erweiterte_Freigabe_Berechtigungen.webp" type="image/webp">
+                    <img src="../images/LeoSync/help/Erweiterte_Freigabe_Berechtigungen.png" width="1498" height="1161" loading="lazy"
+                         alt="Freigabeberechtigungen mit erlaubtem «Ändern» und «Lesen» für den Benutzer LeoSyncUser">
+                </picture>
+                <figcaption>Schritt 3: Berechtigungen «Ändern» und «Lesen» erlauben</figcaption>
+            </figure>
+        </div>
+
         <h3 id="lokaler-benutzer">Eigenen lokalen Benutzer für LeoSync anlegen</h3>
 
         <p>Statt deines normalen Windows-Kontos kannst du einen eigenen lokalen Benutzer nur für LeoSync verwenden. So steht dein persönliches Passwort (oder das deines Microsoft-Kontos) nicht in der App, und der Benutzer erhält nur Rechte auf den einen freigegebenen Ordner.</p>
@@ -125,6 +144,35 @@
             <li><strong>Ordner-Berechtigung:</strong> Im selben Eigenschaften-Fenster auf <strong>Sicherheit</strong> → <strong>Bearbeiten</strong> → <strong>Hinzufügen</strong>, den Benutzer eintragen und <strong>Ändern</strong> erlauben. Windows prüft Freigabe- und Ordnerrechte, es gilt jeweils die strengere Einstellung.</li>
             <li><strong>In LeoSync eintragen:</strong> Gib im Profil den neuen Benutzernamen und sein Passwort ein. Das Feld für die Domäne lässt du bei einem lokalen Konto meist leer. Klappt die Anmeldung nicht, versuche <code>PC-NAME\leosync</code> als Benutzer. Den PC-Namen findest du unter <strong>Einstellungen</strong> → <strong>System</strong> → <strong>Info</strong>. Mit <strong>Verbindung testen</strong> prüfst du das Ergebnis.</li>
         </ol>
+
+        <p class="help-shots-note">So sieht Schritt 1 in Windows aus:</p>
+
+        <div class="help-shots cols-3">
+            <figure>
+                <picture>
+                    <source srcset="../images/LeoSync/help/Microsoft_Kenne_Login_nicht.webp" type="image/webp">
+                    <img src="../images/LeoSync/help/Microsoft_Kenne_Login_nicht.png" width="1110" height="1215" loading="lazy"
+                         alt="Windows-Dialog «Wie meldet sich diese Person an?» mit dem Link «Ich kenne die Anmeldeinformationen für diese Person nicht»">
+                </picture>
+                <figcaption>«Ich kenne die Anmeldeinformationen für diese Person nicht» wählen</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../images/LeoSync/help/Microsoft_User_ohne_MS_Konto.webp" type="image/webp">
+                    <img src="../images/LeoSync/help/Microsoft_User_ohne_MS_Konto.png" width="1115" height="850" loading="lazy"
+                         alt="Windows-Dialog «Konto erstellen» mit dem Link «Benutzer ohne Microsoft-Konto hinzufügen»">
+                </picture>
+                <figcaption>«Benutzer ohne Microsoft-Konto hinzufügen» wählen</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../images/LeoSync/help/Microsoft_Lokaler_User_erstellen.webp" type="image/webp">
+                    <img src="../images/LeoSync/help/Microsoft_Lokaler_User_erstellen.png" width="1630" height="1500" loading="lazy"
+                         alt="Windows-Dialog «Benutzer für diesen PC erstellen» mit Benutzername LeoSyncUser und Passwort">
+                </picture>
+                <figcaption>Benutzername und Passwort vergeben</figcaption>
+            </figure>
+        </div>
 
         <h2 id="profil-anlegen">2. In LeoSync: Profil anlegen</h2>
 
@@ -139,6 +187,45 @@
 
         <p>Neue Profile starten erst, wenn du einmal <strong>Synchronisieren</strong> tippst. Du kannst vorher <strong>simulieren</strong>, was passieren würde.</p>
 
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/new_profile_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/new_profile_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Neues Profil»: Auswahl zwischen «Fotos &amp; Videos sichern» und «Ordner synchronisieren»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Profiltyp wählen</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/profile_connection_test_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/profile_connection_test_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Profil bearbeiten» mit Freigabe-Pfad, Benutzer, «Ordner auf dem PC wählen…» und erfolgreichem Verbindungstest">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Ziel eintragen und Verbindung testen</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/profiles_tools_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/profiles_tools_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite mit zwei angelegten Profilen und den Tools «Speicher freigeben» und «Papierkorb»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Fertige Profile mit den Tools</figcaption>
+            </figure>
+        </div>
+
         <h2 id="alltag">3. Im Alltag</h2>
 
         <ul>
@@ -148,24 +235,111 @@
             <li><strong>Der Hund</strong> zeigt den Zustand: schläft = alles gesichert, läuft = Synchronisierung läuft, steht = wartet auf deine Entscheidung, sitzt = wartet (z. B. auf das WLAN).</li>
         </ul>
 
-        <div class="help-figure">
-            <picture>
-                <source srcset="../images/sleep.webp" type="image/webp">
-                <img src="../images/sleep.png" alt="Leo schläft: alles ist gesichert" width="330" height="280" loading="lazy">
-            </picture>
-            <p><strong>Leo schläft?</strong> Dann ist alles gesichert und du musst nichts tun.</p>
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/not_synced_yet_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/not_synced_yet_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite: Leo sitzt, «Noch keine Synchronisierung durchgeführt» mit Schaltfläche «Synchronisieren»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo sitzt: wartet auf die erste Synchronisierung</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/syncing_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/syncing_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite: Leo läuft, die Synchronisierung ist im Gang">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo läuft: Synchronisierung läuft</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/all_synced_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/all_synced_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite: Leo schläft, alles ist synchronisiert">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo schläft: alles gesichert</figcaption>
+            </figure>
         </div>
 
         <h2 id="sicherheit">4. Sicherheit deiner Dateien</h2>
 
         <ul>
             <li><strong>Prüfung nach dem Hochladen:</strong> LeoSync liest die Datei auf dem PC zurück und vergleicht sie mit dem Original. Die Stufen reichen von <em>Aus</em> bis <em>Komplett</em>, Standard ist <em>Mittel</em>. Wer Fotos vom Handy entfernen lässt, prüft immer.</li>
-            <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>.LeoSync-Bin</code> (auf Handy und PC) und lassen sich über <strong>Tools → Papierkorb</strong> zurückholen. Nach 30 Tagen (einstellbar) wird er geleert.</li>
-            <li><strong>Schutzbremse:</strong> Würden auf einmal viele Dateien gelöscht (Standard: mehr als 20 %) oder fehlt ein ganzer Ordner, hält LeoSync an und fragt dich zuerst.</li>
+            <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>.LeoSync-Bin</code> (auf Handy und PC) und lassen sich über <strong>Tools → Papierkorb</strong> zurückholen: Profil wählen, Einträge markieren und <strong>Wiederherstellen</strong> tippen (oder <strong>Endgültig löschen</strong>). Nach 30 Tagen (einstellbar) wird er geleert. Fotos-Profile haben keinen eigenen Papierkorb: Entfernte Fotos liegen im Papierkorb der Galerie.</li>
+            <li><strong>Schutzbremse:</strong> Würden auf einmal viele Dateien gelöscht (Standard: mehr als 20 %) oder fehlt ein ganzer Ordner, hält LeoSync an und fragt dich zuerst. Du entscheidest dann zwischen <strong>Nicht löschen</strong> und <strong>Trotzdem in den Papierkorb</strong>; bis dahin ruht das Profil.</li>
             <li><strong>Konflikte:</strong> Wurde dieselbe Datei auf Handy und PC geändert, entscheidest du, welche Version gilt. Die andere kommt in den Papierkorb.</li>
         </ul>
 
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/papierkorb_profilwahl_bright_de.webp" type="image/webp">
+                        <img src="../images/LeoSync/papierkorb_profilwahl_bright_de.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Papierkorb»: Auswahl, welcher Papierkorb geöffnet werden soll">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Tools → Papierkorb: Profil wählen</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/papierkorb_wiederherstellung_bright_de.webp" type="image/webp">
+                        <img src="../images/LeoSync/papierkorb_wiederherstellung_bright_de.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Papierkorb mit einer markierten gelöschten Datei und den Schaltflächen «Wiederherstellen» und «Endgültig löschen»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Dateien markieren und wiederherstellen</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/schutzbremse_bright_de.webp" type="image/webp">
+                        <img src="../images/LeoSync/schutzbremse_bright_de.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite mit der Warnung «Viele Dateien würden gelöscht» und den Schaltflächen «Nicht löschen» und «Trotzdem in den Papierkorb»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Schutzbremse: LeoSync fragt, bevor viele Dateien gelöscht werden</figcaption>
+            </figure>
+        </div>
+
         <h2 id="meldungen">5. Häufige Meldungen</h2>
+
+        <p>So erscheint eine Meldung beim <strong>Verbindung testen</strong> (hier: Benutzer oder Passwort stimmt nicht):</p>
+
+        <div class="help-phones single">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/verbindungsfehler_bright_de.webp" type="image/webp">
+                        <img src="../images/LeoSync/verbindungsfehler_bright_de.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Profil bearbeiten» mit der Fehlermeldung «Benutzer oder Passwort stimmt nicht» nach dem Verbindungstest">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Fehlermeldung nach «Verbindung testen»</figcaption>
+            </figure>
+        </div>
 
         <div class="help-table-wrap">
             <table class="help-table">
@@ -206,7 +380,22 @@
 
         <h2 id="hintergrund">6. Synchronisierung bricht im Hintergrund ab</h2>
 
-        <p>Viele Hersteller beenden Apps im Hintergrund sehr streng. In LeoSync unter <strong>Einstellungen → App-Berechtigungen</strong> stehen die nötigen Schritte für dein Gerät (Akku-Optimierung aus, Hintergrundaktivität erlauben). Mehr dazu: <a href="https://dontkillmyapp.com" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a>.</p>
+        <p>Viele Hersteller beenden Apps im Hintergrund sehr streng. In LeoSync unter <strong>Einstellungen → App-Berechtigungen</strong> siehst du, welche Berechtigungen LeoSync für die automatische Synchronisierung im Hintergrund braucht und welche schon erledigt sind: Zugriff auf Fotos und Videos, Benachrichtigungen, Standort (Android braucht ihn, um den WLAN-Namen zu lesen) und Akku-Optimierung deaktivieren. Mehr dazu: <a href="https://dontkillmyapp.com" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a>.</p>
+
+        <div class="help-phones single">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/app_berechtigungen_bright_de.webp" type="image/webp">
+                        <img src="../images/LeoSync/app_berechtigungen_bright_de.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «App-Berechtigungen» mit der Liste der Berechtigungen für die Synchronisierung im Hintergrund">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Einstellungen → App-Berechtigungen</figcaption>
+            </figure>
+        </div>
 
         <h2 id="datenschutz">7. Datenschutz</h2>
 
@@ -259,5 +448,6 @@
 
 </footer>
 
+<script src="../js/leosync.js" defer></script>
 </body>
 </html>

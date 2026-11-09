@@ -114,6 +114,25 @@
             <li>Find the PC's IP address with <code>ipconfig</code> in the command prompt (e.g. <code>192.168.1.20</code>). Ideally, give the PC a fixed address in your router.</li>
         </ol>
 
+        <div class="help-shots cols-2">
+            <figure>
+                <picture>
+                    <source srcset="../../images/LeoSync/help/Erweiterte_Freigabe.webp" type="image/webp">
+                    <img src="../../images/LeoSync/help/Erweiterte_Freigabe.png" width="1729" height="1203" loading="lazy"
+                         alt="Windows «Advanced Sharing» dialog with «Share this folder» ticked and a share name">
+                </picture>
+                <figcaption>Steps 1 and 2: share the folder and set a share name (Windows dialogs shown in German)</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../../images/LeoSync/help/Erweiterte_Freigabe_Berechtigungen.webp" type="image/webp">
+                    <img src="../../images/LeoSync/help/Erweiterte_Freigabe_Berechtigungen.png" width="1498" height="1161" loading="lazy"
+                         alt="Share permissions with «Change» and «Read» allowed for the user LeoSyncUser">
+                </picture>
+                <figcaption>Step 3: allow «Change» and «Read»</figcaption>
+            </figure>
+        </div>
+
         <h3 id="local-user">Create a dedicated local user for LeoSync</h3>
 
         <p>Instead of your normal Windows account, you can use a dedicated local user just for LeoSync. That way, your personal password (or your Microsoft account password) is not stored in the app, and the user only gets rights to the one shared folder.</p>
@@ -125,6 +144,35 @@
             <li><strong>Folder permission:</strong> In the same Properties window, go to <strong>Security</strong> → <strong>Edit</strong> → <strong>Add</strong>, enter the user and allow <strong>Modify</strong>. Windows checks both share and folder permissions, and the stricter setting applies.</li>
             <li><strong>Enter it in LeoSync:</strong> In the profile, enter the new user name and its password. For a local account, you usually leave the domain field empty. If the sign-in does not work, try <code>PC-NAME\leosync</code> as the user. You find the PC name under <strong>Settings</strong> → <strong>System</strong> → <strong>About</strong>. Use <strong>Test connection</strong> to check the result.</li>
         </ol>
+
+        <p class="help-shots-note">This is what step 1 looks like in Windows (shown in German):</p>
+
+        <div class="help-shots cols-3">
+            <figure>
+                <picture>
+                    <source srcset="../../images/LeoSync/help/Microsoft_Kenne_Login_nicht.webp" type="image/webp">
+                    <img src="../../images/LeoSync/help/Microsoft_Kenne_Login_nicht.png" width="1110" height="1215" loading="lazy"
+                         alt="Windows dialog «How does this person sign in?» with the link «I don't have this person's sign-in information»">
+                </picture>
+                <figcaption>Choose «I don't have this person's sign-in information»</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../../images/LeoSync/help/Microsoft_User_ohne_MS_Konto.webp" type="image/webp">
+                    <img src="../../images/LeoSync/help/Microsoft_User_ohne_MS_Konto.png" width="1115" height="850" loading="lazy"
+                         alt="Windows «Create account» dialog with the link «Add a user without a Microsoft account»">
+                </picture>
+                <figcaption>Choose «Add a user without a Microsoft account»</figcaption>
+            </figure>
+            <figure>
+                <picture>
+                    <source srcset="../../images/LeoSync/help/Microsoft_Lokaler_User_erstellen.webp" type="image/webp">
+                    <img src="../../images/LeoSync/help/Microsoft_Lokaler_User_erstellen.png" width="1630" height="1500" loading="lazy"
+                         alt="Windows «Create a user for this PC» dialog with the user name LeoSyncUser and a password">
+                </picture>
+                <figcaption>Enter a user name and password</figcaption>
+            </figure>
+        </div>
 
         <h2 id="create-profile">2. In LeoSync: create a profile</h2>
 
@@ -139,6 +187,45 @@
 
         <p>New profiles only start after you tap <strong>Sync</strong> once. You can <strong>simulate</strong> first what would happen.</p>
 
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/new_profile_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/new_profile_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «New profile»: choose between «Back up photos &amp; videos» and «Sync folder»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Choose the profile type</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/profile_connection_test_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/profile_connection_test_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Edit profile» with share path, user, «Choose folder on the PC…» and a successful connection test">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Enter the target and test the connection</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/profiles_tools_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/profiles_tools_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync home screen with two profiles and the tools «Free up storage» and «Trash»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Finished profiles with the tools</figcaption>
+            </figure>
+        </div>
+
         <h2 id="day-to-day">3. Day to day</h2>
 
         <ul>
@@ -148,24 +235,111 @@
             <li><strong>The dog</strong> shows the state: sleeping = everything backed up, running = sync in progress, standing = waiting for your decision, sitting = waiting (e.g. for Wi-Fi).</li>
         </ul>
 
-        <div class="help-figure">
-            <picture>
-                <source srcset="../../images/sleep.webp" type="image/webp">
-                <img src="../../images/sleep.png" alt="Leo is sleeping: everything is backed up" width="330" height="280" loading="lazy">
-            </picture>
-            <p><strong>Leo is sleeping?</strong> Then everything is backed up and there is nothing for you to do.</p>
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/not_synced_yet_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/not_synced_yet_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync home screen: Leo is sitting, no sync has run yet, with a «Sync» button">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo sits: waiting for the first sync</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/syncing_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/syncing_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync home screen: Leo is running, a sync is in progress">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo runs: sync in progress</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/all_synced_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/all_synced_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync home screen: Leo is sleeping, everything is synced">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo sleeps: everything is backed up</figcaption>
+            </figure>
         </div>
 
         <h2 id="safety">4. Keeping your files safe</h2>
 
         <ul>
             <li><strong>Check after upload:</strong> LeoSync reads the file back from the PC and compares it with the original. The levels range from <em>Off</em> to <em>Complete</em>; the default is <em>Medium</em>. If photos are removed from the mobile, a check is always done.</li>
-            <li><strong>Trash:</strong> For folder profiles, deleted and overwritten files go to the <code>.LeoSync-Bin</code> folder (on mobile and PC) and can be restored via <strong>Tools → Trash</strong>. It is emptied after 30 days (adjustable).</li>
-            <li><strong>Safety brake:</strong> If many files would be deleted at once (default: more than 20 %) or a whole folder is missing, LeoSync stops and asks you first.</li>
+            <li><strong>Trash:</strong> For folder profiles, deleted and overwritten files go to the <code>.LeoSync-Bin</code> folder (on mobile and PC) and can be restored via <strong>Tools → Trash</strong>: choose the profile, select entries and tap <strong>Restore</strong> (or <strong>Delete permanently</strong>). It is emptied after 30 days (adjustable). Photo profiles have no trash of their own: removed photos are in the gallery trash.</li>
+            <li><strong>Safety brake:</strong> If many files would be deleted at once (default: more than 20 %) or a whole folder is missing, LeoSync stops and asks you first. You then choose between <strong>Don't delete</strong> and <strong>Move to trash anyway</strong>; until then the profile rests.</li>
             <li><strong>Conflicts:</strong> If the same file was changed on mobile and PC, you decide which version wins. The other one goes to the trash.</li>
         </ul>
 
+        <div class="help-phones">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/papierkorb_profilwahl_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/papierkorb_profilwahl_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Trash»: choose which trash to open">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Tools → Trash: choose a profile</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/papierkorb_wiederherstellung_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/papierkorb_wiederherstellung_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync trash with one deleted file selected and the buttons «Restore» and «Delete permanently»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Select files and restore them</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/schutzbremse_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/schutzbremse_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync home screen with the warning «Many files would be deleted» and the buttons «Don't delete» and «Move to trash anyway»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Safety brake: LeoSync asks before many files are deleted</figcaption>
+            </figure>
+        </div>
+
         <h2 id="messages">5. Common messages</h2>
+
+        <p>This is how a message looks after <strong>Test connection</strong> (here: user name or password is wrong):</p>
+
+        <div class="help-phones single">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/verbindungsfehler_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/verbindungsfehler_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Edit profile» with the error «User name or password is wrong» after the connection test">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Error message after «Test connection»</figcaption>
+            </figure>
+        </div>
 
         <div class="help-table-wrap">
             <table class="help-table">
@@ -206,7 +380,22 @@
 
         <h2 id="background">6. Sync stops in the background</h2>
 
-        <p>Many manufacturers close apps in the background very aggressively. In LeoSync under <strong>Settings → App permissions</strong>, you find the steps for your device (battery optimization off, allow background activity). More: <a href="https://dontkillmyapp.com" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a>.</p>
+        <p>Many manufacturers close apps in the background very aggressively. In LeoSync under <strong>Settings → App permissions</strong>, you can see which permissions LeoSync needs for automatic background sync and which are already done: access to photos and videos, notifications, location (Android needs it to read the Wi-Fi name) and disabling battery optimization. More: <a href="https://dontkillmyapp.com" target="_blank" rel="noopener noreferrer">dontkillmyapp.com</a>.</p>
+
+        <div class="help-phones single">
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../../images/LeoSync/app_berechtigungen_bright_en.webp" type="image/webp">
+                        <img src="../../images/LeoSync/app_berechtigungen_bright_en.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «App permissions» with the list of permissions needed for background sync">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Settings → App permissions</figcaption>
+            </figure>
+        </div>
 
         <h2 id="privacy">7. Privacy</h2>
 
@@ -259,5 +448,6 @@
 
 </footer>
 
+<script src="../../js/leosync.js" defer></script>
 </body>
 </html>
