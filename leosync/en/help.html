@@ -185,6 +185,10 @@
 
         <p>The wizard guides you step by step through name, source, target and options. For the target, the PC is enough (<code>\\192.168.1.20</code>) plus user and password; <strong>Choose folder on the PC…</strong> then lists the shares and folders. <strong>Test connection</strong> shows right away whether everything is correct.</p>
 
+        <p>For photo profiles you choose the <strong>folder structure</strong>: <code>Year\Month - Country</code> (default), <code>Year\Country\Month</code> or <code>Year\Month\Country</code>. It can be changed until the profile's first sync. Several photo profiles with the same target must use the same structure.</p>
+
+        <p>Under <strong>PC ID</strong> you decide per profile how LeoSync recognises your PC: <em>Wi-Fi name only</em> (default for existing profiles), <em>PC ID only</em> or <em>Both</em>. The ID is checked before the user name and password are sent. After a change, confirm it with <strong>Test connection</strong>. The ID changes after a fresh Windows installation; then open the profile and tap <strong>Test connection</strong> again. On some NAS devices (Samba) the ID may not be stable; use <em>Wi-Fi name only</em> there.</p>
+
         <p>New profiles only start after you tap <strong>Sync</strong> once. You can <strong>simulate</strong> first what would happen.</p>
 
         <div class="help-phones">
@@ -230,6 +234,7 @@
 
         <ul>
             <li><strong>Automatic:</strong> As soon as the mobile is connected to one of the entered Wi-Fi networks, LeoSync syncs in the background. Without a Wi-Fi name, it syncs only when you trigger it.</li>
+            <li><strong>Mobile data/VPN:</strong> Under <strong>Settings → Transfer</strong> you can allow automatic sync outside Wi-Fi as well (off by default). This can use data and, with some mobile plans, cost money, for example abroad. If the PC is not reachable, LeoSync only retries every 2 hours outside Wi-Fi.</li>
             <li><strong>Manual:</strong> Tap <strong>Sync</strong> or pull down at the very top of the home screen.</li>
             <li><strong>Pause:</strong> ⏸ at the top right – for a while or "forever" (manual only). ▶ resumes.</li>
             <li><strong>The dog</strong> shows the state: sleeping = everything backed up, running = sync in progress, standing = waiting for your decision, sitting = waiting (e.g. for Wi-Fi).</li>
@@ -281,6 +286,7 @@
             <li><strong>Trash:</strong> For folder profiles, deleted and overwritten files go to the <code>.LeoSync-Bin</code> folder (on mobile and PC) and can be restored via <strong>Tools → Trash</strong>: choose the profile, select entries and tap <strong>Restore</strong> (or <strong>Delete permanently</strong>). It is emptied after 30 days (adjustable). Photo profiles have no trash of their own: removed photos are in the gallery trash.</li>
             <li><strong>Safety brake:</strong> If many files would be deleted at once (default: more than 20 %) or a whole folder is missing, LeoSync stops and asks you first. You then choose between <strong>Don't delete</strong> and <strong>Move to trash anyway</strong>; until then the profile rests.</li>
             <li><strong>Conflicts:</strong> If the same file was changed on mobile and PC, you decide which version wins. The other one goes to the trash.</li>
+            <li><strong>PC ID:</strong> When enabled, LeoSync sends the user name and password only to a recognised PC. With an unknown PC, the app does not sign in and skips the profile. The ID is not secret: it protects against an unknown server on a foreign network, not against a targeted attack.</li>
         </ul>
 
         <div class="help-phones">
@@ -365,6 +371,10 @@
                     <tr>
                         <td>The PC is not reachable</td>
                         <td>Is the PC switched on (not asleep)? Is the mobile on the same Wi-Fi? Does the firewall allow "File and Printer Sharing"?</td>
+                    </tr>
+                    <tr>
+                        <td>The PC is not recognised yet / PC unknown</td>
+                        <td>No sign-in data was sent. On your own Wi-Fi, open the profile and tap <strong>Test connection</strong>. If the PC provides no ID (e.g. some NAS devices), set the PC ID to <em>Wi-Fi name only</em>.</td>
                     </tr>
                     <tr>
                         <td>The PC name was not found</td>

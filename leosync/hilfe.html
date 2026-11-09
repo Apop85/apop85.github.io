@@ -185,6 +185,10 @@
 
         <p>Der Assistent führt Schritt für Schritt durch Name, Quelle, Ziel und Optionen. Beim Ziel genügt der PC (<code>\\192.168.1.20</code>) mit Benutzer und Passwort; <strong>Ordner auf dem PC wählen…</strong> zeigt dann die Freigaben und Ordner zur Auswahl. Mit <strong>Verbindung testen</strong> siehst du sofort, ob alles stimmt.</p>
 
+        <p>Bei Fotos-Profilen wählst du die <strong>Ordnerstruktur</strong>: <code>Jahr\Monat - Land</code> (Standard), <code>Jahr\Land\Monat</code> oder <code>Jahr\Monat\Land</code>. Sie lässt sich bis zur ersten Synchronisierung des Profils ändern. Mehrere Fotos-Profile mit demselben Ziel müssen dieselbe Struktur verwenden.</p>
+
+        <p>Unter <strong>PC-Kennung</strong> legst du pro Profil fest, woran LeoSync deinen PC erkennt: <em>Nur WLAN-Name</em> (Standard für bestehende Profile), <em>Nur PC-Kennung</em> oder <em>Beides</em>. Die Kennung wird geprüft, bevor Benutzername und Passwort gesendet werden. Nach einer Änderung bestätigst du sie mit <strong>Verbindung testen</strong>. Nach einer Neuinstallation von Windows ändert sich die Kennung; dann das Profil öffnen und erneut <strong>Verbindung testen</strong> tippen. Bei manchen NAS-Geräten (Samba) ist die Kennung möglicherweise nicht stabil; dort <em>Nur WLAN-Name</em> verwenden.</p>
+
         <p>Neue Profile starten erst, wenn du einmal <strong>Synchronisieren</strong> tippst. Du kannst vorher <strong>simulieren</strong>, was passieren würde.</p>
 
         <div class="help-phones">
@@ -230,6 +234,7 @@
 
         <ul>
             <li><strong>Automatisch:</strong> Sobald das Handy mit einem eingetragenen WLAN verbunden ist, synchronisiert LeoSync im Hintergrund. Ohne WLAN-Namen nur, wenn du es auslöst.</li>
+            <li><strong>Mobile Daten/VPN:</strong> Unter <strong>Einstellungen → Übertragung</strong> kannst du die Automatik auch ausserhalb des WLAN zulassen (standardmässig aus). Das kann Datenverbrauch und bei manchen Mobilfunkabos Kosten verursachen, etwa im Ausland. Ist der PC nicht erreichbar, prüft LeoSync ausserhalb des WLAN nur alle 2 Stunden erneut.</li>
             <li><strong>Von Hand:</strong> <strong>Synchronisieren</strong> tippen oder auf der Startseite ganz oben nach unten ziehen.</li>
             <li><strong>Pausieren:</strong> ⏸ oben rechts – für eine Zeit oder «für immer» (nur noch von Hand). ▶ setzt fort.</li>
             <li><strong>Der Hund</strong> zeigt den Zustand: schläft = alles gesichert, läuft = Synchronisierung läuft, steht = wartet auf deine Entscheidung, sitzt = wartet (z. B. auf das WLAN).</li>
@@ -281,6 +286,7 @@
             <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>.LeoSync-Bin</code> (auf Handy und PC) und lassen sich über <strong>Tools → Papierkorb</strong> zurückholen: Profil wählen, Einträge markieren und <strong>Wiederherstellen</strong> tippen (oder <strong>Endgültig löschen</strong>). Nach 30 Tagen (einstellbar) wird er geleert. Fotos-Profile haben keinen eigenen Papierkorb: Entfernte Fotos liegen im Papierkorb der Galerie.</li>
             <li><strong>Schutzbremse:</strong> Würden auf einmal viele Dateien gelöscht (Standard: mehr als 20 %) oder fehlt ein ganzer Ordner, hält LeoSync an und fragt dich zuerst. Du entscheidest dann zwischen <strong>Nicht löschen</strong> und <strong>Trotzdem in den Papierkorb</strong>; bis dahin ruht das Profil.</li>
             <li><strong>Konflikte:</strong> Wurde dieselbe Datei auf Handy und PC geändert, entscheidest du, welche Version gilt. Die andere kommt in den Papierkorb.</li>
+            <li><strong>PC-Kennung:</strong> Ist sie aktiviert, sendet LeoSync Benutzername und Passwort nur an einen erkannten PC. Bei einem unbekannten PC meldet sich die App nicht an und überspringt das Profil. Die Kennung ist nicht geheim: Sie schützt vor einem fremden Server in einem fremden Netz, nicht vor einem gezielten Angriff.</li>
         </ul>
 
         <div class="help-phones">
@@ -365,6 +371,10 @@
                     <tr>
                         <td>Der PC ist nicht erreichbar</td>
                         <td>PC eingeschaltet (nicht im Ruhezustand)? Handy im selben WLAN? Firewall erlaubt «Datei- und Druckerfreigabe»?</td>
+                    </tr>
+                    <tr>
+                        <td>Der PC ist noch nicht erkannt / PC unbekannt</td>
+                        <td>Es wurden keine Anmeldedaten gesendet. Im eigenen WLAN das Profil öffnen und <strong>Verbindung testen</strong> tippen. Liefert der PC keine Kennung (z. B. manche NAS), die PC-Kennung auf <em>Nur WLAN-Name</em> stellen.</td>
                     </tr>
                     <tr>
                         <td>Der PC-Name wurde nicht gefunden</td>
