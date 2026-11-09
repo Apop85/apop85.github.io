@@ -1,2 +1,4 @@
 images/frames/*
 *.txt
+!robots.txt
+.claude/

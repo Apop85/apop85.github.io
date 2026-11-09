@@ -148,9 +148,18 @@ section {
     cursor: pointer;
 }
 
-.language-button:hover {
+.nav-links a.language-button {
+    color: var(--blue-dark);
+    font-size: .91rem;
+    font-weight: 750;
+    line-height: 1.2;
+}
+
+.language-button:hover,
+.nav-links a.language-button:hover {
     border-color: var(--blue);
     background: var(--blue-pale);
+    color: var(--blue-dark);
 }
 
 /* =========================================================
@@ -996,11 +1005,197 @@ section {
     overflow-wrap: anywhere;
 }
 
+.privacy-content code {
+    padding: 1px 6px;
+    border-radius: 6px;
+    background: var(--blue-pale);
+    color: var(--blue-dark);
+    font-size: .92em;
+    overflow-wrap: anywhere;
+}
+
+.help-toc {
+    margin: 22px 0 6px;
+    padding: 16px 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--blue-pale);
+}
+
+.help-toc ol {
+    margin: 0;
+    padding-left: 22px;
+}
+
+.help-toc li {
+    margin-bottom: 4px;
+}
+
+.privacy-content h2[id] {
+    scroll-margin-top: 20px;
+}
+
+.help-table-wrap {
+    overflow-x: auto;
+}
+
+.help-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .96rem;
+}
+
+.help-table th,
+.help-table td {
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+}
+
+.help-table th {
+    background: var(--blue-pale);
+    color: var(--blue-dark);
+}
+
 .privacy-back {
     display: inline-block;
     margin-bottom: 20px;
     color: var(--blue);
     font-weight: 700;
+}
+
+/* =========================================================
+   HELP PAGES (same look as landing page)
+   ========================================================= */
+
+.nav-links a[aria-current="page"] {
+    color: var(--blue);
+    box-shadow: 0 2px 0 var(--blue);
+}
+
+.help-hero {
+    padding: 40px 0 55px;
+}
+
+.help-hero .hero-content {
+    grid-template-columns: 1.4fr .6fr;
+    gap: 40px;
+}
+
+.help-hero h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+}
+
+.help-hero .hero-description {
+    margin-bottom: 0;
+}
+
+.help-hero .hero-visual {
+    min-height: 220px;
+}
+
+.help-hero .hero-dog {
+    width: min(100%, 230px);
+    max-height: 230px;
+}
+
+.help-hero .hero-decoration {
+    width: 230px;
+    height: 230px;
+}
+
+.help-page .privacy-content {
+    margin-top: -30px;
+    position: relative;
+    z-index: 3;
+}
+
+.help-page .help-toc {
+    background: var(--blue-pale);
+    border-radius: var(--radius);
+    padding: 20px 26px;
+}
+
+.help-page .help-toc a {
+    text-decoration: none;
+    font-weight: 650;
+}
+
+.help-page .help-toc a:hover {
+    text-decoration: underline;
+}
+
+.help-page .privacy-content h2[id] {
+    scroll-margin-top: 100px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 1.6rem;
+    letter-spacing: -.02em;
+}
+
+.help-page .privacy-content h3[id] {
+    scroll-margin-top: 100px;
+}
+
+.help-page .privacy-content ol > li::marker {
+    color: var(--blue);
+    font-weight: 800;
+}
+
+.help-figure {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 24px;
+    margin: 22px 0;
+    padding: 20px 26px;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    background: var(--cream);
+}
+
+.help-figure img {
+    width: 130px;
+    max-height: 140px;
+    object-fit: contain;
+}
+
+.help-figure p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.help-page .help-table th {
+    background: var(--blue-light);
+}
+
+.help-page .help-table tbody tr:nth-child(even) td {
+    background: var(--blue-pale);
+}
+
+@media (max-width: 680px) {
+    .help-hero .hero-content {
+        grid-template-columns: 1fr;
+    }
+
+    .help-hero .hero-visual {
+        display: none;
+    }
+
+    .help-page .privacy-content {
+        padding: 26px 20px;
+    }
+
+    .help-figure {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .help-figure img {
+        margin-inline: auto;
+    }
 }
 
 /* =========================================================
@@ -1079,7 +1274,8 @@ section {
         font-size: .79rem;
     }
 
-    .language-button {
+    .language-button,
+    .nav-links a.language-button {
         padding: 6px 10px;
         font-size: .8rem;
     }
