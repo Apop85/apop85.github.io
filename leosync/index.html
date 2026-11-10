@@ -7,16 +7,16 @@
 
         <meta name="theme-color" content="#3972a6">
 
-        <meta name="description" content="LeoSync: Android Foto-Backup auf PC und NAS. Sichere Fotos und Videos automatisch und synchronisiere Ordner direkt über SMB – ohne externe Cloud.">
+        <meta name="description" content="Sichere Android-Fotos und Videos automatisch auf deinem PC oder NAS. Mit LeoSync per SMB, ohne Cloud und mit voller Kontrolle über deine Daten.">
 
         <meta name="robots" content="index, follow">
 
         <link rel="canonical"
             href="https://apop85.github.io/leosync/">
 
-        <link rel="alternate" hreflang="de-CH" href="https://apop85.github.io/leosync/">
+        <link rel="alternate" hreflang="de" href="https://apop85.github.io/leosync/">
         <link rel="alternate" hreflang="en" href="https://apop85.github.io/leosync/en/">
-        <link rel="alternate" hreflang="x-default" href="https://apop85.github.io/leosync/">
+        <link rel="alternate" hreflang="x-default" href="https://apop85.github.io/leosync/en/">
 
         <link rel="icon"
             type="image/png"
@@ -25,7 +25,7 @@
         <link rel="stylesheet"
             href="../css/leosync.css">
 
-        <title>LeoSync – Android Foto-Backup auf PC und NAS</title>
+        <title>LeoSync – Android Fotos automatisch auf NAS sichern</title>
 
         <!-- =====================================================
             SEO: SOCIAL MEDIA / OPEN GRAPH
@@ -37,10 +37,10 @@
             content="https://apop85.github.io/leosync/">
 
         <meta property="og:title"
-            content="LeoSync – Android Foto-Backup auf PC und NAS">
+            content="LeoSync – Android Fotos automatisch auf NAS sichern">
 
         <meta property="og:description"
-            content="Sichere Fotos und Videos automatisch auf deinem eigenen PC oder NAS. Synchronisiere Dateien direkt über SMB – ohne externe Cloud.">
+            content="Android-Fotos und Videos automatisch auf deinen PC oder dein NAS sichern – per SMB, ohne Cloud, kostenlos und Open Source.">
 
         <meta property="og:locale" content="de_CH">
         <meta property="og:locale:alternate" content="en_US">
@@ -52,17 +52,34 @@
             <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
-                "@type": "SoftwareApplication",
-                "name": "LeoSync",
-                "applicationCategory": "UtilitiesApplication",
-                "operatingSystem": "Android 10 und neuer",
-                "description": "Android-App für automatisches Foto- und Video-Backup und bidirektionale Dateisynchronisierung über SMB auf den eigenen PC oder NAS, ohne externen Cloud-Speicher.",
-                "url": "https://apop85.github.io/leosync/",
-                "inLanguage": "de-CH",
-                "isAccessibleForFree": true
+                "@graph": [
+                    {
+                        "@type": "SoftwareApplication",
+                        "@id": "https://apop85.github.io/leosync/#software",
+                        "name": "LeoSync",
+                        "applicationCategory": "UtilitiesApplication",
+                        "operatingSystem": "Android 10 und neuer",
+                        "description": "Android-App für automatisches Foto- und Video-Backup und bidirektionale Dateisynchronisierung über SMB auf den eigenen PC oder NAS, ohne externen Cloud-Speicher.",
+                        "url": "https://apop85.github.io/leosync/",
+                        "inLanguage": "de",
+                        "isAccessibleForFree": true,
+                        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+                        "license": "https://github.com/Apop85/Sync2PC/blob/main/LICENSE",
+                        "downloadUrl": "https://github.com/Apop85/Sync2PC/releases/latest",
+                        "codeRepository": "https://github.com/Apop85/Sync2PC"
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://apop85.github.io/leosync/#website",
+                        "name": "LeoSync",
+                        "url": "https://apop85.github.io/leosync/",
+                        "inLanguage": "de"
+                    }
+                ]
             }
             </script>
-    </head>
+        <meta name="leo-analytics" content="https://apop85.goatcounter.com/count">
+</head>
 
     <body>
         <!-- =====================================================
@@ -378,19 +395,19 @@
                     <span>ANDROID · FOTO-BACKUP · NAS-SYNCHRONISIERUNG</span>
                 </div>
 
-                <h1>Android Foto-Backup.<br>Dein PC oder NAS.<br><span>Deine Kontrolle.</span></h1>
+                <h1>Android-Fotos automatisch auf PC oder NAS sichern<span> – ohne Cloud.</span></h1>
 
                 <p class="hero-description">Sichere Fotos und Videos automatisch von deinem Android-Smartphone auf deinem eigenen PC oder NAS. Synchronisiere beliebige Ordner direkt über SMB – ohne externe Cloud-Zwischenstation.</p>
 
                 <div class="hero-actions">
 
                     <a class="button button-primary"
-                    href="https://github.com/Apop85/Sync2PC/releases/latest"
+                    href="https://github.com/Apop85/Sync2PC/releases/latest" data-track="download" data-pos="hero"
                     target="_blank"
                     rel="noopener noreferrer">
 
                         ↓
-                        <span>LeoSync herunterladen</span>
+                        <span>LeoSync kostenlos herunterladen</span>
 
                     </a>
 
@@ -399,7 +416,9 @@
 
                 </div>
 
-                <div class="hero-note">Android 10+ · Windows-Freigabe / NAS · Beta</div>
+                <ul class="trust-list" aria-label="Kostenlos, Open Source (MIT), Android 10+, Beta-Version"><li>Kostenlos</li><li>Open Source (MIT)</li><li>Android 10+</li><li>Beta-Version</li></ul>
+
+                <div class="hero-note">Aktuelle Version: <span data-leo-version>–</span></div>
 
             </div>
 
@@ -840,6 +859,19 @@
 
         </div>
 
+    </section>
+
+    <section class="cta-band" aria-label="Bereit für dein automatisches Foto-Backup?">
+        <div class="container cta-band-inner">
+            <div class="cta-band-text">
+                <h2>Bereit für dein automatisches Foto-Backup?</h2>
+                <p>LeoSync ist kostenlos, quelloffen und sichert deine Fotos direkt auf deinen eigenen PC oder dein NAS.</p>
+            </div>
+            <div class="cta-band-actions">
+                <a class="button button-primary" href="https://github.com/Apop85/Sync2PC/releases/latest" target="_blank" rel="noopener noreferrer" data-track="download" data-pos="mid-page">↓ <span>LeoSync kostenlos herunterladen</span></a>
+                <a class="cta-band-link" href="hilfe.html">Einrichtung in der Hilfe</a>
+            </div>
+        </div>
     </section>
 
 
@@ -1284,13 +1316,13 @@
                     <p>Lade LeoSync für Android herunter und sichere Fotos und Videos automatisch auf deinem eigenen Windows-PC oder NAS. Synchronisiere beliebige Dateien und Ordner direkt über SMB – ohne externe Cloud.</p>
 
                     <a class="button button-primary"
-                    href="https://github.com/Apop85/Sync2PC/releases/latest"
+                    href="https://github.com/Apop85/Sync2PC/releases/latest" data-track="download" data-pos="download-section"
                     target="_blank"
                     rel="noopener noreferrer">
 
                         ↓
 
-                        <span>LeoSync herunterladen</span>
+                        <span>LeoSync kostenlos herunterladen</span>
 
                     </a>
 
@@ -1486,6 +1518,19 @@
 
                 </details>
 
+            </div>
+        </div>
+    </section>
+
+    <section class="guide-section" aria-labelledby="guides-title">
+        <div class="container">
+            <h2 id="guides-title">Mehr erfahren</h2>
+            <p class="guide-sub">Anleitungen für typische Anwendungsfälle.</p>
+            <div class="guide-grid">
+                <a class="guide-card" href="android-fotos-auf-nas-sichern/"><strong>Android-Fotos auf NAS sichern</strong><span>Automatisch per SMB auf dein NAS, sortiert nach Jahr, Monat und Land.</span></a>
+                <a class="guide-card" href="android-fotos-auf-pc-uebertragen/"><strong>Android-Fotos auf den PC übertragen</strong><span>Ohne USB-Kabel direkt in einen freigegebenen Windows-Ordner.</span></a>
+                <a class="guide-card" href="android-backup-ohne-cloud/"><strong>Android-Backup ohne Cloud</strong><span>Vorteile und Grenzen lokaler Sicherung, Datenschutz bei LeoSync.</span></a>
+                <a class="guide-card" href="android-dateien-synchronisieren/"><strong>Android-Dateien synchronisieren</strong><span>Beliebige Ordner per SMB abgleichen, einseitig oder beidseitig.</span></a>
             </div>
         </div>
     </section>

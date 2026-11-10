@@ -155,3 +155,114 @@ setTimeout(hideLeoLoadingScreen, 8000);
     });
 
 })();
+
+/* =====================================================
+   AKTUELLE VERSION AUS DEM GITHUB-REPOSITORY
+   Fuellt <span data-leo-version>. Ohne Netz/Fehler bleibt der
+   Platzhalter, die Seite funktioniert unveraendert.
+   ===================================================== */
+
+(function initReleaseVersion() {
+
+    const targets = document.querySelectorAll("[data-leo-version]");
+    if (!targets.length || !window.fetch) return;
+
+    fetch("https://raw.githubusercontent.com/Apop85/Sync2PC/refs/heads/main/version.properties")
+        .then((response) => response.ok ? response.text() : Promise.reject(response.status))
+        .then((text) => {
+            const get = (key) => {
+                const match = text.match(new RegExp("^" + key + "\\s*=\\s*(\\d+)\\s*$", "m"));
+                return match ? match[1] : null;
+            };
+            const parts = [get("VERSION_MAJOR"), get("VERSION_MINOR"), get("VERSION_PATCH")];
+            if (parts.some((part) => part === null)) return;
+            window.leoVersion = parts.join(".");
+            targets.forEach((el) => { el.textContent = window.leoVersion; });
+        })
+        .catch(() => {});
+
+})();
+
+/* =====================================================
+   DOWNLOAD- UND KLICK-TRACKING (cookielos, datensparsam)
+   - Es wird nichts gesendet, solange kein Zaehldienst konfiguriert ist:
+     <meta name="leo-analytics" content="https://CODE.goatcounter.com/count">
+   - "Do Not Track" und "Global Privacy Control" werden respektiert.
+   - Es werden keine personenbezogenen Daten erfasst: nur Ereignis,
+     Sprache, Seite, Position des Elements und Release-Version.
+   - Ein Klick auf GitHub ist kein bestaetigter APK-Download.
+   ===================================================== */
+
+(function initTracking() {
+
+    const REPO = "github.com/Apop85/Sync2PC";
+
+    const meta = document.querySelector('meta[name="leo-analytics"]');
+    const endpoint = meta && meta.content;
+    const optedOut = navigator.doNotTrack === "1" ||
+        window.doNotTrack === "1" ||
+        navigator.globalPrivacyControl === true;
+
+    // Zaehldienst nur laden, wenn konfiguriert und nicht abgelehnt
+    if (endpoint && !optedOut) {
+        const script = document.createElement("script");
+        script.async = true;
+        script.src = "https://gc.zgo.at/count.js";
+        script.dataset.goatcounter = endpoint;
+        document.head.appendChild(script);
+    }
+
+    function language() {
+        return (document.documentElement.lang || "de").toLowerCase().slice(0, 2);
+    }
+
+    function position(link) {
+        if (link.dataset.pos) return link.dataset.pos;
+        if (link.closest(".site-header")) return "header";
+        if (link.closest(".site-footer")) return "footer";
+        if (link.closest(".cta-band")) return "band";
+        if (link.closest(".download-section")) return "download-section";
+        return "content";
+    }
+
+    function eventFor(link) {
+        if (link.dataset.track && link.dataset.track !== "download") return link.dataset.track;
+        if (link.classList.contains("language-button") || link.dataset.track === "language_switch") return "language_switch";
+        const href = link.href || "";
+        if (href.indexOf(REPO + "/releases") !== -1) return "download_click";
+        if (link.dataset.track === "download") return "download_click";
+        if (href.indexOf(REPO + "/blob/") !== -1 || href.indexOf(REPO + "/tree/") !== -1) return "documentation_click";
+        if (href.indexOf(REPO) !== -1) return "github_repository_click";
+        return null;
+    }
+
+    document.addEventListener("click", (event) => {
+
+        const link = event.target.closest("a[href]");
+        if (!link) return;
+
+        const name = eventFor(link);
+        if (!name) return;
+
+        const detail = {
+            event: name,
+            lang: language(),
+            page: location.pathname,
+            position: position(link),
+            version: window.leoVersion || ""
+        };
+
+        document.dispatchEvent(new CustomEvent("leo:track", { detail }));
+
+        if (window.goatcounter && typeof window.goatcounter.count === "function") {
+            window.goatcounter.count({
+                path: name + "/" + detail.lang + "/" + detail.position + (detail.version ? "/" + detail.version : ""),
+                title: name,
+                referrer: detail.page,
+                event: true
+            });
+        }
+
+    }, { capture: true });
+
+})();

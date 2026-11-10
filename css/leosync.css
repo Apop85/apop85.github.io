@@ -258,8 +258,8 @@ section {
 
 .hero h1 {
     margin: 0 0 24px;
-    font-size: clamp(2.8rem, 5.4vw, 4.8rem);
-    line-height: 1.06;
+    font-size: clamp(2.3rem, 4.4vw, 3.8rem);
+    line-height: 1.1;
     letter-spacing: -.05em;
 }
 
@@ -1388,7 +1388,7 @@ section {
     }
 
     .hero h1 {
-        font-size: clamp(2.5rem, 9vw, 3.7rem);
+        font-size: clamp(2rem, 8vw, 3rem);
     }
 
     .hero-visual {
@@ -1942,4 +1942,171 @@ section {
     html:has(.nav-ready) {
         scroll-padding-top: 85px;
     }
+}
+
+/* =========================================================
+   VERTRAUENSLISTE (HERO) UND DOWNLOAD-BAENDER
+   ========================================================= */
+
+.trust-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    margin: 22px 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.trust-list li {
+    padding: 5px 12px;
+    border: 1px solid rgba(255, 255, 255, .35);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .1);
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.trust-list li::before {
+    content: "✓ ";
+    color: #c9eddd;
+}
+
+.hero-note {
+    margin-top: 14px;
+}
+
+.cta-band {
+    padding: 38px 0;
+    background: #eaf2fa;
+    border-top: 2px solid #1d3550;
+    border-bottom: 2px solid #1d3550;
+}
+
+.cta-band-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 32px;
+}
+
+.cta-band-text {
+    flex: 1 1 340px;
+}
+
+.cta-band-text h2 {
+    margin: 0 0 6px;
+    color: #1d3550;
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+}
+
+.cta-band-text p {
+    margin: 0;
+    color: #285681;
+}
+
+.cta-band-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px 20px;
+}
+
+.cta-band-link {
+    color: #285681;
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.cta-band-link:hover {
+    color: #1d3550;
+}
+
+/* =========================================================
+   BREADCRUMB (LANDINGPAGES)
+   ========================================================= */
+
+.breadcrumb {
+    margin: 0 0 16px;
+    font-size: .85rem;
+}
+
+.breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.breadcrumb li + li::before {
+    content: "›";
+    margin-right: 8px;
+    color: #c9eddd;
+}
+
+.breadcrumb a {
+    color: #e4edf6;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.breadcrumb li[aria-current="page"] {
+    color: #fff;
+    font-weight: 700;
+}
+
+.landing-page .hero-actions {
+    margin-top: 6px;
+}
+
+/* =========================================================
+   ANLEITUNGS-LINKS (STARTSEITE)
+   ========================================================= */
+
+.guide-section {
+    padding: 60px 0 70px;
+    background: var(--white, #fff);
+}
+
+.guide-section h2 {
+    margin: 0 0 6px;
+}
+
+.guide-sub {
+    margin: 0 0 26px;
+    color: #285681;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 18px;
+}
+
+.guide-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    border: 2.5px solid #1d3550;
+    border-radius: 18px;
+    background: #eaf2fa;
+    box-shadow: 4px 5px 0 rgba(29, 53, 80, 0.22);
+    color: #285681;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.guide-card strong {
+    color: #1d3550;
+    font-size: 1.05rem;
+}
+
+.guide-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 8px 0 rgba(29, 53, 80, 0.22);
 }
