@@ -96,7 +96,11 @@
                         <li><a href="#lokaler-benutzer">Lokalen Benutzer anlegen</a></li>
                     </ul>
                 </li>
-                <li><a href="#profil-anlegen">In LeoSync: Profil anlegen</a></li>
+                <li><a href="#profil-anlegen">In LeoSync: Profil anlegen</a>
+                    <ul>
+                        <li><a href="#verschluesselung">Verschlüsselung einschalten</a></li>
+                    </ul>
+                </li>
                 <li><a href="#alltag">Im Alltag</a></li>
                 <li><a href="#sicherheit">Sicherheit deiner Dateien</a></li>
                 <li><a href="#meldungen">Häufige Meldungen</a></li>
@@ -190,8 +194,21 @@
 
         <p>Unter <strong>PC-Kennung</strong> legst du pro Profil fest, woran LeoSync deinen PC erkennt: <em>Nur WLAN-Name</em> (Standard für bestehende Profile), <em>Nur PC-Kennung</em> oder <em>Beides</em>. Die Kennung wird geprüft, bevor Benutzername und Passwort gesendet werden. Nach einer Änderung bestätigst du sie mit <strong>Verbindung testen</strong>. Nach einer Neuinstallation von Windows ändert sich die Kennung; dann das Profil öffnen und erneut <strong>Verbindung testen</strong> tippen. Bei manchen NAS-Geräten (Samba) ist die Kennung möglicherweise nicht stabil; dort <em>Nur WLAN-Name</em> verwenden.</p>
 
-        <p>Zahlenfelder im Profil akzeptieren nur Werte im erlaubten Bereich: <strong>Papierkorb leeren nach … Tagen</strong> 0 bis 3650 (0 = nie), <strong>Auf Änderungen prüfen alle … Minuten</strong> 15 bis 1440, <strong>Schutzbremse</strong> 1 bis 100 %. Ein ungültiger Wert wird unter dem Feld gemeldet; <strong>Speichern</strong> ist dann gesperrt. Bei <strong>Filtern</strong> wird ein Muster mit nicht geschlossener Klammer abgelehnt. Die Filterkarte zeigt eine Kurzfassung, auf der Profilkarte steht <strong>Filter aktiv</strong>.</p>
+        <p>Zahlenfelder im Profil akzeptieren nur Werte im erlaubten Bereich: <strong>Papierkorb leeren nach … Tagen</strong> 0 bis 3650 (0 = nie), <strong>Auf Änderungen prüfen alle … Minuten</strong> 15 bis 1440, <strong>Schutzbremse</strong> 1 bis 100 %. Ein ungültiger Wert wird unter dem Feld gemeldet; <strong>Speichern</strong> ist dann gesperrt. Im Assistenten lässt <strong>Weiter</strong> einen Schritt mit leerem oder ungültigem Zahlenfeld nicht verlassen; <strong>Speichern</strong> springt dort zum ersten fehlerhaften Schritt. Bei <strong>Filtern</strong> wird ein Muster mit nicht geschlossener Klammer abgelehnt. Die Filterkarte zeigt eine Kurzfassung, auf der Profilkarte steht <strong>Filter aktiv</strong>.</p>
 
+        <p>Beim Speichern warnt LeoSync, wenn sich Profile überschneiden, auch zwischen einem Fotos-Profil und einem Ordner-Profil: wenn der Zielordner des Fotos-Profils gleich dem PC-Ordner des Ordner-Profils ist, darin liegt oder ihn enthält, und wenn ein Fotos-Quellordner und der Handy-Ordner ineinander liegen, während das Ordner-Profil Dateien aufs Handy lädt. Mit <strong>Trotzdem speichern</strong> machst du weiter.</p>
+
+        <h3 id="verschluesselung">Verschlüsselung einschalten</h3>
+
+        <p>Auf der Karte <strong>Verschlüsselung</strong> im Profil (standardmässig eingeklappt) legst du pro Profil fest, ob die Übertragung zum PC verschlüsselt wird, damit niemand im Netz mitlesen kann:</p>
+
+        <ul>
+            <li><strong>Aus:</strong> keine Verschlüsselung, wie bisher. Nur in einem Netz empfohlen, dem du vertraust.</li>
+            <li><strong>Wenn möglich (empfohlen):</strong> verschlüsselt, sobald der PC es kann. Sonst läuft die Verbindung unverschlüsselt weiter. Das ist der Standard, auch für bestehende Profile.</li>
+            <li><strong>Erforderlich:</strong> verbindet nur verschlüsselt. Kann der PC das nicht, kommt keine Verbindung zustande und es wird kein Passwort gesendet. Am sichersten.</li>
+        </ul>
+
+        <p><strong>Verbindung testen</strong> zeigt, ob die Verbindung verschlüsselt ist, und welche SMB-Version verwendet wird. Verschlüsselung gibt es nur ab SMB 3; Windows 10 und 11 unterstützen sie, bei einem NAS (Samba) hängt es von dessen Einstellungen ab. Ist <strong>Erforderlich</strong> gewählt und der PC kann nicht verschlüsseln, erscheint eine Meldung dazu.</p>
         <p>Neue Profile starten erst, wenn du einmal <strong>Synchronisieren</strong> tippst. Du kannst vorher <strong>simulieren</strong>, was passieren würde.</p>
 
         <div class="help-phones">
@@ -239,11 +256,12 @@
             <li><strong>Automatisch:</strong> Sobald das Handy mit einem eingetragenen WLAN verbunden ist, synchronisiert LeoSync im Hintergrund. Ohne WLAN-Namen nur, wenn du es auslöst.</li>
             <li><strong>Mobile Daten/VPN:</strong> Unter <strong>Einstellungen → Übertragung</strong> kannst du die Automatik auch ausserhalb des WLAN zulassen (standardmässig aus). Das kann Datenverbrauch und bei manchen Mobilfunkabos Kosten verursachen, etwa im Ausland. Ist der PC nicht erreichbar, prüft LeoSync ausserhalb des WLAN nur alle 2 Stunden erneut.</li>
             <li><strong>Nur beim Laden:</strong> Auf Wunsch synchronisiert LeoSync nur, solange das Handy am Ladegerät hängt (Einstellungen).</li>
-            <li><strong>Von Hand:</strong> <strong>Synchronisieren</strong> tippen oder auf der Startseite ganz oben nach unten ziehen.</li>
+            <li><strong>Von Hand:</strong> <strong>Synchronisieren</strong> tippen oder auf der Startseite ganz oben nach unten ziehen. Läuft gerade eine Synchronisierung, wird dein Start nicht verworfen, sondern danach genau einmal nachgeholt: LeoSync meldet «Wird nach der laufenden Synchronisierung gestartet.», und die Statuskarte zeigt «Danach: alle Profile» (bei einem automatischen Start «Danach folgt eine weitere Synchronisierung.»). <strong>Pausieren</strong> oder Abbrechen verwirft den vorgemerkten Start.</li>
             <li><strong>Pausieren:</strong> ⏸ oben rechts – für eine Zeit oder «für immer» (nur noch von Hand). ▶ setzt fort.</li>
-            <li><strong>Der Hund</strong> zeigt den Zustand: schläft = alles gesichert, läuft = Synchronisierung läuft, steht = wartet auf deine Entscheidung, sitzt = wartet (z. B. auf das WLAN oder die erste Synchronisierung).</li>
-            <li><strong>Speicher freigeben:</strong> Auf der Startseite unter den Werkzeugen entfernt LeoSync alte Dateien vom Handy, die nachweislich auf dem PC liegen. Jede Datei wird vorher auf dem PC geprüft; du wählst nach Alter, Ordner, Dateityp und Grösse und siehst eine Vorschau. Fotos und Videos kommen in den Papierkorb der Galerie.</li>
-            <li><strong>Sicherung der Einstellungen:</strong> Profile, Einstellungen und Synchronisierungsstand lassen sich als Datei exportieren und wieder importieren. Passwörter sind dabei nur mit einem Export-Passwort verschlüsselt enthalten.</li>
+            <li><strong>Der Hund</strong> zeigt den Zustand: schläft = alles gesichert, läuft = Synchronisierung läuft, steht = wartet auf deine Entscheidung, sitzt = wartet (z. B. auf das WLAN oder die erste Synchronisierung). Die Statuskarte meldet «alles aktuell» nie bei einem offenen Konflikt, fehlender Verbindung oder einem Fehler im letzten Lauf.</li>
+            <li><strong>Speicher freigeben:</strong> Auf der Startseite unter den Werkzeugen entfernt LeoSync alte Dateien vom Handy, die nachweislich auf dem PC liegen. Jede Datei wird vorher auf dem PC geprüft; du wählst nach Alter, Ordner, Dateityp und Grösse und siehst eine Vorschau. Fotos und Videos kommen in den Papierkorb der Galerie (unter Android 10 gibt es ihn nicht; ein Hinweis weist darauf hin). Das Ergebnis nennt, wie viele Dateien gelöscht und übersprungen wurden und wie viel Speicher frei wurde.</li>
+            <li><strong>Sicherung der Einstellungen:</strong> Profile, Einstellungen und Synchronisierungsstand lassen sich als Datei exportieren und wieder importieren. Passwörter sind dabei nur mit einem Export-Passwort verschlüsselt enthalten. Die App-Sprache gehört nicht zur Sicherung. Beim Import ist <strong>Ersetzen</strong> in Warnfarbe hervorgehoben, weil es die vorhandenen Profile ersetzt.</li>
+            <li><strong>Verlauf:</strong> Mit <strong>Verlauf löschen</strong> entfernst du die Einträge. LeoSync fragt vorher nach und bietet danach <strong>Rückgängig</strong> an, solange die Meldung unten zu sehen ist. Bei Fehlereinträgen steht eine Handlungsempfehlung. Der Verlauf-Filter setzt sich beim Verlassen der Seite zurück.</li>
             <li><strong>Sprache:</strong> LeoSync folgt der Handy-Sprache (Deutsch, sonst Englisch). Unter <strong>Einstellungen → Sprache</strong> lässt sie sich fest wählen.</li>
         </ul>
 
@@ -293,7 +311,9 @@
             <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>.LeoSync-Bin</code> (auf Handy und PC) und lassen sich über <strong>Tools → Papierkorb</strong> zurückholen: Profil wählen, Einträge markieren und <strong>Wiederherstellen</strong> tippen (oder <strong>Endgültig löschen</strong>). Nach 30 Tagen (einstellbar) wird er geleert. Fotos-Profile haben keinen eigenen Papierkorb: Entfernte Fotos liegen im Papierkorb der Galerie.</li>
             <li><strong>Schutzbremse:</strong> Würden auf einmal viele Dateien gelöscht (Standard: mehr als 20 %) oder fehlt ein ganzer Ordner, hält LeoSync an und fragt dich zuerst. Du entscheidest dann zwischen <strong>Nicht löschen</strong> und <strong>Trotzdem in den Papierkorb</strong>; bis dahin ruht das Profil.</li>
             <li><strong>Änderung bestätigen:</strong> Änderst du bei einem bestehenden Ordner-Profil die Richtung oder schaltest <strong>Löschungen übernehmen</strong> ein, zeigt LeoSync vor dem Speichern, was sich ändert, und du bestätigst mit <strong>Speichern</strong> oder brichst mit <strong>Abbrechen</strong> ab. Bei einer Richtung nur in eine Richtung werden abweichende Dateien auf der Zielseite ersetzt; die ersetzte Version kann in den Papierkorb kommen.</li>
+            <li><strong>Entfernen nach der Sicherung:</strong> Bevor LeoSync ein gesichertes Foto vom Handy entfernt, prüft es die Kopie auf dem PC erneut. Ist der PC nicht erreichbar, wird nichts gelöscht («PC nicht erreichbar – nichts gelöscht»). Fehlt die Kopie oder weicht sie ab, bleibt das Original auf dem Handy und wird beim nächsten Lauf erneut gesichert. <strong>Speicher freigeben</strong> prüft zusätzlich Grösse, Teil-Prüfsumme und Änderungsdatum.</li>
             <li><strong>Konflikte:</strong> Wurde dieselbe Datei auf Handy und PC geändert, entscheidest du, welche Version gilt. Die andere kommt in den Papierkorb.</li>
+            <li><strong>Verschlüsselung:</strong> Mit der Stufe <strong>Erforderlich</strong> sendet LeoSync Benutzername und Passwort nur, wenn die Verbindung verschlüsselt werden kann (siehe <a href="#verschluesselung">Verschlüsselung einschalten</a>).</li>
             <li><strong>PC-Kennung:</strong> Ist sie aktiviert, sendet LeoSync Benutzername und Passwort nur an einen erkannten PC. Bei einem unbekannten PC meldet sich die App nicht an und überspringt das Profil. Die Kennung ist nicht geheim: Sie schützt vor einem fremden Server in einem fremden Netz, nicht vor einem gezielten Angriff.</li>
         </ul>
 
