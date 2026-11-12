@@ -38,6 +38,18 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://apop85.github.io/leosync/privacy-en.html"/>
     </url>
     <url>
+        <loc>https://apop85.github.io/leosync/agb-de.html</loc>
+        <lastmod>2026-11-12</lastmod>
+        <xhtml:link rel="alternate" hreflang="de" href="https://apop85.github.io/leosync/agb-de.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://apop85.github.io/leosync/terms-en.html"/>
+    </url>
+    <url>
+        <loc>https://apop85.github.io/leosync/terms-en.html</loc>
+        <lastmod>2026-11-12</lastmod>
+        <xhtml:link rel="alternate" hreflang="de" href="https://apop85.github.io/leosync/agb-de.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://apop85.github.io/leosync/terms-en.html"/>
+    </url>
+    <url>
         <loc>https://apop85.github.io/leosync/android-fotos-auf-nas-sichern/</loc>
         <lastmod>2026-11-11</lastmod>
         <xhtml:link rel="alternate" hreflang="de" href="https://apop85.github.io/leosync/android-fotos-auf-nas-sichern/"/>
