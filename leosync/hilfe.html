@@ -192,7 +192,7 @@
 
         <p>Bei Fotos-Profilen wählst du die <strong>Ordnerstruktur</strong>: <code>Jahr\Monat - Land</code> (Standard), <code>Jahr\Land\Monat</code> oder <code>Jahr\Monat\Land</code>. Sie lässt sich bis zur ersten Synchronisierung des Profils ändern. Mehrere Fotos-Profile mit demselben Ziel müssen dieselbe Struktur verwenden.</p>
 
-        <p>Unter <strong>PC-Kennung</strong> legst du pro Profil fest, woran LeoSync deinen PC erkennt: <em>Nur WLAN-Name</em> (Standard für bestehende Profile), <em>Nur PC-Kennung</em> oder <em>Beides</em>. Die Kennung wird geprüft, bevor Benutzername und Passwort gesendet werden. Nach einer Änderung bestätigst du sie mit <strong>Verbindung testen</strong>. Nach einer Neuinstallation von Windows ändert sich die Kennung; dann das Profil öffnen und erneut <strong>Verbindung testen</strong> tippen. Bei manchen NAS-Geräten (Samba) ist die Kennung möglicherweise nicht stabil; dort <em>Nur WLAN-Name</em> verwenden.</p>
+        <p>Unter <strong>PC-Kennung</strong> legst du pro Profil fest, woran LeoSync deinen PC erkennt: <em>Nur WLAN-Name</em> (Standard für bestehende Profile; schwächer: ein fremdes Netz mit gleichem WLAN-Namen und gleicher Adresse könnte die Anmeldedaten erhalten), <em>Nur PC-Kennung</em> oder <em>Beides</em>. Die Kennung wird geprüft, bevor Benutzername und Passwort gesendet werden. Nach einer Änderung bestätigst du sie mit <strong>Verbindung testen</strong>. Nach einer Neuinstallation von Windows ändert sich die Kennung; dann das Profil öffnen und erneut <strong>Verbindung testen</strong> tippen. Bei manchen NAS-Geräten (Samba) ist die Kennung möglicherweise nicht stabil; dort <em>Nur WLAN-Name</em> verwenden.</p>
 
         <p>Zahlenfelder im Profil akzeptieren nur Werte im erlaubten Bereich: <strong>Papierkorb leeren nach … Tagen</strong> 0 bis 3650 (0 = nie), <strong>Auf Änderungen prüfen alle … Minuten</strong> 15 bis 1440, <strong>Schutzbremse</strong> 1 bis 100 %. Ein ungültiger Wert wird unter dem Feld gemeldet; <strong>Speichern</strong> ist dann gesperrt. Im Assistenten lässt <strong>Weiter</strong> einen Schritt mit leerem oder ungültigem Zahlenfeld nicht verlassen; <strong>Speichern</strong> springt dort zum ersten fehlerhaften Schritt. Bei <strong>Filtern</strong> wird ein Muster mit nicht geschlossener Klammer abgelehnt. Die Filterkarte zeigt eine Kurzfassung, auf der Profilkarte steht <strong>Filter aktiv</strong>.</p>
 
@@ -220,7 +220,7 @@
         </ul>
         <p>Neue Profile starten erst, wenn du einmal <strong>Synchronisieren</strong> tippst. Du kannst vorher <strong>simulieren</strong>, was passieren würde.</p>
 
-        <div class="help-phones">
+        <div class="help-phones four">
             <figure>
                 <div class="phone-frame">
                     <picture>
@@ -238,7 +238,7 @@
                     <picture>
                         <source srcset="../images/LeoSync/profile_connection_test_bright_ger.webp" type="image/webp">
                         <img src="../images/LeoSync/profile_connection_test_bright_ger.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync «Profil bearbeiten» mit Freigabe-Pfad, Benutzer, «Ordner auf dem PC wählen…» und erfolgreichem Verbindungstest">
+                             alt="LeoSync «Profil bearbeiten» mit Freigabe-Pfad, Benutzer, «Ordner auf dem PC wählen…» und erfolgreichem Verbindungstest («Verbindung OK», «Verschlüsselt (SMB 3.1.1)»)">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -248,9 +248,21 @@
             <figure>
                 <div class="phone-frame">
                     <picture>
+                        <source srcset="../images/LeoSync/verschluesselung_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/verschluesselung_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync «Profil bearbeiten»: Karte «Verschlüsselung» mit den Stufen «Aus», «Wenn möglich (empfohlen)» und «Erforderlich»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Verschlüsselung der Verbindung wählen</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
                         <source srcset="../images/LeoSync/profiles_tools_bright_ger.webp" type="image/webp">
                         <img src="../images/LeoSync/profiles_tools_bright_ger.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Startseite mit zwei angelegten Profilen und den Tools «Speicher freigeben» und «Papierkorb»">
+                             alt="LeoSync Startseite mit zwei angelegten Profilen («Fotos» mit Schild-Symbol für die verschlüsselte Verbindung, «Dokumente» mit «2 offen») und den Tools «Speicher freigeben» und «Papierkorb»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -267,6 +279,7 @@
             <li><strong>Nur beim Laden:</strong> Auf Wunsch synchronisiert LeoSync nur, solange das Handy am Ladegerät hängt (Einstellungen).</li>
             <li><strong>Von Hand:</strong> <strong>Synchronisieren</strong> tippen oder auf der Startseite ganz oben nach unten ziehen. Läuft gerade eine Synchronisierung, wird dein Start nicht verworfen, sondern danach genau einmal nachgeholt: LeoSync meldet «Wird nach der laufenden Synchronisierung gestartet.», und die Statuskarte zeigt «Danach: alle Profile» (bei einem automatischen Start «Danach folgt eine weitere Synchronisierung.»). <strong>Pausieren</strong> oder Abbrechen verwirft den vorgemerkten Start.</li>
             <li><strong>Pausieren:</strong> ⏸ oben rechts – für eine Zeit oder «für immer» (nur noch von Hand). ▶ setzt fort. Die Statuskarte zeigt dann die Überschrift «⏸ Pausiert» und darunter «Bis 06:23.» bzw. «Nur manuell synchronisieren.».</li>
+            <li><strong>Symbole auf der Profilkarte:</strong> Oben rechts zeigt die Karte nur die zutreffenden Symbole, von links nach rechts ohne Lücke: <strong>WLAN</strong> (du bist gerade im hinterlegten WLAN), <strong>PC</strong> mit grünem Rahmen (die Kennung des PCs ist bekannt, «PC erkannt») und das <strong>Schild</strong> (die letzte Anmeldung war verschlüsselt). Der Zustand steht zusätzlich in den Textzeilen unter dem Namen. Der frühere Text «im WLAN ✓» entfällt.</li>
             <li><strong>Der Hund</strong> zeigt den Zustand: schläft = alles gesichert, läuft = Synchronisierung läuft, steht = wartet auf deine Entscheidung, sitzt = wartet (z. B. auf das WLAN, die erste Synchronisierung oder auf Dateien, die später folgen). Die Statuskarte meldet «alles aktuell» nie bei einem offenen Konflikt, fehlender Verbindung, ausstehenden Dateien oder einem Fehler im letzten Lauf.</li>
             <li><strong>«↻ Noch nicht alles gesichert»:</strong> Wurde eine Datei während der Synchronisierung auf dem Handy oder PC geändert, lässt LeoSync sie in diesem Lauf aus und holt sie später nach. Der Lauf zählt trotzdem als erfolgreich; im Verlauf steht «· N folgen später», und die Startseite meldet «N Dateien wurden während des Laufs geändert und folgen beim nächsten Sync.» Du musst nichts tun: LeoSync startet nach 5 Minuten automatisch einen Folgelauf, höchstens einen pro Stunde (Pause und «nur manuell» werden beachtet). Danach folgen die üblichen Auslöser wie Ordnerprüfung und WLAN. Sobald ein Lauf ohne ausstehende Dateien endet, steht wieder «Alles gesichert und aktuell».</li>
             <li><strong>«Keine Verbindung» und «Start nicht möglich»:</strong> Konnte ein Start nicht ausgeführt werden, weil der PC oder das WLAN nicht verfügbar ist, zeigt die Statuskarte «Keine Verbindung» (der sitzende Hund auf blauem Kreis, solange Dateien warten) statt «Bereit» oder eines Fehlers; ein Start von Hand meldet «Start nicht möglich». Die Zeile «WLAN» bleibt leer, wenn der WLAN-Name nicht lesbar ist, und aktualisiert sich bei einem Netzwechsel. «Alles gesichert» erscheint erst, wenn jedes aktive Profil einmal von Hand erfolgreich gestartet wurde. «Wartet auf das Heim-WLAN» erscheint nur nach einem Unterbruch mitten im Lauf. Bei «Keine Verbindung» nennt die Karte auch die Zahl der wartenden Dateien («1 Datei wartet auf die Synchronisierung.» / «N Dateien warten …»). Die Profilkarte eines Ordner-Profils zeigt zusätzlich «N offen»: neue oder seit dem letzten Abgleich geänderte Dateien im Handy-Ordner. Die Zahl wird nur auf dem Handy gezählt (ohne Netzwerk); bei «PC → Handy» gibt es keinen Zähler, Fotos-Profile zeigen ihn nicht.</li>
@@ -285,25 +298,37 @@
             <li><strong>Sprache:</strong> Die App-Sprache folgt der Handy-Sprache (Deutsch, sonst Englisch). Unter <strong>Einstellungen → Sprache</strong> lässt sie sich fest wählen.</li>
         </ul>
 
-        <div class="help-phones">
+        <div class="help-phones four">
             <figure>
                 <div class="phone-frame">
                     <picture>
                         <source srcset="../images/LeoSync/not_synced_yet_bright_ger.webp" type="image/webp">
                         <img src="../images/LeoSync/not_synced_yet_bright_ger.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Startseite: Leo sitzt, «Noch keine Synchronisierung durchgeführt» mit Schaltfläche «Synchronisieren»">
+                             alt="LeoSync Startseite: Leo sitzt, «Noch keine Synchronisierung durchgeführt», das Profil «Fotos» ist angelegt, aber noch nie synchronisiert">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
                 </div>
-                <figcaption>Leo sitzt: wartet auf die erste Synchronisierung</figcaption>
+                <figcaption>Leo sitzt: Profil angelegt, noch nie synchronisiert</figcaption>
+            </figure>
+            <figure>
+                <div class="phone-frame">
+                    <picture>
+                        <source srcset="../images/LeoSync/keine_verbindung_bright_ger.webp" type="image/webp">
+                        <img src="../images/LeoSync/keine_verbindung_bright_ger.jpg" width="1080" height="2412" loading="lazy"
+                             alt="LeoSync Startseite: Leo sitzt auf einem blauen Kreis, «Keine Verbindung» und «2 Dateien warten auf die Synchronisierung.»">
+                    </picture>
+                    <span class="phone-speaker"></span>
+                    <span class="phone-camera"></span>
+                </div>
+                <figcaption>Leo sitzt auf blauem Kreis: keine Verbindung zum PC</figcaption>
             </figure>
             <figure>
                 <div class="phone-frame">
                     <picture>
                         <source srcset="../images/LeoSync/syncing_bright_ger.webp" type="image/webp">
                         <img src="../images/LeoSync/syncing_bright_ger.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Startseite: Leo läuft, die Synchronisierung ist im Gang">
+                             alt="LeoSync Startseite: Leo läuft, die Fortschrittsanzeige zeigt die Dateien und Megabyte des laufenden Profils, darunter die Schaltfläche «Pausieren»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -315,7 +340,7 @@
                     <picture>
                         <source srcset="../images/LeoSync/all_synced_bright_ger.webp" type="image/webp">
                         <img src="../images/LeoSync/all_synced_bright_ger.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Startseite: Leo schläft, alles ist synchronisiert">
+                             alt="LeoSync Startseite: Leo schläft, die Statuskarte meldet «Alles gesichert und aktuell»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -328,7 +353,7 @@
 
         <ul>
             <li><strong>Prüfung nach dem Hochladen:</strong> LeoSync liest die Datei auf dem PC zurück und vergleicht sie mit dem Original. Die Stufen reichen von <em>Aus</em> bis <em>Komplett</em>, Standard ist <em>Mittel</em>. Wer Fotos vom Handy entfernen lässt, prüft immer.</li>
-            <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>@LeoSync-Bin</code> (auf Handy und PC/NAS; ein normaler, sichtbarer Ordner, bei QNAP/Samba war der frühere Name <code>.LeoSync-Bin</code> versteckt). Ältere Papierkorb-Ordner (<code>.LeoSync-Bin</code> u. a.) benennt LeoSync beim nächsten Lauf automatisch um bzw. verschiebt den Inhalt, ohne etwas zu kopieren oder zu überschreiben; im Verlauf steht eine Zeile dazu. Lehnt ein PC den Namen <code>@LeoSync-Bin</code> ab, nutzt LeoSync dort <code>.LeoSync-Bin</code> und warnt im Verlauf. Die Zeile je Version im Papierkorb zeigt «geändert …» (Änderungszeit der Datei), sonst «gelöscht am …». Die Einträge lassen sich über <strong>Tools → Papierkorb</strong> zurückholen: Profil wählen, Einträge markieren und <strong>Wiederherstellen</strong> tippen (oder <strong>Endgültig löschen</strong>). Mit <strong>Anzeigen</strong> (Handy und PC / Nur Handy / Nur PC) und <strong>Tag</strong> schränkst du die Liste ein; ändert sich ein Filter und die Auswahl enthielte ausgeblendete Einträge, wird sie aufgehoben. Die Auswahlleiste und der Löschdialog nennen, welche Seiten betroffen sind. <strong>Wiederherstellen</strong> schreibt immer auf Handy und PC zurück, auch bei einem Filter; der Dialog nennt, wie viele Dateien laut Abgleichstand ersetzt werden (die aktuelle Version kommt vorher in den Papierkorb) und wie viele neu angelegt werden. Auf dem Handy legt LeoSync im Papierkorb eine leere Datei <code>.nomedia</code> an, damit die Galerie ihn nicht anzeigt (nicht bei Download-Ordnern mit Nummern-Kennung); Dateien im Papierkorb werden vom Fotos-Profil nicht gesichert und bei <strong>Speicher freigeben</strong> nicht angeboten. Nach 30 Tagen (einstellbar) wird er geleert. Fotos-Profile haben keinen eigenen Papierkorb: Entfernte Fotos liegen im Papierkorb der Galerie.</li>
+            <li><strong>Papierkorb:</strong> Bei Ordner-Profilen landen gelöschte und überschriebene Dateien im Ordner <code>@LeoSync-Bin</code> (auf Handy und PC/NAS; ein normaler, sichtbarer Ordner, bei QNAP/Samba war der frühere Name <code>.LeoSync-Bin</code> versteckt). Ältere Papierkorb-Ordner (<code>.LeoSync-Bin</code> u. a.) benennt LeoSync beim nächsten Lauf automatisch um bzw. verschiebt den Inhalt, ohne etwas zu kopieren oder zu überschreiben; im Verlauf steht eine Zeile dazu. Lehnt ein PC den Namen <code>@LeoSync-Bin</code> ab, nutzt LeoSync dort <code>.LeoSync-Bin</code> und warnt im Verlauf. Die Zeile je Version im Papierkorb zeigt «geändert …» (Änderungszeit der Datei), sonst «gelöscht am …». Die Einträge lassen sich über <strong>Tools → Papierkorb</strong> zurückholen: Profil wählen, Einträge markieren und <strong>Wiederherstellen</strong> tippen (oder <strong>Endgültig löschen</strong>). Bei jeder Datei auf dem Handy steht <strong>Öffnen</strong>: Es öffnet die Datei nur zum Ansehen mit der Standard-App bzw. der Android-App-Auswahl, im Papierkorb ändert sich nichts; ohne passende App oder bei fehlender Datei erscheint eine Meldung. Bei Dateien nur auf dem PC fehlt <strong>Öffnen</strong>. Mit <strong>Anzeigen</strong> (Handy und PC / Nur Handy / Nur PC) und <strong>Tag</strong> schränkst du die Liste ein; ändert sich ein Filter und die Auswahl enthielte ausgeblendete Einträge, wird sie aufgehoben. Die Auswahlleiste und der Löschdialog nennen, welche Seiten betroffen sind. <strong>Wiederherstellen</strong> schreibt immer auf Handy und PC zurück, auch bei einem Filter; der Dialog nennt, wie viele Dateien laut Abgleichstand ersetzt werden (die aktuelle Version kommt vorher in den Papierkorb) und wie viele neu angelegt werden. Auf dem Handy legt LeoSync im Papierkorb eine leere Datei <code>.nomedia</code> an, damit die Galerie ihn nicht anzeigt (nicht bei Download-Ordnern mit Nummern-Kennung); Dateien im Papierkorb werden vom Fotos-Profil nicht gesichert und bei <strong>Speicher freigeben</strong> nicht angeboten. Nach 30 Tagen (einstellbar) wird er geleert. Fotos-Profile haben keinen eigenen Papierkorb: Entfernte Fotos liegen im Papierkorb der Galerie.</li>
             <li><strong>Schutzbremse:</strong> Würden auf einmal viele Dateien gelöscht (Standard: mehr als 20 %) oder fehlt ein ganzer Ordner, hält LeoSync an und fragt dich zuerst. Du entscheidest dann zwischen <strong>Nicht löschen</strong> und <strong>Trotzdem in den Papierkorb</strong>; bis dahin ruht das Profil.</li>
             <li><strong>Änderung bestätigen:</strong> Änderst du bei einem bestehenden Ordner-Profil die Richtung oder schaltest <strong>Löschungen übernehmen</strong> ein, zeigt LeoSync vor dem Speichern, was sich ändert, und du bestätigst mit <strong>Speichern</strong> oder brichst mit <strong>Abbrechen</strong> ab. Bei einer Richtung nur in eine Richtung werden abweichende Dateien auf der Zielseite ersetzt; die ersetzte Version kann in den Papierkorb kommen.</li>
             <li><strong>Entfernen nach der Sicherung:</strong> Bevor LeoSync ein gesichertes Foto vom Handy entfernt, prüft es die Kopie auf dem PC erneut. Ist der PC nicht erreichbar, wird nichts gelöscht («PC nicht erreichbar – nichts gelöscht»). Fehlt die Kopie oder weicht sie ab, bleibt das Original auf dem Handy und wird beim nächsten Lauf erneut gesichert. <strong>Speicher freigeben</strong> prüft zusätzlich Grösse, Teil-Prüfsumme und Änderungsdatum.</li>
@@ -355,7 +380,7 @@
                     <picture>
                         <source srcset="../images/LeoSync/papierkorb_wiederherstellung_bright_de.webp" type="image/webp">
                         <img src="../images/LeoSync/papierkorb_wiederherstellung_bright_de.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Papierkorb mit einer markierten gelöschten Datei und den Schaltflächen «Wiederherstellen» und «Endgültig löschen»">
+                             alt="LeoSync Papierkorb mit einer markierten gelöschten Datei und den Schaltflächen «Wiederherstellen» und «Endgültig löschen» sowie den Filtern «Anzeigen» und «Tag»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -367,7 +392,7 @@
                     <picture>
                         <source srcset="../images/LeoSync/schutzbremse_bright_de.webp" type="image/webp">
                         <img src="../images/LeoSync/schutzbremse_bright_de.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync Startseite mit der Warnung «Viele Dateien würden gelöscht» und den Schaltflächen «Nicht löschen» und «Trotzdem in den Papierkorb»">
+                             alt="LeoSync Startseite mit der Statuskarte «Entscheidung erforderlich» und der Warnung «Viele Dateien würden gelöscht» und den Schaltflächen «Nicht löschen» und «Trotzdem in den Papierkorb»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
@@ -450,7 +475,7 @@
                     <picture>
                         <source srcset="../images/LeoSync/app_berechtigungen_bright_de.webp" type="image/webp">
                         <img src="../images/LeoSync/app_berechtigungen_bright_de.jpg" width="1080" height="2412" loading="lazy"
-                             alt="LeoSync «App-Berechtigungen» mit der Liste der Berechtigungen für die Synchronisierung im Hintergrund">
+                             alt="LeoSync «App-Berechtigungen» mit der Liste der Berechtigungen für die Synchronisierung im Hintergrund und der Karte «Akku-Optimierungen» mit «Anleitung im Browser»">
                     </picture>
                     <span class="phone-speaker"></span>
                     <span class="phone-camera"></span>
