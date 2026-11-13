@@ -714,7 +714,7 @@
 
                         <li>Support for any file types</li>
 
-                        <li>Three-way reconciliation with conflict detection</li>
+                        <li>Three-way reconciliation with conflict detection: you decide which version wins</li>
 
                         <li>Recycle bin for deleted and replaced files</li>
 
@@ -942,6 +942,34 @@
 
                     <h3>Recycle bin for synchronized files</h3>
                     <p>The LeoSync recycle bin protects deleted and replaced files. You can configure the retention period individually for each synchronization profile. Files are removed after 30 days by default. Setting it to 0 keeps them indefinitely.</p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        <svg aria-hidden="true">
+                            <use href="#icon-shield"/>
+                        </svg>
+                    </div>
+
+                    <h3>Safety brake against mass deletions</h3>
+
+                    <p>If many files would be deleted at once (default: more than 20%), an entire folder is missing, or a newly chosen folder does not match the previous state, LeoSync pauses the folder sync and asks you first. The threshold can be set per profile.</p>
+
+                </article>
+
+                <article class="feature-card">
+
+                    <div class="feature-icon">
+                        <svg aria-hidden="true">
+                            <use href="#icon-diagnostics"/>
+                        </svg>
+                    </div>
+
+                    <h3>Simulation and approval before the first run</h3>
+
+                    <p>After creating a profile, you can first simulate what would happen without anything being transferred. A new profile only starts automatically after you have synchronized it manually once.</p>
 
                 </article>
 
@@ -1304,6 +1332,8 @@
                 </ul>
 
                 <p class="requirements-note">Note: Android requires certain permissions for automatic Wi-Fi detection. In particular, location permission may be required for Android to provide the Wi-Fi name. LeoSync does not use this permission to determine your location.</p>
+
+                <p class="requirements-note">The app appears in German or English, depending on your phone's language. You can also set the language manually in the settings.</p>
 
             </div>
 
